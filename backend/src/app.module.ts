@@ -29,7 +29,5 @@ import { AppController } from './app.controller';
   ],
   controllers: [AppController],
   providers: [AppService],
-  exports: 
 })
-
 export class AppModule {}
