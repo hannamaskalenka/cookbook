@@ -1,0 +1,43 @@
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
+
+import { JwtGuard } from './../../guards/jwt.guard';
+import { RecipesService } from './recipes.service';
+import CreateRecipeDto from './dto/createRecipe.dto';
+
+@UseGuards(JwtGuard)
+@Controller('/recipes')
+export class RecipesController {
+  constructor(private recipesService: RecipesService) {}
+
+  @Get('/')
+  getRecipes() {
+    return this.recipesService.getAllRecipes();
+  }
+
+  @Post('/')
+  addNewRecipe(@Body() body: CreateRecipeDto) {
+    return this.recipesService.addNewRecipe(body);
+  }
+
+  @Put('/:recipeId')
+  updateRecipe(
+    @Param('recipeId') recipeId: string,
+    @Body() body: Partial<CreateRecipeDto>,
+  ) {
+    return this.recipesService.updateRecipe(recipeId, body);
+  }
+
+  @Delete('/:recipeId')
+  deleteRecipe(@Param('recipeId') recipeId: string) {
+    return this.recipesService.deleteRecipe(recipeId);
+  }
+}
