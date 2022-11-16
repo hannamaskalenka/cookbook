@@ -7,12 +7,12 @@ import {
   Body,
 } from '@nestjs/common';
 
-import { UsersService } from './modules/users/users.service';
 import { AppService } from './app.service';
 import { LocalGuard } from './guards/local.guard';
 import { AuthService } from './modules/auth/auth.service';
-import { User } from './modules/users/schemas/user.schema';
 import CreateUserDto from './modules/users/dto/createUser.dto';
+import { User } from './modules/users/schemas/user.schema';
+import { UsersService } from './modules/users/users.service';
 
 @Controller()
 export class AppController {
