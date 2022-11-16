@@ -10,8 +10,8 @@ import {
 } from '@nestjs/common';
 
 import { JwtGuard } from './../../guards/jwt.guard';
-import { RecipesService } from './recipes.service';
 import CreateRecipeDto from './dto/createRecipe.dto';
+import { RecipesService } from './recipes.service';
 
 @UseGuards(JwtGuard)
 @Controller('/recipes')
