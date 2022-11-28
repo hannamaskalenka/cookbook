@@ -17,7 +17,7 @@ import { UsersModule } from './modules/users/users.module';
       expandVariables: true,
       validationSchema: Joi.object({
         NODE_ENV: Joi.string()
-          .valid('development', 'production')
+          .valid('development', 'production', 'test')
           .default('development'),
         PORT: Joi.number().default(5000),
       }),
