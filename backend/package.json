@@ -73,7 +73,7 @@
     "typescript": "^4.7.4"
   },
   "lint-staged": {
-    "{src,apps,libs,tests}/**/*.ts": "eslint . --fix"
+    "{src,apps,libs,tests}/**/*.ts": "eslint --quiet --fix"
   },
   "jest": {
     "moduleFileExtensions": [
