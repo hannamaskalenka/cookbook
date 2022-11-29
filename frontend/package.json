@@ -19,7 +19,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "prepare": "cd .. && husky install frontend/.husky && husky add frontend/.husky/pre-commit \"cd frontend && npm run lint-staged\"",
-    "lint-frontend": "lint-staged"
+    "lint-staged": "lint-staged"
   },
   "eslintConfig": {
     "extends": [
