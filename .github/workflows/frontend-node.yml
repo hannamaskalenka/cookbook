@@ -1,0 +1,19 @@
+name: frontend CI
+on:
+  push:
+    branches: [develop]
+  pull_request: 
+    branches: [develop]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+      - run: npm install
+      - run: npm run test
