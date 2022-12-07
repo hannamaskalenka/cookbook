@@ -27,7 +27,15 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['**/*.js', '**/*.json', 'node_modules', 'public', 'coverage', 'dist', 'built'],
+  ignorePatterns: [
+    '**/*.js',
+    '**/*.json',
+    'node_modules',
+    'public',
+    'coverage',
+    'dist',
+    'built',
+  ],
   rules: {
     'react/function-component-definition': [
       'error',
@@ -36,13 +44,21 @@ module.exports = {
       },
     ],
     'react-destructuring-assignment': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off',
     'react-props-no-spreading': 'off',
     'arrow-body-style': 'off',
     'prettier/prettier': 'error',
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: ['**/*.test.ts', '**/*.test.tsx', 'src/tests/**/*', 'src/setupTests.ts'],
+        devDependencies: [
+          '**/*.test.ts',
+          '**/*.test.tsx',
+          'src/tests/**/*',
+          'src/setupTests.ts',
+          '**/*.stories.tsx',
+        ],
       },
     ],
   },
