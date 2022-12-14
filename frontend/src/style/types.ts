@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import '@material-ui/core/styles';
+import '@mui/material/Typography';
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -38,14 +39,23 @@ declare module '@mui/material/styles' {
       alternative: string;
     };
   }
+
   interface TypographyVariants {
     display: React.CSSProperties;
     regular: React.CSSProperties;
     accent: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
-    display: React.CSSProperties;
-    regular: React.CSSProperties;
-    accent: React.CSSProperties;
+    display?: React.CSSProperties;
+    regular?: React.CSSProperties;
+    accent?: React.CSSProperties;
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    display: true;
+    regular: true;
+    accent: true;
   }
 }
