@@ -1,17 +1,16 @@
-import { Button, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
+import Button from 'components/shared/Button';
+import Layout from 'components/shared/Layout';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div>
-      <Button variant="contained" sx={{ bgcolor: 'accent.dark' }} type="button">
-        test
+    <Layout>
+      <Button color="primary" size="large">
+        <Typography variant="contrast">hej!</Typography>
       </Button>
-      <Link to="/dashboard">Check dashboard by clicking</Link>
-      <Typography sx={{ fontFamily: (theme) => theme.typography.display }}>
-        Test Typography 0001
-      </Typography>
-    </div>
+      <Link to="/dashboard">Login</Link>
+    </Layout>
   );
 };
 

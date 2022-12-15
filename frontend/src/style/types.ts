@@ -42,10 +42,20 @@ declare module '@mui/material/styles' {
     display: React.CSSProperties;
     regular: React.CSSProperties;
     accent: React.CSSProperties;
+    contrast: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
     display: React.CSSProperties;
     regular: React.CSSProperties;
     accent: React.CSSProperties;
+    contrast: React.CSSProperties;
+  }
+}
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    display: true;
+    regular: true;
+    accent: true;
+    contrast: true;
   }
 }

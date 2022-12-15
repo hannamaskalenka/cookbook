@@ -1,6 +1,17 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          position: 'relative',
+          color: '#FCFCFC',
+          backgroundColor: '#679278',
+        },
+      },
+    },
+  },
   palette: {
     primary: {
       main: '#3E3E3E',
@@ -52,7 +63,12 @@ const theme = createTheme({
     },
     accent: {
       fontFamily: 'Poppins',
-      fontWeight: 600,
+      fontWeight: 500,
+    },
+    contrast: {
+      fontFamily: 'Poppins',
+      fontWeight: 500,
+      color: 'FCFCFC',
     },
   },
 });
