@@ -4,7 +4,7 @@ import { Button as MUIButton } from '@mui/material';
 interface ButtonProps {
   type: 'primary' | 'secondary' | 'warning';
   size?: 'small' | 'medium' | 'large';
-  label: string;
+  label: string | React.ReactNode;
   onClick?: () => void;
 }
 
