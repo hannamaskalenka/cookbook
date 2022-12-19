@@ -1,4 +1,4 @@
-import Layout from 'components/shared/Layout';
+import Layout from 'shared/components/Layout';
 
 const Dashboard = () => {
   return <Layout>Dashboard</Layout>;

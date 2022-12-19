@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
-import Button from 'components/shared/Button';
-import Layout from 'components/shared/Layout';
 import { Link } from 'react-router-dom';
+import Button from 'shared/components/Button';
+import Layout from 'shared/components/Layout';
 
 const Home = () => {
   return (

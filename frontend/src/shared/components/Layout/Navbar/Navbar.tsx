@@ -10,8 +10,16 @@ import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
-import Logo from 'assets/images/logo.png';
-import { Navigation, Button, Dot, DropdownWrapper } from './styled';
+import Logo from 'assets/images/logo.svg';
+import {
+  Navigation,
+  Button,
+  Dot,
+  DropdownWrapper,
+  LinkContainer,
+  MenuContainer,
+  ImageContainer,
+} from './styled';
 import Dropdown from './Dropdown';
 
 const pages = ['About', 'Explore recipes', 'Dashboard'];
@@ -46,7 +54,9 @@ function Navbar() {
       <Container maxWidth={false}>
         <Toolbar disableGutters>
           <Link to="/">
-            <img src={Logo} alt="logo" />
+            <ImageContainer>
+              <img src={Logo} alt="logo" />
+            </ImageContainer>
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <Menu
@@ -69,46 +79,32 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography
-                    sx={{
-                      fontFamily: (theme) => theme.typography.accent,
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    {page}
-                  </Typography>
+                  <Typography variant="accent">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box
+          <MenuContainer
             sx={{
-              flexGrow: 1,
               display: { xs: 'none', md: 'flex' },
-              justifyContent: { xs: 'none', md: 'center' },
-              alignItems: { xs: 'none', md: 'center' },
-              gap: '4rem',
-              mt: 2,
-              mr: 12,
             }}
           >
-            {pages.map((page, i) => (
-              <>
+            {pages.map((page) => (
+              <LinkContainer>
                 <Button key={page} onClick={handleCloseNavMenu}>
                   <Typography
+                    variant="regular"
                     sx={{
-                      fontFamily: (theme) => theme.typography.regular,
-                      letterSpacing: '0.1em',
                       fontSize: '1.2rem',
                     }}
                   >
                     {page}
                   </Typography>
                 </Button>
-                {!page[i - 2] ? <Dot /> : null}
-              </>
+                <Dot />
+              </LinkContainer>
             ))}
-          </Box>
+          </MenuContainer>
           <DropdownWrapper ref={ref}>
             <IconButton
               onClick={() => {

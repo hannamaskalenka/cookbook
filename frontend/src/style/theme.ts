@@ -60,10 +60,12 @@ const theme = createTheme({
     regular: {
       fontFamily: 'Poppins',
       fontWeight: 400,
+      letterSpacing: '0.1rem',
     },
     accent: {
       fontFamily: 'Poppins',
       fontWeight: 500,
+      letterSpacing: '0.05rem',
     },
     contrast: {
       fontFamily: 'Poppins',

@@ -6,20 +6,12 @@ import { DropdownProps } from './types';
 const Dropdown = ({ closeDropdown }: DropdownProps) => {
   return (
     <Container>
-      <Item
-        onClick={() => {
-          closeDropdown();
-        }}
-      >
+      <Item onClick={closeDropdown}>
         <AddIcon sx={{ '& :hover': { color: '#679278' } }} />
         Add item
       </Item>
       <Item>
-        <Button
-          onClick={() => {
-            closeDropdown();
-          }}
-        >
+        <Button onClick={closeDropdown}>
           <LogoutIcon sx={{ '& :hover': { color: '#679278' } }} />
           Log out
         </Button>

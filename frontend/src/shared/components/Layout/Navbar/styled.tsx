@@ -39,6 +39,28 @@ export const Dot = styled(MUIBox)`
   background-color: ${({ theme }) => theme.palette.background.paper};
   border-radius: 50rem;
 `;
+
 export const LinkContainer = styled(MUIBox)`
-  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  &:nth-last-child(1) > div {
+    display: none;
+  }
+`;
+export const MenuContainer = styled(MUIBox)`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 2rem;
+`;
+export const ImageContainer = styled(MUIBox)`
+  display: flex;
+  max-width: 100%;
+  height: auto;
+  & img {
+    max-width: 100%;
+  }
 `;

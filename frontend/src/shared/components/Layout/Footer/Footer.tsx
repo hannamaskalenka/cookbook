@@ -1,33 +1,24 @@
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Logo from 'assets/images/logo-footer.png';
-import LogoMobile from 'assets/images/logo-mobile.png';
-import { Link } from 'react-router-dom';
-import MatchMedia from '../MatchMedia';
+import Logo from 'assets/images/logo-footer.svg';
+import LogoMobile from 'assets/images/logo-mobile.svg';
+import { Picture } from './styled';
 
 const Footer = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1} sx={{ alignItems: 'center' }}>
         <Grid item xs={4}>
-          <MatchMedia media="(max-width: 60rem)">
-            {(isMatched) => (
-              <Link to="/">
-                {isMatched ? (
-                  <img src={LogoMobile} alt="logo" />
-                ) : (
-                  <img src={Logo} alt="logo" />
-                )}
-              </Link>
-            )}
-          </MatchMedia>
+          <Picture>
+            <source media="(min-width:1024px)" srcSet={Logo} />
+            <img src={LogoMobile} alt="logo" />
+          </Picture>
         </Grid>
         <Grid item xs={2}>
           <Typography
+            variant="accent"
             sx={{
-              fontFamily: (theme) => theme.typography.accent,
-              letterSpacing: '0.1em',
               fontSize: { xs: '0.65rem', sm: '1rem' },
             }}
           >
@@ -36,9 +27,8 @@ const Footer = () => {
         </Grid>
         <Grid item xs={2}>
           <Typography
+            variant="accent"
             sx={{
-              fontFamily: (theme) => theme.typography.accent,
-              letterSpacing: '0.1em',
               fontSize: { xs: '0.65rem', sm: '1rem' },
             }}
           >
@@ -47,20 +37,18 @@ const Footer = () => {
         </Grid>
         <Grid item xs={2}>
           <Typography
+            variant="accent"
             sx={{
-              fontFamily: (theme) => theme.typography.accent,
-              letterSpacing: '0.1em',
               fontSize: { xs: '0.65rem', sm: '1rem' },
             }}
           >
             policies
           </Typography>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={1}>
           <Typography
+            variant="accent"
             sx={{
-              fontFamily: (theme) => theme.typography.accent,
-              letterSpacing: '0.1em',
               fontSize: { xs: '0.65rem', sm: '1rem' },
             }}
           >

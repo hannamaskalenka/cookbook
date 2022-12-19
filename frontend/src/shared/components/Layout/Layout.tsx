@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
+import { FC } from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import { StyledFooter, GridContainer, StyledHeader, Main } from './styled';
 import { LayoutProps } from './types';
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <GridContainer>
       <StyledHeader>

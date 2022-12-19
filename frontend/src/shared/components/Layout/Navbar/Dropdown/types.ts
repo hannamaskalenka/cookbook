@@ -1,3 +1,3 @@
 export interface DropdownProps {
-  closeDropdown: Function;
+  closeDropdown: () => void;
 }
