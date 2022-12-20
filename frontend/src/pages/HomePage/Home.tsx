@@ -2,8 +2,9 @@ import { CircularProgress, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Button from 'shared/components/Button/Button';
+import Button from 'shared/components/Button';
 import { useGetRecipes, useLoginUser } from './hooks';
+import { accentButtonStyles } from './styles';
 
 const Home = () => {
   const [token, setToken] = useState('');
@@ -27,9 +28,9 @@ const Home = () => {
   return (
     <div>
       <div>
-        <Button label="test" type="secondary" />
+        <Button label="test" color="secondary" sx={accentButtonStyles} />
         <Button
-          type="primary"
+          color="primary"
           onClick={handleRequestButtonClick}
           label={<Typography variant="regular">Send Login Request</Typography>}
         />

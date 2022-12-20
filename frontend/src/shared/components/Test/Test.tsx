@@ -1,10 +1,5 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
-import { styled } from '@mui/material/styles';
-
-const StyledButton = styled(Button)`
-  color: red;
-`;
 
 const Test: React.FC = () => {
   const [text, setText] = useState(false);
@@ -17,9 +12,9 @@ const Test: React.FC = () => {
     <>
       <div>Hello React</div>
       {text ? <p>I am not changed</p> : <p>I got changed!</p>}
-      <StyledButton type="button" onClick={handleClick}>
+      <Button type="button" onClick={handleClick}>
         Change Text above
-      </StyledButton>
+      </Button>
     </>
   );
 };
