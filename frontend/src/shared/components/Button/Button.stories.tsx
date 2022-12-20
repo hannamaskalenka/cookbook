@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button from './Button';
+import Button from '.';
 
 export default {
   title: 'Cookbook/Button',
@@ -13,26 +13,26 @@ const ButtonTemplate: ComponentStory<typeof Button> = (args) => (
 
 export const Primary = ButtonTemplate.bind({});
 Primary.args = {
-  type: 'primary',
+  color: 'primary',
   label: 'Primary Button',
 };
 
 export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
   label: 'Secondary Button',
-  type: 'secondary',
+  color: 'secondary',
 };
 
 export const Large = ButtonTemplate.bind({});
 Large.args = {
   size: 'large',
-  type: 'secondary',
+  color: 'secondary',
   label: 'Large Secondary Button',
 };
 
 export const Small = ButtonTemplate.bind({});
 Small.args = {
   size: 'small',
-  type: 'primary',
+  color: 'primary',
   label: 'Small Primary Button',
 };

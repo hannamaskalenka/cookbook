@@ -3,17 +3,16 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Logo from 'assets/images/logo-footer.svg';
 import LogoMobile from 'assets/images/logo-mobile.svg';
-import { Picture } from './styled';
 
 const Footer = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1} sx={{ alignItems: 'center' }}>
         <Grid item xs={4}>
-          <Picture>
+          <div>
             <source media="(min-width:1024px)" srcSet={Logo} />
             <img src={LogoMobile} alt="logo" />
-          </Picture>
+          </div>
         </Grid>
         <Grid item xs={2}>
           <Typography
