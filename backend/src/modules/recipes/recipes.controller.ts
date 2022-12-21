@@ -19,8 +19,8 @@ export class RecipesController {
   constructor(private recipesService: RecipesService) {}
 
   @Get('/')
-  getRecipes() {
-    return this.recipesService.getAllRecipes();
+   getRecipes(query) {
+    return this.recipesService.getAllRecipes(query);
   }
 
   @Post('/')

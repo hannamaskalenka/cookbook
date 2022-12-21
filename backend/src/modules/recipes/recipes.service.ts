@@ -16,9 +16,11 @@ export class RecipesService {
     @InjectModel(Recipe.name) private recipeModel: Model<RecipeDocument>,
   ) {}
 
-  getAllRecipes(): Promise<Recipe[]> {
-    return this.recipeModel.find({}, { __v: 0, _id: 0 }).exec();
-  }
+  getAllRecipes(query) {
+    return this.recipeModel
+        .find({}, { __v: 0, _id: 0 }, { title: query.title })
+        .exec();
+}
 
   addNewRecipe(recipe: CreateRecipeDto): Promise<Recipe> {
     const recipeModel = new this.recipeModel({ ...recipe, id: uuidv4() });
