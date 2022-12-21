@@ -7,6 +7,7 @@ import {
   Post,
   Put,
   UseGuards,
+  Query,
 } from '@nestjs/common';
 
 import { JwtGuard } from './../../guards/jwt.guard';
@@ -19,8 +20,8 @@ export class RecipesController {
   constructor(private recipesService: RecipesService) {}
 
   @Get('/')
-  getRecipes() {
-    return this.recipesService.getAllRecipes();
+  getRecipes(@Query() query) {
+    return this.recipesService.getAllRecipes(query);
   }
 
   @Post('/')
