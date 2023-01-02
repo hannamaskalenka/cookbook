@@ -8,6 +8,7 @@ declare module '@mui/material/styles' {
       red: string;
       blue: string;
       grey: string;
+      green: string;
     };
     accent: {
       main: string;
@@ -26,6 +27,7 @@ declare module '@mui/material/styles' {
       red: string;
       blue: string;
       grey: string;
+      green: string;
     };
     accent: {
       main: string;

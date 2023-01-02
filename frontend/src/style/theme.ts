@@ -1,6 +1,9 @@
+/* eslint-disable import/no-mutable-exports */
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
+let theme = createTheme();
+
+theme = createTheme(theme, {
   components: {
     MuiCssBaseline: {
       styleOverrides: {
@@ -31,6 +34,7 @@ const theme = createTheme({
       blue: '#FEF7EC',
       red: '#F5D6CE',
       grey: '#DAD5C9',
+      green: '#E8F2E3',
     },
     accent: {
       main: '#A13702',
@@ -64,13 +68,17 @@ const theme = createTheme({
     },
     accent: {
       fontFamily: 'Poppins',
+      fontSize: '1.25rem',
       fontWeight: 500,
       letterSpacing: '0.05rem',
+      [theme.breakpoints.down('md')]: {
+        fontSize: '0.75rem',
+      },
     },
     contrast: {
       fontFamily: 'Poppins',
       fontWeight: 500,
-      color: 'FCFCFC',
+      color: '#FCFCFC',
     },
   },
 });

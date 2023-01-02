@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import Layout from './Layout';
+import Layout from '.';
 
 export default {
   title: 'Cookbook/Components/shared/Layout',
