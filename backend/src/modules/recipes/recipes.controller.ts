@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import {
   Body,
   Controller,
@@ -9,6 +10,7 @@ import {
   UseGuards,
   Query,
 } from '@nestjs/common';
+import { RecipesParams } from 'src/utils/paginationParams';
 
 import { JwtGuard } from './../../guards/jwt.guard';
 import CreateRecipeDto from './dto/createRecipe.dto';
@@ -20,8 +22,12 @@ export class RecipesController {
   constructor(private recipesService: RecipesService) {}
 
   @Get('/')
-  getRecipes(@Query() query) {
-    return this.recipesService.getAllRecipes(query);
+  getRecipes(@Query() query: RecipesParams) {
+    return this.recipesService.getAllRecipes(
+      query.title,
+      query.skip,
+      query.limit,
+    );
   }
 
   @Post('/')
