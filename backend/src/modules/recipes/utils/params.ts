@@ -1,7 +1,7 @@
 import { Type } from 'class-transformer';
 import { IsNumber, Min, IsOptional, IsString } from 'class-validator';
 
-export class Params {
+export class recipeParams {
   @IsOptional()
   @IsString()
   title?: string;

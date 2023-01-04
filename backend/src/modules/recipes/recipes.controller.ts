@@ -14,7 +14,7 @@ import {
 import { JwtGuard } from './../../guards/jwt.guard';
 import CreateRecipeDto from './dto/createRecipe.dto';
 import { RecipesService } from './recipes.service';
-import { Params } from './utils/params';
+import { recipeParams } from './utils/params';
 
 @UseGuards(JwtGuard)
 @Controller('/recipes')
@@ -22,7 +22,7 @@ export class RecipesController {
   constructor(private recipesService: RecipesService) {}
 
   @Get('/')
-  getRecipes(@Query() query: Params) {
+  getRecipes(@Query() query: recipeParams) {
     return this.recipesService.getAllRecipes(
       query.title,
       query.skip,
