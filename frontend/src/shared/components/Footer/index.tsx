@@ -1,12 +1,13 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 import Grid from '@mui/material/Grid';
+import { useTranslations } from 'shared/hooks';
 import useStyles from './styles';
 import Logo from '../Logo';
 
 const Footer: React.FC = () => {
   const classes = useStyles();
-
+  const { t } = useTranslations('common');
   return (
     <Grid container className={classes.root}>
       <Grid item sm={4}>
@@ -21,16 +22,16 @@ const Footer: React.FC = () => {
         className={classes.menuContainer}
       >
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">about us</Typography>
+          <Typography variant="accent">{t('about_us')}</Typography>
         </Grid>
         <Grid item sm={2}>
-          <Typography variant="accent">support</Typography>
+          <Typography variant="accent">{t('support')}</Typography>
         </Grid>
         <Grid item sm={2}>
-          <Typography variant="accent">policies</Typography>
+          <Typography variant="accent">{t('policies')}</Typography>
         </Grid>
         <Grid item sm={2}>
-          <Typography variant="accent">contact</Typography>
+          <Typography variant="accent">{t('support')}</Typography>
         </Grid>
       </Grid>
     </Grid>
