@@ -8,6 +8,7 @@ declare module '@mui/material/styles' {
       red: string;
       blue: string;
       grey: string;
+      green: string;
     };
     accent: {
       main: string;
@@ -26,6 +27,7 @@ declare module '@mui/material/styles' {
       red: string;
       blue: string;
       grey: string;
+      green: string;
     };
     accent: {
       main: string;
@@ -44,18 +46,20 @@ declare module '@mui/material/styles' {
     display: React.CSSProperties;
     regular: React.CSSProperties;
     accent: React.CSSProperties;
+    contrast: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
-    display?: React.CSSProperties;
-    regular?: React.CSSProperties;
-    accent?: React.CSSProperties;
+    display: React.CSSProperties;
+    regular: React.CSSProperties;
+    accent: React.CSSProperties;
+    contrast: React.CSSProperties;
   }
 }
-
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     display: true;
     regular: true;
     accent: true;
+    contrast: true;
   }
 }
