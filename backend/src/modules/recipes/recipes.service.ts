@@ -16,11 +16,18 @@ export class RecipesService {
     @InjectModel(Recipe.name) private recipeModel: Model<RecipeDocument>,
   ) {}
 
-  getAllRecipes(query) {
-    return this.recipeModel
-        .find({}, { __v: 0, _id: 0 }, { title: query.title })
-        .exec();
-}
+  async getAllRecipes(title, documentsToSkip = 0, limitOfDocuments?: number) {
+    const recipes = this.recipeModel
+      .find({}, { __v: 0, _id: 0 }, { title })
+      .sort({ _id: 1 })
+      .skip(documentsToSkip);
+    if (limitOfDocuments) {
+      recipes.limit(limitOfDocuments);
+    }
+    const results = await recipes;
+    const count = await this.recipeModel.count();
+    return { results, count };
+  }
 
   addNewRecipe(recipe: CreateRecipeDto): Promise<Recipe> {
     const recipeModel = new this.recipeModel({ ...recipe, id: uuidv4() });

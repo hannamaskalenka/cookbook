@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import {
   Body,
   Controller,
@@ -13,6 +14,7 @@ import {
 import { JwtGuard } from './../../guards/jwt.guard';
 import CreateRecipeDto from './dto/createRecipe.dto';
 import { RecipesService } from './recipes.service';
+import { recipeParams } from './utils/params';
 
 @UseGuards(JwtGuard)
 @Controller('/recipes')
@@ -20,8 +22,12 @@ export class RecipesController {
   constructor(private recipesService: RecipesService) {}
 
   @Get('/')
-  getRecipes(@Query() query) {
-    return this.recipesService.getAllRecipes(query);
+  getRecipes(@Query() query: recipeParams) {
+    return this.recipesService.getAllRecipes(
+      query.title,
+      query.skip,
+      query.limit,
+    );
   }
 
   @Post('/')
