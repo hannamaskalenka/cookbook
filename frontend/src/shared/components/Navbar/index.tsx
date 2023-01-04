@@ -19,6 +19,7 @@ import {
   Toolbar,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+
 import { sxStyles, useStyles } from './styles';
 import Logo from '../Logo';
 
