@@ -7,13 +7,12 @@ import { useGetRecipes, useLoginUser } from './hooks';
 import { accentButtonStyles } from './styles';
 
 const Home = () => {
-  const [token, setToken] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const { mutate: login, isSuccess } = useLoginUser(setToken);
+  const { mutate: login, isSuccess } = useLoginUser();
 
-  const { refetch, data: recipes, isFetching } = useGetRecipes(token);
+  const { refetch, data: recipes, isFetching } = useGetRecipes();
 
   useEffect(() => {
     if (isSuccess) {
