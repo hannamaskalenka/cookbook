@@ -1,10 +1,10 @@
 import { Grid } from '@mui/material';
-import { FC } from 'react';
+import React from 'react';
 import Footer from '../Footer';
 import Navbar from '../Navbar';
 import { LayoutProps } from './types';
 
-const Layout: FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <Grid
       sx={{
