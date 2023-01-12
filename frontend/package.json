@@ -64,6 +64,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
+    "@fontsource/poppins": "^4.5.10",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",

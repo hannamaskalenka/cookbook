@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ROUTES } from 'shared/constants';
 import useMediaQueryContext from 'shared/contexts/MediaQueryContext';
 import LogoFooterIcon from 'shared/icons/LogoFooterIcon';
 import LogoIcon from 'shared/icons/LogoIcon';
@@ -19,7 +20,7 @@ const Logo: React.FC<ILogoProps> = ({ className, isFooter }) => {
   );
 
   return (
-    <Link to="/">
+    <Link to={ROUTES.root}>
       {isMobile ? <LogoMobileIcon className={className} /> : desktopIcon}
     </Link>
   );
