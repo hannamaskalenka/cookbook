@@ -4,3 +4,7 @@ export const ROUTES = {
   about: '/about',
   explore: '/explore',
 };
+
+export enum LanguageKeysEnum {
+  en = 'en',
+}
