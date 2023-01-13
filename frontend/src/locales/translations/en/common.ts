@@ -13,5 +13,12 @@ export default {
   [keys.common.auth.signIn]: 'Sign in',
   [keys.common.auth.signUp]: 'Sign up',
 
+  // Navigation
+  [keys.common.navigation.homePage]: 'Home',
+  [keys.common.navigation.dashboardPage]: 'Dashboard',
+  [keys.common.navigation.exploreRecipesPage]: 'Explore recipes',
+  [keys.common.navigation.aboutPage]: 'About',
+
+  [keys.common.addRecipeButton]: 'Add a recipe',
   [keys.common.search]: 'Search',
 };

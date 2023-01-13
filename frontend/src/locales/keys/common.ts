@@ -15,5 +15,14 @@ export default {
     signUp: 'common.auth.signUp',
   },
 
+  // Navigation
+  navigation: {
+    homePage: 'common.navigation.homePage',
+    dashboardPage: 'common.navigation.dashboardPage',
+    aboutPage: 'common.navigation.aboutPage',
+    exploreRecipesPage: 'common.navigation.exploreRecipesPage',
+  },
+
+  addRecipeButton: 'common.addRecipeButton',
   search: 'common.search',
 };

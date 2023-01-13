@@ -29,13 +29,19 @@ const Footer: React.FC = () => {
           </Typography>
         </Grid>
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">{t('support')}</Typography>
+          <Typography variant="accent">
+            {t(keys.common.footer.supportLink)}
+          </Typography>
         </Grid>
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">{t('policies')}</Typography>
+          <Typography variant="accent">
+            {t(keys.common.footer.policiesLink)}
+          </Typography>
         </Grid>
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">{t('support')}</Typography>
+          <Typography variant="accent">
+            {t(keys.common.footer.contactLink)}
+          </Typography>
         </Grid>
       </Grid>
     </Grid>

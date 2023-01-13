@@ -1,16 +1,15 @@
 import AddIcon from '@mui/icons-material/Add';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { ROUTES } from 'shared/constants';
-
-// TODO: Replace titles with translation keys
+import keys from 'locales/keys';
 
 export const PAGES = [
-  { title: 'Home', route: ROUTES.root },
-  { title: 'About', route: ROUTES.about },
-  { title: 'Explore Recipes', route: ROUTES.explore },
-  { title: 'Dashboard', route: ROUTES.dashboard },
+  { title: keys.common.navigation.homePage, route: ROUTES.root },
+  { title: keys.common.navigation.aboutPage, route: ROUTES.about },
+  { title: keys.common.navigation.exploreRecipesPage, route: ROUTES.explore },
+  { title: keys.common.navigation.dashboardPage, route: ROUTES.dashboard },
 ];
 export const SETTINGS = [
-  { title: 'Add a recipe', icon: AddIcon },
-  { title: 'Logout', icon: LogoutIcon },
+  { title: keys.common.addRecipeButton, icon: AddIcon },
+  { title: keys.common.auth.logOut, icon: LogoutIcon },
 ];
