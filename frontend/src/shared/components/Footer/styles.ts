@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       padding: theme.spacing(1),
       flexDirection: 'row',
+      backgroundColor: theme.palette.background.default,
       justifyContent: 'space-between',
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      color: theme.palette.text.secondary,
     },
     icon: {
       width: '100%',

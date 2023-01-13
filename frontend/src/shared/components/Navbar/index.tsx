@@ -7,9 +7,6 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
-
-import AddIcon from '@mui/icons-material/Add';
-import LogoutIcon from '@mui/icons-material/Logout';
 import {
   Drawer,
   Grid,
@@ -19,7 +16,9 @@ import {
   Toolbar,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
+import { PAGES, SETTINGS } from './constants';
 import { sxStyles, useStyles } from './styles';
 import Logo from '../Logo';
 
@@ -27,18 +26,8 @@ interface INavigationProps {
   window?: () => Window;
 }
 
-const pages = [
-  { title: 'Home', route: '/' },
-  { title: 'About', route: '/about' },
-  { title: 'Explore Recipes', route: '/explore' },
-  { title: 'Dashboard', route: '/dashboard' },
-];
-const settings = [
-  { title: 'Add a recipe', icon: <AddIcon /> },
-  { title: 'Logout', icon: <LogoutIcon /> },
-];
-
 const Navigation: React.FC<INavigationProps> = ({ window }) => {
+  const { t } = useTranslation();
   const userName = 'Hanna'; // TODO: get name from Auth Context
   const classes = useStyles();
   const [isDrawerOpened, setIsDrawerOpened] = React.useState(false);
@@ -63,7 +52,7 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} className={classes.drawerBox}>
       <List>
-        {pages.map((page) => (
+        {PAGES.map((page) => (
           <ListItem key={`drawer-${page.title}`} disablePadding>
             <ListItemButton className={classes.drawerListButton}>
               <Link to={page.route}>
@@ -71,7 +60,7 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
                   className={classes.drawerListItemText}
                   variant="regular"
                 >
-                  {page.title}
+                  {t(page.title)}
                 </Typography>
               </Link>
             </ListItemButton>
@@ -97,7 +86,6 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
           {drawer}
         </Drawer>
 
-        {/* Menu Hamburger Icon - Mobile view */}
         <Grid className={classes.menuIconContainer}>
           <IconButton
             size="large"
@@ -114,7 +102,7 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
           </div>
           <Grid>
             <List className={classes.navigationList}>
-              {pages.map((page) => (
+              {PAGES.map((page) => (
                 <ListItem
                   key={page.title}
                   disablePadding
@@ -126,7 +114,7 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
                         className={classes.navigationListText}
                         variant="regular"
                       >
-                        {page.title}
+                        {t(page.title)}
                       </Typography>
                     </Link>
                   </ListItemButton>
@@ -136,12 +124,10 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
           </Grid>
         </Grid>
 
-        {/* Mobile Logo Icon */}
         <div className={classes.navMobileIcon}>
           <Logo />
         </div>
 
-        {/* User Icon  */}
         <Grid>
           <IconButton onClick={handleOpenUserMenu}>
             <Avatar alt={userName} sx={sxStyles.avatar}>
@@ -165,12 +151,14 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
           >
-            {settings.map((setting) => (
+            {SETTINGS.map((setting) => (
               <MenuItem key={setting.title} onClick={handleCloseUserMenu}>
                 <div className={classes.menuItemButton}>
-                  <span className={classes.dropdownIcon}>{setting.icon}</span>
+                  <span className={classes.dropdownIcon}>
+                    <setting.icon />
+                  </span>
                   <Typography variant="regular" textAlign="center">
-                    {setting.title}
+                    {t(setting.title)}
                   </Typography>
                 </div>
               </MenuItem>

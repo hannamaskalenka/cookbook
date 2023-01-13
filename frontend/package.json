@@ -31,7 +31,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "prepare": "cd .. && husky install frontend/.husky && husky add frontend/.husky/pre-commit \"cd frontend && npm run lint-staged\"",
+    "prepare": "cd .. && husky install frontend/.husky",
     "lint-staged": "lint-staged",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -64,6 +64,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
+    "@fontsource/poppins": "^4.5.10",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",

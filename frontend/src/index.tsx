@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom/client';
 import theme from 'style/theme';
 import CssBaseline from '@mui/material/CssBaseline';
 import App from './App';
-import './locales/i18n';
+
+import './locales';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
