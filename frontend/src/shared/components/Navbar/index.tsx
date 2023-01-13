@@ -16,6 +16,7 @@ import {
   Toolbar,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { PAGES, SETTINGS } from './constants';
 import { sxStyles, useStyles } from './styles';
@@ -26,6 +27,7 @@ interface INavigationProps {
 }
 
 const Navigation: React.FC<INavigationProps> = ({ window }) => {
+  const { t } = useTranslation();
   const userName = 'Hanna'; // TODO: get name from Auth Context
   const classes = useStyles();
   const [isDrawerOpened, setIsDrawerOpened] = React.useState(false);
@@ -58,7 +60,7 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
                   className={classes.drawerListItemText}
                   variant="regular"
                 >
-                  {page.title}
+                  {t(page.title)}
                 </Typography>
               </Link>
             </ListItemButton>
@@ -112,7 +114,7 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
                         className={classes.navigationListText}
                         variant="regular"
                       >
-                        {page.title}
+                        {t(page.title)}
                       </Typography>
                     </Link>
                   </ListItemButton>
@@ -156,7 +158,7 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
                     <setting.icon />
                   </span>
                   <Typography variant="regular" textAlign="center">
-                    {setting.title}
+                    {t(setting.title)}
                   </Typography>
                 </div>
               </MenuItem>

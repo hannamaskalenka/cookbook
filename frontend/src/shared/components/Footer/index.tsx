@@ -2,12 +2,13 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import { useTranslation } from 'react-i18next';
+import keys from 'locales/keys';
 import useStyles from './styles';
 import Logo from '../Logo';
 
 const Footer: React.FC = () => {
   const classes = useStyles();
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
 
   return (
     <Grid container className={classes.root}>
@@ -23,16 +24,24 @@ const Footer: React.FC = () => {
         className={classes.menuContainer}
       >
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">{t('about_us')}</Typography>
+          <Typography variant="accent">
+            {t(keys.common.footer.aboutLink)}
+          </Typography>
         </Grid>
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">{t('support')}</Typography>
+          <Typography variant="accent">
+            {t(keys.common.footer.supportLink)}
+          </Typography>
         </Grid>
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">{t('policies')}</Typography>
+          <Typography variant="accent">
+            {t(keys.common.footer.policiesLink)}
+          </Typography>
         </Grid>
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">{t('support')}</Typography>
+          <Typography variant="accent">
+            {t(keys.common.footer.contactLink)}
+          </Typography>
         </Grid>
       </Grid>
     </Grid>
