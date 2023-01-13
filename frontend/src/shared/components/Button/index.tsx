@@ -2,11 +2,12 @@ import { Button, Typography } from '@mui/material';
 import useStyles from './styles';
 
 interface ButtonProps {
-  color: 'primary' | 'secondary' | 'warning';
+  color?: 'primary' | 'secondary' | 'warning';
   size?: 'small' | 'medium' | 'large';
   label: string | React.ReactNode;
   onClick?: () => void;
   sx?: any;
+  className?: {};
 }
 
 const CustomButton: React.FC<ButtonProps> = ({
@@ -14,6 +15,7 @@ const CustomButton: React.FC<ButtonProps> = ({
   color,
   size,
   sx,
+  className,
   ...props
 }) => {
   const classes = useStyles();
