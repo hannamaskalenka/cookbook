@@ -11,5 +11,5 @@ export const PAGES = [
 ];
 export const SETTINGS = [
   { title: keys.common.addRecipeButton, icon: AddIcon },
-  { title: keys.common.auth.logOut, icon: LogoutIcon },
+  { title: keys.common.auth.logOut, icon: LogoutIcon, isLogout: true },
 ];
