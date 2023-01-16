@@ -8,19 +8,24 @@ const LoginImg = (props: any) => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
-    <rect width="275.466" height="302.883" fill="url(#pattern0)" />
+    <rect width="275.466" height="302.883" fill="url(#ramenDumplings)" />
     <rect
       x="307.534"
       y="356.755"
       width="275.466"
       height="313.657"
-      fill="url(#pattern1)"
+      fill="url(#ramenLeek)"
     />
-    <rect x="275.467" width="275.466" height="313.657" fill="url(#pattern2)" />
-    <rect y="356.755" width="275.466" height="318.245" fill="url(#pattern3)" />
+    <rect x="275.467" width="275.466" height="313.657" fill="url(#ramenPeas)" />
+    <rect
+      y="356.755"
+      width="275.466"
+      height="318.245"
+      fill="url(#ramenFishcake)"
+    />
     <defs>
       <pattern
-        id="pattern0"
+        id="ramenDumplings"
         patternContentUnits="objectBoundingBox"
         width="1"
         height="1"
@@ -31,7 +36,7 @@ const LoginImg = (props: any) => (
         />
       </pattern>
       <pattern
-        id="pattern1"
+        id="ramenLeek"
         patternContentUnits="objectBoundingBox"
         width="1"
         height="1"
@@ -42,7 +47,7 @@ const LoginImg = (props: any) => (
         />
       </pattern>
       <pattern
-        id="pattern2"
+        id="ramenPeas"
         patternContentUnits="objectBoundingBox"
         width="1"
         height="1"
@@ -53,7 +58,7 @@ const LoginImg = (props: any) => (
         />
       </pattern>
       <pattern
-        id="pattern3"
+        id="ramenFishcake"
         patternContentUnits="objectBoundingBox"
         width="1"
         height="1"

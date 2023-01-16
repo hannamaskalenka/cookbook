@@ -25,4 +25,18 @@ export default {
 
   addRecipeButton: 'common.addRecipeButton',
   search: 'common.search',
+
+  // Login page
+  login: {
+    headline: 'common.login.headline',
+    sub: 'common.login.sub',
+    usernameLabel: 'common.login.usernameLabel',
+    usernameValue: 'common.login.usernameValue',
+    passwordLabel: 'common.login.passwordLabel',
+    passwordValue: 'common.login.passwordValue',
+    signinButton: 'common.login.signinButton',
+    socialmediaText: 'common.login.iconsParagraph',
+    noAccountText: 'common.login.noAccountText',
+    signupButton: 'common.login.signupButton',
+  },
 };

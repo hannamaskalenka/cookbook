@@ -5,8 +5,6 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       borderRadius: '40px',
-      paddingBlock: '0.9rem',
-      paddingInline: '8.5rem',
       textTransform: 'capitalize',
       letterSpacing: '0.04em',
     },

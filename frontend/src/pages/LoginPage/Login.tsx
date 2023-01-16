@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { Container, Grid, Typography, TextField, Stack } from '@mui/material';
 import Button from 'shared/components/Button';
 import LoginImg from 'shared/assets/images/login';
-import Facebook from 'shared/icons/Facebook';
-import Google from 'shared/icons/Google';
-import Instagram from 'shared/icons/Instagram';
+import Facebook from 'shared/icons/FacebookIcon';
+import Google from 'shared/icons/GoogleIcon';
+import Instagram from 'shared/icons/InstagramIcon';
+import { useTranslation } from 'react-i18next';
+import keys from 'locales/keys';
 import useStyles from './styles';
 import { useLoginUser } from './hooks';
 
@@ -13,6 +15,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { mutate: login } = useLoginUser();
+  const { t } = useTranslation();
 
   const handleRequestButtonClick = async () => {
     login({ username, password });
@@ -31,48 +34,63 @@ const Login = () => {
           xs={8}
           md={6}
         >
-          <Typography variant="display">Welcome back</Typography>
-          <Typography variant="regular">Please enter your details</Typography>
+          <Typography variant="headline">
+            {t(keys.common.login.headline)}
+          </Typography>
+          <Typography variant="regular">{t(keys.common.login.sub)}</Typography>
           <Stack className={classes.content}>
             <Stack>
               <Typography variant="regular" className={classes.label}>
-                Username:
+                {t(keys.common.login.usernameLabel)}
               </Typography>
               <TextField
+                InputProps={{ disableUnderline: true }}
                 variant="filled"
                 name="username"
-                placeholder="Eg. John Smith"
+                placeholder={t(keys.common.login.usernameValue)}
                 value={username}
                 className={classes.input}
                 onChange={(event) => setUsername(event.target.value)}
               />
             </Stack>
-            <Stack>
+            <Stack sx={{ marginBlockEnd: '2rem' }}>
               <Typography variant="regular" className={classes.label}>
-                Password:
+                {t(keys.common.login.passwordLabel)}
               </Typography>
               <TextField
+                InputProps={{ disableUnderline: true }}
                 variant="filled"
                 name="password"
                 type="password"
-                placeholder="Password"
+                placeholder={t(keys.common.login.passwordValue)}
                 value={password}
                 className={classes.input}
                 onChange={(event) => setPassword(event.target.value)}
               />
             </Stack>
             <Button
+              variant="contained"
               color="primary"
               onClick={handleRequestButtonClick}
-              label={<Typography variant="contrast">Sign in</Typography>}
+              label={
+                <Typography variant="contrast">
+                  {t(keys.common.login.signinButton)}
+                </Typography>
+              }
             />
             <Typography variant="accent" className={classes.paragraph}>
-              or sign up with:
+              {t(keys.common.login.socialmediaText)}
             </Typography>
             <Container className={classes.iconContainer}>
-              <Facebook />
-              <Instagram />
-              <Google />
+              <Container className={classes.icon}>
+                <Facebook />
+              </Container>
+              <Container className={classes.icon}>
+                <Instagram />
+              </Container>
+              <Container className={classes.icon}>
+                <Google />
+              </Container>
             </Container>
             <Container className={classes.noAccountText}>
               <Typography
@@ -80,11 +98,16 @@ const Login = () => {
                 className={classes.paragraph}
                 sx={{ color: '#B4B0A8' }}
               >
-                Don't you have an account?
+                {t(keys.common.login.noAccountText)}
               </Typography>
-              <Typography variant="accent" className={classes.paragraph}>
-                Sign up
-              </Typography>
+              <Button
+                variant="text"
+                label={
+                  <Typography variant="accent" className={classes.paragraph}>
+                    {t(keys.common.login.signupButton)}
+                  </Typography>
+                }
+              />
             </Container>
           </Stack>
         </Grid>
@@ -94,7 +117,7 @@ const Login = () => {
           md={6}
           sx={{ display: { md: 'block', sm: 'none', xs: 'none' } }}
         >
-          <LoginImg width={550} />
+          <LoginImg className={classes.image} width={550} />
         </Grid>
       </Grid>
     </Container>

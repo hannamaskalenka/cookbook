@@ -112,6 +112,7 @@ theme = createTheme(theme, {
       color: '#3E3E3E',
       [theme.breakpoints.down('md')]: {
         fontSize: '0.75rem',
+        color: '#FEF7EC',
       },
     },
     contrast: {

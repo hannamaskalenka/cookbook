@@ -4,7 +4,7 @@ import { createStyles, makeStyles } from '@mui/styles';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      padding: theme.spacing(8),
+      padding: theme.spacing(10),
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       [theme.breakpoints.down('md')]: {
@@ -14,8 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       backgroundColor: theme.palette.background.paper,
       borderRadius: '1.875rem',
-      maxHeight: '49rem',
-      maxWidth: '77rem',
+      maxWidth: '87rem',
     },
     gridItem: {
       justifyContent: 'center',
@@ -26,18 +25,15 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     input: {
-      width: '25rem',
+      maxWidth: '25rem',
+      borderBottom: 'none',
       padding: theme.spacing(3),
       '& .MuiFilledInput-root': {
+        border: '2px solid #679278',
         borderRadius: '3rem',
         backgroundColor: '#F5F5F5',
-        paddingInline: '1rem',
-        paddingBlock: '0.25rem',
-        '& .MuiFilledInput-root': {
-          '&::after': {
-            borderBottom: 'none',
-          },
-        },
+        paddingInline: '10.5rem',
+        paddingBlock: '0.15rem',
       },
       '& .MuiFilledInput-root:hover': {
         backgroundColor: '#F5F5F5',
@@ -48,8 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     content: {
       alignItems: 'center',
-      paddingBlockStart: '2rem',
-      gap: '0.5rem',
+      paddingBlockStart: '3rem',
     },
     paragraph: {
       fontSize: '1rem',
@@ -59,15 +54,34 @@ const useStyles = makeStyles((theme: Theme) =>
     iconContainer: {
       display: 'flex',
       justifyContent: 'center',
-      gap: '1.5rem',
+      marginBlockStart: '1rem',
     },
     noAccountText: {
       display: 'flex',
-      paddingBlock: theme.spacing(2),
-      gap: '1rem',
+      paddingBlockStart: theme.spacing(5),
+      [theme.breakpoints.down('md')]: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        color: 'white',
+      },
     },
     label: {
-      paddingInline: theme.spacing(2),
+      paddingInline: theme.spacing(),
+    },
+    image: {
+      marginInlineStart: '3rem',
+    },
+    icon: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      [theme.breakpoints.down('md')]: {
+        borderRadius: '1rem',
+        backgroundColor: theme.palette.background.paper,
+        width: '4rem',
+        height: '4rem',
+      },
     },
   }),
 );

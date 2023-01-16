@@ -1,4 +1,4 @@
-const Facebook = (props: any) => (
+const FacebookIcon = (props: any) => (
   <svg
     width="50"
     height="50"
@@ -13,4 +13,4 @@ const Facebook = (props: any) => (
     />
   </svg>
 );
-export default Facebook;
+export default FacebookIcon;

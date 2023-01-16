@@ -1,4 +1,4 @@
-const Google = (props: any) => (
+const GoogleIcon = (props: any) => (
   <svg
     width="67"
     height="50"
@@ -13,4 +13,4 @@ const Google = (props: any) => (
     />
   </svg>
 );
-export default Google;
+export default GoogleIcon;

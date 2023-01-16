@@ -1,4 +1,4 @@
-const Instagram = (props: any) => (
+const InstagramIcon = (props: any) => (
   <svg
     width="50"
     height="50"
@@ -13,4 +13,4 @@ const Instagram = (props: any) => (
     />
   </svg>
 );
-export default Instagram;
+export default InstagramIcon;
