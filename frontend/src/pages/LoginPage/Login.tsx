@@ -1,27 +1,30 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { Container, Grid, Typography, TextField, Stack } from '@mui/material';
 import Button from 'shared/components/Button';
 import LoginImg from 'shared/assets/images/login';
-import Facebook from 'shared/icons/FacebookIcon';
-import Google from 'shared/icons/GoogleIcon';
-import Instagram from 'shared/icons/InstagramIcon';
+import {
+  FacebookRounded as Facebook,
+  Google,
+  Instagram,
+} from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import keys from 'locales/keys';
+import theme from 'style/theme';
 import useStyles from './styles';
 import { useLoginUser } from './hooks';
 
-const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const Login: FC = () => {
   const { mutate: login } = useLoginUser();
   const { t } = useTranslation();
+  const classes = useStyles();
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleRequestButtonClick = async () => {
     login({ username, password });
   };
-
-  const classes = useStyles();
 
   return (
     <Container className={classes.root}>
@@ -53,7 +56,7 @@ const Login = () => {
                 onChange={(event) => setUsername(event.target.value)}
               />
             </Stack>
-            <Stack sx={{ marginBlockEnd: '2rem' }}>
+            <Stack className={classes.inputContainer}>
               <Typography variant="regular" className={classes.label}>
                 {t(keys.common.login.passwordLabel)}
               </Typography>
@@ -83,20 +86,20 @@ const Login = () => {
             </Typography>
             <Container className={classes.iconContainer}>
               <Container className={classes.icon}>
-                <Facebook />
+                <Facebook className={classes.socialMedia} />
               </Container>
               <Container className={classes.icon}>
-                <Instagram />
+                <Instagram className={classes.socialMedia} />
               </Container>
               <Container className={classes.icon}>
-                <Google />
+                <Google className={classes.socialMedia} />
               </Container>
             </Container>
             <Container className={classes.noAccountText}>
               <Typography
                 variant="accent"
                 className={classes.paragraph}
-                sx={{ color: '#B4B0A8' }}
+                sx={{ color: theme.palette.icons.inactive }}
               >
                 {t(keys.common.login.noAccountText)}
               </Typography>
@@ -111,12 +114,7 @@ const Login = () => {
             </Container>
           </Stack>
         </Grid>
-        <Grid
-          item
-          xs={8}
-          md={6}
-          sx={{ display: { md: 'block', sm: 'none', xs: 'none' } }}
-        >
+        <Grid item xs={8} md={6} className={classes.imageContainer}>
           <LoginImg className={classes.image} width={550} />
         </Grid>
       </Grid>

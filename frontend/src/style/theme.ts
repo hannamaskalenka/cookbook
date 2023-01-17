@@ -49,7 +49,7 @@ theme = createTheme(theme, {
     },
     secondary: {
       main: '#FEF7EC',
-      light: '#F5D6CE',
+      light: '#FFFFFF',
       dark: '#DAD5C9',
     },
     neutrals: {
@@ -86,11 +86,11 @@ theme = createTheme(theme, {
     headline: {
       fontFamily: 'Merriweather',
       fontWeight: 400,
-      color: '#3E3E3E',
+      color: theme.palette.text.primary,
       fontSize: '3rem',
       [theme.breakpoints.down('md')]: {
         fontSize: '2.2rem',
-        color: '#FEF7EC',
+        color: theme.palette.common.white,
       },
     },
     regular: {
@@ -98,10 +98,10 @@ theme = createTheme(theme, {
       fontWeight: 400,
       letterSpacing: '0.05rem',
       fontSize: '1rem',
-      color: '#3E3E3E',
+      color: theme.palette.text.primary,
       [theme.breakpoints.down('md')]: {
         fontSize: '0.85rem',
-        color: '#FEF7EC',
+        color: theme.palette.common.white,
       },
     },
     accent: {
@@ -109,16 +109,16 @@ theme = createTheme(theme, {
       fontSize: '1rem',
       fontWeight: 500,
       letterSpacing: '0.05rem',
-      color: '#3E3E3E',
+      color: theme.palette.text.primary,
       [theme.breakpoints.down('md')]: {
         fontSize: '0.75rem',
-        color: '#FEF7EC',
+        color: theme.palette.common.white,
       },
     },
     contrast: {
       fontFamily: 'Poppins',
       fontWeight: 500,
-      color: '#FCFCFC',
+      color: theme.palette.common.white,
     },
   },
 });

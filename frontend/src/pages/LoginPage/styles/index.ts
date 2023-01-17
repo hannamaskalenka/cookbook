@@ -13,38 +13,39 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundColor: theme.palette.background.default,
       },
       backgroundColor: theme.palette.background.paper,
-      borderRadius: '1.875rem',
-      maxWidth: '87rem',
+      borderRadius: theme.spacing(3),
+      maxWidth: theme.spacing(170),
     },
     gridItem: {
       justifyContent: 'center',
       alignItems: 'center',
-      paddingInlineStart: '5rem',
       [theme.breakpoints.down('md')]: {
         alignItems: 'end',
       },
     },
     input: {
-      maxWidth: '25rem',
+      width: theme.spacing(50),
       borderBottom: 'none',
       padding: theme.spacing(3),
       '& .MuiFilledInput-root': {
-        border: '2px solid #679278',
-        borderRadius: '3rem',
-        backgroundColor: '#F5F5F5',
-        paddingInline: '10.5rem',
-        paddingBlock: '0.15rem',
+        border: `${theme.spacing(0.1)} solid ${
+          theme.palette.background.default
+        }`,
+        borderRadius: theme.spacing(6),
+        backgroundColor: theme.palette.secondary.light,
+        paddingInline: theme.spacing(3),
+        paddingBlock: theme.spacing(0.4),
       },
       '& .MuiFilledInput-root:hover': {
-        backgroundColor: '#F5F5F5',
+        backgroundColor: theme.palette.secondary.light,
       },
       '& .MuiFilledInput-root.Mui-focused': {
-        backgroundColor: '#E8F2E3',
+        backgroundColor: theme.palette.neutrals.green,
       },
     },
     content: {
       alignItems: 'center',
-      paddingBlockStart: '3rem',
+      paddingBlockStart: theme.spacing(4),
     },
     paragraph: {
       fontSize: '1rem',
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
     iconContainer: {
       display: 'flex',
       justifyContent: 'center',
-      marginBlockStart: '1rem',
+      marginBlockStart: theme.spacing(3),
     },
     noAccountText: {
       display: 'flex',
@@ -63,25 +64,39 @@ const useStyles = makeStyles((theme: Theme) =>
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        color: 'white',
+        color: theme.palette.text.secondary,
       },
     },
     label: {
       paddingInline: theme.spacing(),
     },
+    inputContainer: {
+      marginBlockEnd: theme.spacing(3),
+    },
+    imageContainer: {
+      display: 'block',
+      [theme.breakpoints.down('md')]: {
+        display: 'none',
+      },
+    },
     image: {
-      marginInlineStart: '3rem',
+      marginInlineStart: theme.spacing(3),
+      width: '100%',
     },
     icon: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       [theme.breakpoints.down('md')]: {
-        borderRadius: '1rem',
+        borderRadius: theme.spacing(2),
         backgroundColor: theme.palette.background.paper,
-        width: '4rem',
-        height: '4rem',
+        width: theme.spacing(8),
+        height: theme.spacing(8),
       },
+    },
+    socialMedia: {
+      fontSize: '3rem',
+      color: theme.palette.background.default,
     },
   }),
 );
