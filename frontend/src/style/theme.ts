@@ -86,23 +86,22 @@ theme = createTheme(theme, {
     headline: {
       fontFamily: 'Merriweather',
       fontWeight: 400,
-      color: theme.palette.text.primary,
+      // color: theme.palette.text.primary,
       fontSize: '3rem',
-      [theme.breakpoints.down('md')]: {
-        fontSize: '2.2rem',
-        color: theme.palette.common.white,
-      },
+      // [theme.breakpoints.down('md')]: {
+      //   fontSize: '2.2rem',
+      //   color: theme.palette.common.white,
+      // },
     },
     regular: {
       fontFamily: 'Poppins',
       fontWeight: 400,
       letterSpacing: '0.05rem',
       fontSize: '1rem',
-      color: theme.palette.text.primary,
-      [theme.breakpoints.down('md')]: {
-        fontSize: '0.85rem',
-        color: theme.palette.common.white,
-      },
+      // [theme.breakpoints.down('md')]: {
+      //   fontSize: '0.85rem',
+      //   color: theme.palette.common.white,
+      // },
     },
     accent: {
       fontFamily: 'Poppins',
