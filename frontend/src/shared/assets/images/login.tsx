@@ -31,7 +31,7 @@ const LoginImg = (props: any) => (
         height="1"
       >
         <use
-          xlinkHref="#image0_473_287"
+          href="#image0_473_287"
           transform="translate(-0.0497642) scale(0.000572671 0.000520833)"
         />
       </pattern>
@@ -42,7 +42,7 @@ const LoginImg = (props: any) => (
         height="1"
       >
         <use
-          xlinkHref="#image1_473_287"
+          href="#image1_473_287"
           transform="translate(-0.069321) scale(0.000593043 0.000520833)"
         />
       </pattern>
@@ -53,7 +53,7 @@ const LoginImg = (props: any) => (
         height="1"
       >
         <use
-          xlinkHref="#image2_473_287"
+          href="#image2_473_287"
           transform="translate(-0.069321) scale(0.000593043 0.000520833)"
         />
       </pattern>
@@ -64,7 +64,7 @@ const LoginImg = (props: any) => (
         height="1"
       >
         <use
-          xlinkHref="#image3_473_287"
+          href="#image3_473_287"
           transform="translate(-0.0776474) scale(0.000601716 0.000520833)"
         />
       </pattern>

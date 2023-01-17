@@ -14,9 +14,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         justifyContent: 'space-between',
       }}
     >
-      <Grid container item>
+      <Grid container item justifyContent="center">
         <Navbar />
-        {children}
+        <Grid
+          container
+          justifyContent="center"
+          sx={{ padding: { md: 10, xs: 1.2 }, width: '100%' }}
+        >
+          {children}
+        </Grid>
       </Grid>
       <Footer />
     </Grid>

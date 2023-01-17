@@ -4,13 +4,15 @@ import { createStyles, makeStyles } from '@mui/styles';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      padding: theme.spacing(10),
+      padding: theme.spacing(7.6),
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
         justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: theme.palette.background.default,
+        padding: theme.spacing(0),
       },
       backgroundColor: theme.palette.background.paper,
       borderRadius: theme.spacing(3),
@@ -19,8 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
     gridItem: {
       justifyContent: 'center',
       alignItems: 'center',
-      [theme.breakpoints.down('md')]: {
-        alignItems: 'end',
+      [theme.breakpoints.down('lg')]: {
+        maxWidth: '100%',
       },
     },
     input: {
@@ -35,12 +37,18 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundColor: theme.palette.secondary.light,
         paddingInline: theme.spacing(3),
         paddingBlock: theme.spacing(0.4),
+        '& .MuiInputBase-input': {
+          padding: theme.spacing(2, 1.5, 1.5),
+        },
       },
       '& .MuiFilledInput-root:hover': {
         backgroundColor: theme.palette.secondary.light,
       },
       '& .MuiFilledInput-root.Mui-focused': {
         backgroundColor: theme.palette.neutrals.green,
+      },
+      [theme.breakpoints.down('md')]: {
+        width: theme.spacing(43),
       },
     },
     content: {
@@ -75,7 +83,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     imageContainer: {
       display: 'block',
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down('lg')]: {
         display: 'none',
       },
     },
