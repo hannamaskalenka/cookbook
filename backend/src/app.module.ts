@@ -1,3 +1,4 @@
+import { MailerModule } from '@nestjs-modules/mailer';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -8,6 +9,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { RecipesModule } from './modules/recipes/recipes.module';
 import { UsersModule } from './modules/users/users.module';
+import { SMTPService } from './services/smtp.service';
 
 @Module({
   imports: [
@@ -22,12 +24,21 @@ import { UsersModule } from './modules/users/users.module';
         PORT: Joi.number().default(5000),
       }),
     }),
+    MailerModule.forRoot({
+      transport: {
+        host: process.env.SMTP_HOST,
+        auth: {
+          user: process.env.SMTP_USERNAME,
+          pass: process.env.SMTP_API_KEY,
+        },
+      },
+    }),
     MongooseModule.forRoot(process.env.MONGO_URL),
     RecipesModule,
     AuthModule,
     UsersModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, SMTPService],
 })
 export class AppModule {}

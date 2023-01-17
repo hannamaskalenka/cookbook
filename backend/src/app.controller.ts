@@ -13,6 +13,7 @@ import { AuthService } from './modules/auth/auth.service';
 import CreateUserDto from './modules/users/dto/createUser.dto';
 import { User } from './modules/users/schemas/user.schema';
 import { UsersService } from './modules/users/users.service';
+import { SMTPService } from './services/smtp.service';
 
 @Controller()
 export class AppController {
@@ -20,6 +21,7 @@ export class AppController {
     private authService: AuthService,
     private userService: UsersService,
     private readonly appService: AppService,
+    private smtpService: SMTPService,
   ) {}
 
   @UseGuards(LocalGuard)
@@ -35,6 +37,11 @@ export class AppController {
     } catch (e) {
       return e;
     }
+  }
+
+  @Get('auth/reset-password')
+  resetPassword(@Body() body: { toEmail: string }) {
+    return this.smtpService.sendForgotPasswordEmail(body.toEmail);
   }
 
   @Get()
