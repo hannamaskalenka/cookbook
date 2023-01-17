@@ -19,7 +19,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Grid
           container
           justifyContent="center"
-          sx={{ padding: { md: 10, xs: 1.2 }, width: '100%' }}
+          sx={{
+            padding: (theme) => {
+              return {
+                md: theme.spacing(10),
+                xs: theme.spacing(4, 1.2, 1.2),
+              };
+            },
+            width: '100%',
+          }}
         >
           {children}
         </Grid>
