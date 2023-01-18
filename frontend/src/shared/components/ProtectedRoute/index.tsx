@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { FC } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
