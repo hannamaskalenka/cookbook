@@ -1,10 +1,11 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 
 export interface ButtonProps {
-  type?: 'primary' | 'secondary' | 'warning';
+  variant?: 'contained' | 'text' | 'outlined';
   color?: 'primary' | 'secondary' | 'warning';
   size?: 'small' | 'medium' | 'large';
-  children: ReactElement | string;
-  label?: string;
+  label: string | ReactNode;
   onClick?: () => void;
+  sx?: any;
+  className?: {};
 }
