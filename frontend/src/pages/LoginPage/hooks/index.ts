@@ -11,7 +11,11 @@ export const useLoginUser = () => {
       return api.post('auth/login', user);
     },
     {
-      onSuccess: (res) => setAuth(res?.data?.access_token),
+      onSuccess: (res) =>
+        setAuth({
+          username: JSON.parse(res?.config?.data)?.username,
+          token: res?.data?.access_token,
+        }),
     },
   );
 };

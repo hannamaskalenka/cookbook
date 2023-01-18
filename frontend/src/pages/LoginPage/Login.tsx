@@ -1,6 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
-import { FC, useState } from 'react';
-import { Container, Grid, Typography, TextField, Stack } from '@mui/material';
+import { FC, useEffect, useState } from 'react';
+import {
+  Container,
+  Grid,
+  Typography,
+  TextField,
+  Stack,
+  CircularProgress,
+} from '@mui/material';
 import Button from 'shared/components/Button';
 import LoginImg from 'shared/assets/images/login';
 import {
@@ -11,20 +18,30 @@ import {
 import { useTranslation } from 'react-i18next';
 import keys from 'locales/keys';
 import theme from 'style/theme';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from 'shared/constants';
 import useStyles from './styles';
 import { useLoginUser } from './hooks';
 
 const Login: FC = () => {
-  const { mutate: login } = useLoginUser();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const classes = useStyles();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const { mutate: login, isLoading, isSuccess } = useLoginUser();
+
   const handleRequestButtonClick = async () => {
     login({ username, password });
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate(ROUTES.dashboard);
+    }
+  });
 
   return (
     <Grid className={classes.root} container item>
@@ -70,16 +87,20 @@ const Login: FC = () => {
               onChange={(event) => setPassword(event.target.value)}
             />
           </Stack>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleRequestButtonClick}
-            label={
-              <Typography variant="contrast">
-                {t(keys.common.login.signinButton)}
-              </Typography>
-            }
-          />
+          {isLoading ? (
+            <CircularProgress />
+          ) : (
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleRequestButtonClick}
+              label={
+                <Typography variant="contrast">
+                  {t(keys.common.login.signinButton)}
+                </Typography>
+              }
+            />
+          )}
           <Typography variant="accent" className={classes.paragraph}>
             {t(keys.common.login.socialmediaText)}
           </Typography>

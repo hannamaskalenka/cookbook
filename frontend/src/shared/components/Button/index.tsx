@@ -1,4 +1,5 @@
 import { Button, Typography } from '@mui/material';
+import classNames from 'classnames';
 import useStyles from './styles';
 import { ButtonProps } from './types';
 
@@ -12,6 +13,7 @@ const CustomButton: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const classes = useStyles();
+  const buttonClassName = classNames(classes.label, className);
 
   return (
     <Button
@@ -21,7 +23,7 @@ const CustomButton: React.FC<ButtonProps> = ({
       className={classes.root}
       {...props}
     >
-      <Typography className={classes.label} sx={sx?.label}>
+      <Typography className={buttonClassName} sx={sx?.label}>
         {label}
       </Typography>
     </Button>
