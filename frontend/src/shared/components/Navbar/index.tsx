@@ -20,6 +20,7 @@ import { useTranslation } from 'react-i18next';
 
 import keys from 'locales/keys';
 import useAuthContext from 'shared/contexts/AuthContext';
+import { ROUTES } from 'shared/constants';
 import { PAGES, SETTINGS } from './constants';
 import { sxStyles, useStyles } from './styles';
 import Button from '../Button';
@@ -177,9 +178,10 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
           </Grid>
         ) : (
           <Button
+            variant="contained"
             color="primary"
-            label={t(keys.common.auth.logIn)}
-          /> /* TODO: Add Link to Login Page */
+            label={<Link to={ROUTES.login}>{t(keys.common.auth.logIn)}</Link>}
+          />
         )}
       </Toolbar>
     </AppBar>
