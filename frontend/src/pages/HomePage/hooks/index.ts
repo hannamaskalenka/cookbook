@@ -11,13 +11,20 @@ export const useLoginUser = () => {
       return api.post('auth/login', user);
     },
     {
-      onSuccess: (res) => setAuth(res?.data?.access_token),
+      onSuccess: (res) => {
+        return setAuth({
+          username: JSON.parse(res?.config?.data)?.username,
+          token: res?.data?.access_token,
+        });
+      },
     },
   );
 };
 
 export const useGetRecipes = () => {
-  const { auth: token } = useAuthContext();
+  const {
+    auth: { token },
+  } = useAuthContext();
   const api = useApi();
   return useQuery(
     'recipes',
@@ -32,7 +39,7 @@ export const useGetRecipes = () => {
       enabled: false,
       refetchOnMount: false,
       retry: false,
-      select: (data) => data.data,
+      select: (data) => data.data?.results || [],
     },
   );
 };

@@ -13,10 +13,15 @@ import {
   removeFromStorage,
 } from 'shared/utils/localStorage';
 
+interface IUser {
+  username: string;
+  token: string;
+}
+
 interface IAuthContext {
   isAuthenticated: boolean;
-  auth: string;
-  setAuth: (token: string) => void;
+  auth: IUser;
+  setAuth: (user: IUser) => void;
   handleLogOut: () => void;
 }
 
@@ -26,7 +31,7 @@ interface IAuthContextProvider {
 
 const defaultContext = {
   isAuthenticated: false,
-  auth: '',
+  auth: { username: '', token: '' },
   setAuth: () => {},
   handleLogOut: () => {},
 };
@@ -34,14 +39,16 @@ const defaultContext = {
 export const AuthContext = createContext<IAuthContext>(defaultContext);
 
 export const AuthContextProvider: FC<IAuthContextProvider> = ({ children }) => {
-  const storageAuth = JSON.parse(getFromStorage('session') as string) || '';
-  const [auth, setAuth] = useState<string>(storageAuth);
-  const [isAuthenticated, setAuthenticated] = useState<boolean>(!!storageAuth);
+  const storageAuth = JSON.parse(getFromStorage('session') as string) || {};
+  const [auth, setAuth] = useState<IUser>(storageAuth);
+  const [isAuthenticated, setAuthenticated] = useState<boolean>(
+    !!storageAuth?.token,
+  );
 
   useEffect(() => {
-    setAuthenticated(!!auth);
+    setAuthenticated(!!auth?.token);
     setToStorage('session', JSON.stringify(auth));
-  }, [auth]);
+  }, [auth, auth?.token]);
 
   const handleLogOut = () => {
     removeFromStorage('session');

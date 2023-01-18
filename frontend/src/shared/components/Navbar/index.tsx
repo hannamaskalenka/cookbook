@@ -18,8 +18,11 @@ import {
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import keys from 'locales/keys';
+import useAuthContext from 'shared/contexts/AuthContext';
 import { PAGES, SETTINGS } from './constants';
 import { sxStyles, useStyles } from './styles';
+import Button from '../Button';
 import Logo from '../Logo';
 
 interface INavigationProps {
@@ -28,7 +31,7 @@ interface INavigationProps {
 
 const Navigation: React.FC<INavigationProps> = ({ window }) => {
   const { t } = useTranslation();
-  const userName = 'Hanna'; // TODO: get name from Auth Context
+  const { auth, isAuthenticated, handleLogOut } = useAuthContext();
   const classes = useStyles();
   const [isDrawerOpened, setIsDrawerOpened] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
@@ -128,43 +131,56 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
           <Logo />
         </div>
 
-        <Grid>
-          <IconButton onClick={handleOpenUserMenu}>
-            <Avatar alt={userName} sx={sxStyles.avatar}>
-              {userName[0]}
-            </Avatar>
-          </IconButton>
-          <Menu
-            MenuListProps={{ className: classes.menu }}
-            PopoverClasses={{ root: classes.popover }}
-            id="menu-appbar"
-            anchorEl={anchorElUser}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
-            }}
-            open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-          >
-            {SETTINGS.map((setting) => (
-              <MenuItem key={setting.title} onClick={handleCloseUserMenu}>
-                <div className={classes.menuItemButton}>
-                  <span className={classes.dropdownIcon}>
-                    <setting.icon />
-                  </span>
-                  <Typography variant="regular" textAlign="center">
-                    {t(setting.title)}
-                  </Typography>
-                </div>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Grid>
+        {isAuthenticated ? (
+          <Grid>
+            <IconButton onClick={handleOpenUserMenu}>
+              <Avatar alt={auth?.username} sx={sxStyles.avatar}>
+                {Boolean(auth?.username?.length) &&
+                  auth?.username[0].toUpperCase()}
+              </Avatar>
+            </IconButton>
+            <Menu
+              MenuListProps={{ className: classes.menu }}
+              PopoverClasses={{ root: classes.popover }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {SETTINGS.map((setting) => (
+                <MenuItem
+                  key={setting.title}
+                  onClick={
+                    setting?.isLogout ? handleLogOut : handleCloseUserMenu
+                  }
+                >
+                  <div className={classes.menuItemButton}>
+                    <span className={classes.dropdownIcon}>
+                      <setting.icon />
+                    </span>
+                    <Typography variant="regular" textAlign="center">
+                      {t(setting.title)}
+                    </Typography>
+                  </div>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Grid>
+        ) : (
+          <Button
+            color="primary"
+            label={t(keys.common.auth.logIn)}
+          /> /* TODO: Add Link to Login Page */
+        )}
       </Toolbar>
     </AppBar>
   );
