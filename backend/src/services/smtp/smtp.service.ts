@@ -1,17 +1,22 @@
 import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable, BadRequestException } from '@nestjs/common';
 
+import { User } from '../../modules/users/schemas/user.schema';
+
 @Injectable()
 export class SMTPService {
   constructor(private mailService: MailerService) {}
 
-  async sendForgotPasswordEmail(toEmail: string) {
+  async sendForgotPasswordEmail(user: Partial<User>) {
     try {
       return await this.mailService.sendMail({
-        to: toEmail,
+        to: user.email,
         from: process.env.SMTP_EMAIL,
         subject: 'Change password',
-        text: "You've asked to change password? Here the link to do it.",
+        template: 'reset-password',
+        context: {
+          username: user?.username,
+        },
       });
     } catch (e) {
       throw new BadRequestException('Something went wrong');

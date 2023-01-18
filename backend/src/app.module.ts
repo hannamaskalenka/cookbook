@@ -1,4 +1,5 @@
 import { MailerModule } from '@nestjs-modules/mailer';
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -9,7 +10,9 @@ import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { RecipesModule } from './modules/recipes/recipes.module';
 import { UsersModule } from './modules/users/users.module';
-import { SMTPService } from './services/smtp.service';
+import { SMTPService } from './services/smtp/smtp.service';
+
+import * as path from 'path';
 
 @Module({
   imports: [
@@ -30,6 +33,13 @@ import { SMTPService } from './services/smtp.service';
         auth: {
           user: process.env.SMTP_USERNAME,
           pass: process.env.SMTP_API_KEY,
+        },
+      },
+      template: {
+        dir: path.join(__dirname, 'services', 'smtp', 'templates'),
+        adapter: new HandlebarsAdapter(),
+        options: {
+          strict: true,
         },
       },
     }),

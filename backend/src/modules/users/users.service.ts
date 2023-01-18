@@ -31,6 +31,20 @@ export class UsersService {
     }
   }
 
+  async getUserByEmail(email: string): Promise<Partial<User>> {
+    try {
+      const user = await this.userModel.findOne({ email }, { __v: 0, _id: 0 });
+
+      if (!user) {
+        return null;
+      }
+
+      return user;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async createUser(user: CreateUserDto) {
     const newUser = new User();
 

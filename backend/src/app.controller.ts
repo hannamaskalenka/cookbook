@@ -5,6 +5,8 @@ import {
   Post,
   UseGuards,
   Body,
+  BadRequestException,
+  Query,
 } from '@nestjs/common';
 
 import { AppService } from './app.service';
@@ -13,7 +15,7 @@ import { AuthService } from './modules/auth/auth.service';
 import CreateUserDto from './modules/users/dto/createUser.dto';
 import { User } from './modules/users/schemas/user.schema';
 import { UsersService } from './modules/users/users.service';
-import { SMTPService } from './services/smtp.service';
+import { SMTPService } from './services/smtp/smtp.service';
 
 @Controller()
 export class AppController {
@@ -40,8 +42,14 @@ export class AppController {
   }
 
   @Get('auth/reset-password')
-  resetPassword(@Body() body: { toEmail: string }) {
-    return this.smtpService.sendForgotPasswordEmail(body.toEmail);
+  async resetPassword(@Query() query: { toEmail: string }) {
+    const user = await this.userService.getUserByEmail(query.toEmail);
+
+    if (!user) {
+      throw new BadRequestException('The user does not exists');
+    }
+
+    return this.smtpService.sendForgotPasswordEmail(user);
   }
 
   @Get()
