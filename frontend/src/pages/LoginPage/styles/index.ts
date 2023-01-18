@@ -7,11 +7,13 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(7.6),
       flexDirection: 'row',
       justifyContent: 'space-evenly',
+      color: theme.palette.primary.main,
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: theme.palette.background.default,
+        color: theme.palette.common.white,
         padding: theme.spacing(0),
       },
       backgroundColor: theme.palette.background.paper,

@@ -96,7 +96,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
     },
     menu: {
-      marginTop: theme.spacing(5.5),
+      marginTop: theme.spacing(1),
       '& .MuiMenuItem-root': {
         borderRadius: theme.spacing(1.875),
         '&:hover': {
@@ -113,7 +113,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         backgroundColor: theme.palette.secondary.main,
         borderRadius: theme.spacing(2.5),
         width: theme.spacing(27.5),
-        padding: theme.spacing(0.5, 2.3),
+        padding: theme.spacing(2.5, 2.3),
       },
     },
     menuItemButton: {
