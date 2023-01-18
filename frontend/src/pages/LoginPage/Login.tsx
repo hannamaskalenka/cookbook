@@ -105,7 +105,7 @@ const Login: FC = () => {
             <Button
               variant="text"
               label={
-                <Typography variant="accent" className={classes.paragraph}>
+                <Typography variant="accent" className={classes.label}>
                   {t(keys.common.login.signupButton)}
                 </Typography>
               }

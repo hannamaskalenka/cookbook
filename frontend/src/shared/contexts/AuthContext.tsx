@@ -12,6 +12,8 @@ import {
   setToStorage,
   removeFromStorage,
 } from 'shared/utils/localStorage';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from 'shared/constants';
 
 interface IUser {
   username: string;
@@ -39,6 +41,7 @@ const defaultContext = {
 export const AuthContext = createContext<IAuthContext>(defaultContext);
 
 export const AuthContextProvider: FC<IAuthContextProvider> = ({ children }) => {
+  const navigate = useNavigate();
   const storageAuth = JSON.parse(getFromStorage('session') as string) || {};
   const [auth, setAuth] = useState<IUser>(storageAuth);
   const [isAuthenticated, setAuthenticated] = useState<boolean>(
@@ -53,6 +56,7 @@ export const AuthContextProvider: FC<IAuthContextProvider> = ({ children }) => {
   const handleLogOut = () => {
     removeFromStorage('session');
     setAuthenticated(false);
+    navigate(ROUTES.root);
   };
 
   return (
