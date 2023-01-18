@@ -99,16 +99,13 @@ theme = createTheme(theme, {
       fontSize: '1rem',
       fontWeight: 500,
       letterSpacing: '0.05rem',
-      color: theme.palette.text.primary,
       [theme.breakpoints.down('md')]: {
         fontSize: '0.75rem',
-        color: theme.palette.common.white,
       },
     },
     contrast: {
       fontFamily: 'Poppins',
       fontWeight: 500,
-      color: theme.palette.common.white,
     },
   },
 });
