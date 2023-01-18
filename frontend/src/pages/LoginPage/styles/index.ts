@@ -78,7 +78,11 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     label: {
-      paddingInline: theme.spacing(),
+      paddingInline: theme.spacing(0),
+      color: theme.palette.primary.main,
+      [theme.breakpoints.down('md')]: {
+        color: theme.palette.common.white,
+      },
     },
     inputContainer: {
       marginBlockEnd: theme.spacing(3),
