@@ -33,15 +33,15 @@ const Login: FC = () => {
 
   const { mutate: login, isLoading, isSuccess } = useLoginUser();
 
-  const handleRequestButtonClick = async () => {
-    login({ username, password });
-  };
-
   useEffect(() => {
     if (isSuccess) {
       navigate(ROUTES.dashboard);
     }
   });
+
+  const handleRequestButtonClick = async () => {
+    login({ username, password });
+  };
 
   return (
     <Grid className={classes.root} container item>
