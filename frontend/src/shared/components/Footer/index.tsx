@@ -24,22 +24,22 @@ const Footer: React.FC = () => {
         className={classes.menuContainer}
       >
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">
+          <Typography className={classes.footerItem} variant="regular">
             {t(keys.common.footer.aboutLink)}
           </Typography>
         </Grid>
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">
+          <Typography className={classes.footerItem} variant="regular">
             {t(keys.common.footer.supportLink)}
           </Typography>
         </Grid>
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">
+          <Typography className={classes.footerItem} variant="regular">
             {t(keys.common.footer.policiesLink)}
           </Typography>
         </Grid>
         <Grid className={classes.menuItem} item sm={2}>
-          <Typography variant="accent">
+          <Typography className={classes.footerItem} variant="regular">
             {t(keys.common.footer.contactLink)}
           </Typography>
         </Grid>

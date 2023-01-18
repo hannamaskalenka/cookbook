@@ -21,4 +21,16 @@ export default {
 
   [keys.common.addRecipeButton]: 'Add a recipe',
   [keys.common.search]: 'Search',
+
+  // Login page
+  [keys.common.login.headline]: 'Welcome back',
+  [keys.common.login.sub]: 'Please enter your details',
+  [keys.common.login.usernameLabel]: 'Username:',
+  [keys.common.login.usernameValue]: 'Enter your username',
+  [keys.common.login.passwordLabel]: 'Password:',
+  [keys.common.login.passwordValue]: 'Enter your password',
+  [keys.common.login.signinButton]: 'Sign in',
+  [keys.common.login.socialmediaText]: 'or sign up with',
+  [keys.common.login.noAccountText]: "Don't you have an account?",
+  [keys.common.login.signupButton]: 'Sign up',
 };
