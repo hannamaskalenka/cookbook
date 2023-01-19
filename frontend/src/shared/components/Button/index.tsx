@@ -1,32 +1,29 @@
 import { Button, Typography } from '@mui/material';
+import classNames from 'classnames';
 import useStyles from './styles';
-
-interface ButtonProps {
-  color: 'primary' | 'secondary' | 'warning';
-  size?: 'small' | 'medium' | 'large';
-  label: string | React.ReactNode;
-  onClick?: () => void;
-  sx?: any;
-}
+import { ButtonProps } from './types';
 
 const CustomButton: React.FC<ButtonProps> = ({
+  variant,
   label,
   color,
   size,
   sx,
+  className,
   ...props
 }) => {
   const classes = useStyles();
+  const buttonClassName = classNames(classes.label, className);
 
   return (
     <Button
       color={color}
       size={size}
-      variant="contained"
+      variant={variant}
       className={classes.root}
       {...props}
     >
-      <Typography className={classes.label} sx={sx?.label}>
+      <Typography className={buttonClassName} sx={sx?.label}>
         {label}
       </Typography>
     </Button>

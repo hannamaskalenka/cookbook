@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
     icon: {
       width: '100%',
     },
+    footerItem: {
+      color: theme.palette.text.secondary,
+    },
   }),
 );
 

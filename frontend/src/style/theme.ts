@@ -14,6 +14,28 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiInputBase: {
+      styleOverrides: {
+        input: {
+          '&:-webkit-autofill': {
+            transitionDelay: '9999s',
+            transitionProperty: 'background-color, color',
+          },
+        },
+      },
+    },
+    MuiFilledInput: {
+      styleOverrides: {
+        underline: {
+          '&:before': {
+            borderBottomColor: 'transparent',
+          },
+          '&:hover:not(.Mui-disabled)::before': {
+            borderBottomColor: 'transparent',
+          },
+        },
+      },
+    },
   },
   palette: {
     primary: {
@@ -27,7 +49,7 @@ theme = createTheme(theme, {
     },
     secondary: {
       main: '#FEF7EC',
-      light: '#F5D6CE',
+      light: '#FFFFFF',
       dark: '#DAD5C9',
     },
     neutrals: {
@@ -61,14 +83,20 @@ theme = createTheme(theme, {
       fontFamily: 'Merriweather',
       fontWeight: 400,
     },
+    headline: {
+      fontFamily: 'Merriweather',
+      fontWeight: 400,
+      fontSize: '3rem',
+    },
     regular: {
       fontFamily: 'Poppins',
       fontWeight: 400,
-      letterSpacing: '0.1rem',
+      letterSpacing: '0.05rem',
+      fontSize: '1rem',
     },
     accent: {
       fontFamily: 'Poppins',
-      fontSize: '1.25rem',
+      fontSize: '1rem',
       fontWeight: 500,
       letterSpacing: '0.05rem',
       [theme.breakpoints.down('md')]: {
@@ -78,7 +106,6 @@ theme = createTheme(theme, {
     contrast: {
       fontFamily: 'Poppins',
       fontWeight: 500,
-      color: '#FCFCFC',
     },
   },
 });
