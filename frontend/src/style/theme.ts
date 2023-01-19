@@ -69,9 +69,7 @@ theme = createTheme(theme, {
                 }`,
               };
             default:
-              return {
-                common,
-              };
+              return common;
           }
         },
       },
