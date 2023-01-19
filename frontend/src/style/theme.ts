@@ -70,7 +70,7 @@ theme = createTheme(theme, {
               };
             default:
               return {
-                ...common,
+                common,
               };
           }
         },
