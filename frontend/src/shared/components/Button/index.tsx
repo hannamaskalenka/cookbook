@@ -10,6 +10,7 @@ const CustomButton: React.FC<ButtonProps> = ({
   size,
   sx,
   className,
+  disableFocusRipple,
   ...props
 }) => {
   const classes = useStyles();
@@ -21,6 +22,7 @@ const CustomButton: React.FC<ButtonProps> = ({
       size={size}
       variant={variant}
       className={classes.root}
+      disableFocusRipple={disableFocusRipple}
       {...props}
     >
       <Typography className={buttonClassName} sx={sx?.label}>

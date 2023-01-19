@@ -8,4 +8,5 @@ export interface ButtonProps {
   onClick?: () => void;
   sx?: any;
   className?: {};
+  disableFocusRipple?: boolean;
 }

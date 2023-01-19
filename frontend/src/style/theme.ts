@@ -36,6 +36,44 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        root: ({ ownerState }: { ownerState: any }) => {
+          const common = {
+            width: '100%',
+          };
+          switch (ownerState.variant) {
+            case 'contained':
+              return {
+                ...common,
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.secondary.main,
+                padding: theme.spacing(1.25),
+              };
+            case 'text':
+              return {
+                ...common,
+                color: 'transparent',
+                '&:hover': {
+                  backgroundColor: 'transparent',
+                },
+                '&:focus': {
+                  backgroundColor: 'transparent',
+                },
+              };
+            case 'outlined':
+              return {
+                ...common,
+                border: `${theme.spacing(0.5)} solid ${
+                  theme.palette.background.paper
+                }`,
+              };
+            default:
+              return common;
+          }
+        },
+      },
+    },
   },
   palette: {
     primary: {
