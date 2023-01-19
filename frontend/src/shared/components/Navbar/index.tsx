@@ -177,11 +177,14 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
             </Menu>
           </Grid>
         ) : (
-          <Button
-            variant="contained"
-            color="primary"
-            label={<Link to={ROUTES.login}>{t(keys.common.auth.logIn)}</Link>}
-          />
+          <Box>
+            <Button
+              variant="contained"
+              className={classes.loginButton}
+              color="primary"
+              label={<Link to={ROUTES.login}>{t(keys.common.auth.logIn)}</Link>}
+            />
+          </Box>
         )}
       </Toolbar>
     </AppBar>

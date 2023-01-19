@@ -54,6 +54,9 @@ const Home = () => {
 
       <Link to="/dashboard">Check dashboard by clicking</Link>
       <Typography variant="display">Test Typography 0001</Typography>
+      <Button variant="contained" label="jestem buttonem contained" />
+      <Button variant="text" label="jestem buttonem text" />
+      <Button variant="outlined" label="jestem buttonem outline" />
 
       {isFetching ? (
         <CircularProgress />
