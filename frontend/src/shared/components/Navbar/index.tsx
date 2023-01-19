@@ -180,7 +180,7 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
           <Box>
             <Button
               variant="contained"
-              className={classes.loginButton}
+              classnames={{ button: classes.loginButton }}
               color="primary"
               label={<Link to={ROUTES.login}>{t(keys.common.auth.logIn)}</Link>}
             />

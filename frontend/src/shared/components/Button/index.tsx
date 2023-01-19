@@ -9,23 +9,24 @@ const CustomButton: React.FC<ButtonProps> = ({
   color,
   size,
   sx,
-  className,
+  classnames,
   disableFocusRipple,
   ...props
 }) => {
   const classes = useStyles();
-  const buttonClassName = classNames(classes.label, className);
+  const labelClassName = classNames(classes.label, classnames?.label);
+  const buttonClassName = classNames(classes.root, classnames?.button);
 
   return (
     <Button
       color={color}
       size={size}
       variant={variant}
-      className={classes.root}
+      className={buttonClassName}
       disableFocusRipple={disableFocusRipple}
       {...props}
     >
-      <Typography className={buttonClassName} sx={sx?.label}>
+      <Typography className={labelClassName} sx={sx?.label}>
         {label}
       </Typography>
     </Button>

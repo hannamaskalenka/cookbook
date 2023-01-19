@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme: Theme) =>
     noAccountText: {
       display: 'flex',
       paddingBlockStart: theme.spacing(5),
+      justifyContent: 'space-between',
       [theme.breakpoints.down('md')]: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -111,6 +112,14 @@ const useStyles = makeStyles((theme: Theme) =>
     socialMedia: {
       fontSize: '3rem',
       color: theme.palette.background.default,
+    },
+    linkButton: {
+      width: 'max-content',
+    },
+    passwordLabelContainer: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
     },
   }),
 );

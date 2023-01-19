@@ -27,6 +27,10 @@ const App = () => {
                   </Route>
                   <Route path={ROUTES.login} element={<Login />} />
                   <Route
+                    path={ROUTES.forgotPasswordRequest}
+                    element={<h1>Forgot Password</h1>}
+                  />
+                  <Route
                     path={ROUTES.explore}
                     element={<h1>Explore recipes page</h1>}
                   />

@@ -33,4 +33,5 @@ export default {
   [keys.common.login.socialmediaText]: 'or sign up with',
   [keys.common.login.noAccountText]: "Don't you have an account?",
   [keys.common.login.signupButton]: 'Sign up',
+  [keys.common.login.forgotPasswordLink]: 'Forgot Password?',
 };

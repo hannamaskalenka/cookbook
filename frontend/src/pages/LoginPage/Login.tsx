@@ -73,9 +73,21 @@ const Login: FC = () => {
             />
           </Stack>
           <Stack className={classes.inputContainer}>
-            <Typography variant="regular" className={classes.label}>
-              {t(keys.common.login.passwordLabel)}
-            </Typography>
+            <Grid className={classes.passwordLabelContainer}>
+              <Typography variant="regular" className={classes.label}>
+                {t(keys.common.login.passwordLabel)}
+              </Typography>
+              <Button
+                variant="text"
+                onClick={() => navigate(ROUTES.forgotPasswordRequest)}
+                classnames={{ button: classes.linkButton }}
+                label={
+                  <Typography variant="accent" className={classes.label}>
+                    {t(keys.common.login.forgotPasswordLink)}
+                  </Typography>
+                }
+              />
+            </Grid>
             <TextField
               InputProps={{ disableUnderline: true }}
               variant="filled"
@@ -124,6 +136,7 @@ const Login: FC = () => {
               {t(keys.common.login.noAccountText)}
             </Typography>
             <Button
+              classnames={{ button: classes.linkButton }}
               variant="text"
               label={
                 <Typography variant="accent" className={classes.label}>

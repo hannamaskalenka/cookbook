@@ -7,6 +7,9 @@ export interface ButtonProps {
   label: string | ReactNode;
   onClick?: () => void;
   sx?: any;
-  className?: {};
+  classnames?: {
+    label?: string;
+    button?: string;
+  };
   disableFocusRipple?: boolean;
 }

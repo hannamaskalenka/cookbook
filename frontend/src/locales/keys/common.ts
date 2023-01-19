@@ -38,5 +38,6 @@ export default {
     socialmediaText: 'common.login.iconsParagraph',
     noAccountText: 'common.login.noAccountText',
     signupButton: 'common.login.signupButton',
+    forgotPasswordLink: 'common.login.forgotPasswordLink',
   },
 };

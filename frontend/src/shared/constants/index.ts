@@ -4,6 +4,7 @@ export const ROUTES = {
   about: '/about',
   explore: '/explore',
   login: '/login',
+  forgotPasswordRequest: '/forgot-password',
 };
 
 export enum LanguageKeysEnum {
