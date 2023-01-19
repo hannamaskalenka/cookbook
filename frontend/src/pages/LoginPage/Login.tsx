@@ -20,12 +20,17 @@ import keys from 'locales/keys';
 import theme from 'style/theme';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import useStyles from './styles';
 import { useLoginUser } from './hooks';
 
+type DataProps = {
+  username: string;
+  password: string;
+};
+
 const Login: FC = () => {
-  const { handleSubmit, control } = useForm();
+  const { handleSubmit, control } = useForm<DataProps>();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const classes = useStyles();
@@ -37,9 +42,8 @@ const Login: FC = () => {
       navigate(ROUTES.dashboard);
     }
   });
-  const onSubmit = (data: any) => {
-    const { username, password } = data;
-    login({ username, password });
+  const onSubmit: SubmitHandler<DataProps> = (data) => {
+    login(data);
   };
 
   return (
