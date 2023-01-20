@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import {
   Container,
   Grid,
@@ -20,16 +20,20 @@ import keys from 'locales/keys';
 import theme from 'style/theme';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import useStyles from './styles';
 import { useLoginUser } from './hooks';
 
+type LoginUserData = {
+  username: string;
+  password: string;
+};
+
 const Login: FC = () => {
+  const { handleSubmit, control } = useForm<LoginUserData>();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const classes = useStyles();
-
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
   const { mutate: login, isLoading, isSuccess } = useLoginUser();
 
@@ -38,9 +42,8 @@ const Login: FC = () => {
       navigate(ROUTES.dashboard);
     }
   });
-
-  const handleRequestButtonClick = async () => {
-    login({ username, password });
+  const onSubmit: SubmitHandler<LoginUserData> = (data: LoginUserData) => {
+    login(data);
   };
 
   return (
@@ -62,14 +65,21 @@ const Login: FC = () => {
             <Typography variant="regular" className={classes.label}>
               {t(keys.common.login.usernameLabel)}
             </Typography>
-            <TextField
-              InputProps={{ disableUnderline: true }}
-              variant="filled"
+            <Controller
               name="username"
-              placeholder={t(keys.common.login.usernameValue) || ''}
-              value={username}
-              className={classes.input}
-              onChange={(event) => setUsername(event.target.value)}
+              control={control}
+              defaultValue=""
+              render={({ field: { onChange, value } }: any) => (
+                <TextField
+                  InputProps={{ disableUnderline: true }}
+                  variant="filled"
+                  type="text"
+                  placeholder={t(keys.common.login.usernameValue) || ''}
+                  value={value}
+                  className={classes.input}
+                  onChange={onChange}
+                />
+              )}
             />
           </Stack>
           <Stack className={classes.inputContainer}>
@@ -88,15 +98,21 @@ const Login: FC = () => {
                 }
               />
             </Grid>
-            <TextField
-              InputProps={{ disableUnderline: true }}
-              variant="filled"
+            <Controller
               name="password"
-              type="password"
-              placeholder={t(keys.common.login.passwordValue) || ''}
-              value={password}
-              className={classes.input}
-              onChange={(event) => setPassword(event.target.value)}
+              control={control}
+              defaultValue=""
+              render={({ field: { onChange, value } }: any) => (
+                <TextField
+                  InputProps={{ disableUnderline: true }}
+                  variant="filled"
+                  type="password"
+                  placeholder={t(keys.common.login.passwordValue) || ''}
+                  value={value}
+                  className={classes.input}
+                  onChange={onChange}
+                />
+              )}
             />
           </Stack>
           {isLoading ? (
@@ -105,7 +121,7 @@ const Login: FC = () => {
             <Button
               variant="contained"
               color="primary"
-              onClick={handleRequestButtonClick}
+              onClick={handleSubmit(onSubmit)}
               label={
                 <Typography variant="contrast">
                   {t(keys.common.login.signinButton)}
