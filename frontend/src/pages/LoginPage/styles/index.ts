@@ -71,6 +71,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       paddingBlockStart: theme.spacing(5),
       justifyContent: 'space-between',
+      alignItems: 'baseline',
       [theme.breakpoints.down('md')]: {
         justifyContent: 'center',
         alignItems: 'center',

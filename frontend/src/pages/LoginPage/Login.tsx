@@ -9,7 +9,7 @@ import {
   CircularProgress,
 } from '@mui/material';
 import Button from 'shared/components/Button';
-import LoginImg from 'shared/assets/images/login';
+import LoginImg from 'assets/images/login';
 import {
   FacebookRounded as Facebook,
   Google,
