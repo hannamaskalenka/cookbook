@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       padding: theme.spacing(7.6),
+      minHeight: 'max-content',
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       color: theme.palette.primary.main,
@@ -22,9 +23,50 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     imageContainer: {
       display: 'flex',
+      justifyContent: 'flex-end',
       [theme.breakpoints.down('lg')]: {
         display: 'none',
       },
+    },
+    formContainer: {
+      alignItems: 'center',
+    },
+    subtitle: {
+      fontSize: theme.spacing(2.5),
+      fontWeight: 400,
+      marginBottom: theme.spacing(4),
+    },
+    button: {
+      width: theme.spacing(50),
+    },
+    emailInput: {
+      width: theme.spacing(50),
+      borderBottom: 'none',
+      marginBottom: theme.spacing(6),
+      '& .MuiFilledInput-root': {
+        border: `${theme.spacing(0.1)} solid ${
+          theme.palette.background.default
+        }`,
+        borderRadius: theme.spacing(6),
+        backgroundColor: theme.palette.secondary.light,
+        paddingInline: theme.spacing(3),
+        paddingBlock: theme.spacing(0.4),
+        '& .MuiInputBase-input': {
+          padding: theme.spacing(2, 1.5, 1.5),
+        },
+      },
+      '& .MuiFilledInput-root:hover': {
+        backgroundColor: theme.palette.secondary.light,
+      },
+      '& .MuiFilledInput-root.Mui-focused': {
+        backgroundColor: theme.palette.neutrals.green,
+      },
+      [theme.breakpoints.down('md')]: {
+        width: theme.spacing(43),
+      },
+    },
+    title: {
+      marginBottom: theme.spacing(1),
     },
   }),
 );

@@ -17,9 +17,20 @@ const ChangePasswordRequestScreen: React.FC<
   const classes = useStyles();
   return (
     <Grid container item className={classes.root}>
-      <Grid item container direction="column" xs={12} md={6}>
-        <Typography variant="headline">Forgot password?</Typography>
-        <Typography variant="regular">Please enter your email</Typography>
+      <Grid
+        item
+        container
+        direction="column"
+        xs={12}
+        md={6}
+        className={classes.formContainer}
+      >
+        <Typography variant="headline" className={classes.title}>
+          Forgot password?
+        </Typography>
+        <Typography variant="accent" className={classes.subtitle}>
+          Please enter your email
+        </Typography>
         <Controller
           name="email"
           control={control}
@@ -28,6 +39,7 @@ const ChangePasswordRequestScreen: React.FC<
             <TextField
               InputProps={{ disableUnderline: true }}
               variant="filled"
+              className={classes.emailInput}
               type="email"
               placeholder="Email"
               value={value}
@@ -41,6 +53,7 @@ const ChangePasswordRequestScreen: React.FC<
           <Button
             variant="contained"
             color="primary"
+            classnames={{ button: classes.button }}
             onClick={sendChangePasswordRequest}
             label={
               <Typography variant="contrast">Reset your password</Typography>
