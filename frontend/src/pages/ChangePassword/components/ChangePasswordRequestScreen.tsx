@@ -10,6 +10,8 @@ import forgotPasswordCookie from 'assets/images/change-password-img.png';
 import { Control, Controller, FieldValues } from 'react-hook-form';
 import Button from 'shared/components/Button';
 import { Facebook, Google, Instagram } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from 'shared/constants';
 import useStyles from '../styles';
 
 interface ChangePasswordRequestScreenProps {
@@ -21,6 +23,7 @@ interface ChangePasswordRequestScreenProps {
 const ChangePasswordRequestScreen: React.FC<
   ChangePasswordRequestScreenProps
 > = ({ control, isRequestLoading, sendChangePasswordRequest }) => {
+  const navigate = useNavigate();
   const classes = useStyles();
   return (
     <Grid container item className={classes.root}>
@@ -78,17 +81,17 @@ const ChangePasswordRequestScreen: React.FC<
           <Typography variant="regular" className={classes.paragraph}>
             or
           </Typography>
-          <Container className={classes.iconContainer}>
-            <Container className={classes.icon}>
+          <Grid container item className={classes.iconContainer}>
+            <Grid container item className={classes.icon}>
               <Facebook className={classes.socialMedia} />
-            </Container>
-            <Container className={classes.icon}>
+            </Grid>
+            <Grid container item className={classes.icon}>
               <Instagram className={classes.socialMedia} />
-            </Container>
-            <Container className={classes.icon}>
+            </Grid>
+            <Grid container item className={classes.icon}>
               <Google className={classes.socialMedia} />
-            </Container>
-          </Container>
+            </Grid>
+          </Grid>
           <Container className={classes.noAccountText}>
             <Typography variant="accent" className={classes.paragraph}>
               Do you want to come back?
@@ -96,6 +99,7 @@ const ChangePasswordRequestScreen: React.FC<
             <Button
               classnames={{ button: classes.linkButton }}
               variant="text"
+              onClick={() => navigate(ROUTES.login)}
               label={
                 <Typography variant="accent" className={classes.label}>
                   Log in
@@ -105,7 +109,7 @@ const ChangePasswordRequestScreen: React.FC<
           </Container>
         </Grid>
       </Grid>
-      <Grid item xs={8} md={6} className={classes.imageContainer}>
+      <Grid item md={6} className={classes.imageContainer}>
         <img src={forgotPasswordCookie} alt="Forgot password cookie" />
       </Grid>
     </Grid>

@@ -7,8 +7,15 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(7.6),
       minHeight: 'max-content',
       flexDirection: 'row',
-      justifyContent: 'space-evenly',
+      justifyContent: 'space-between',
       color: theme.palette.primary.main,
+      backgroundColor: theme.palette.background.paper,
+      borderRadius: theme.spacing(3),
+      maxWidth: theme.spacing(170),
+      [theme.breakpoints.between('md', 'lg')]: {
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
         justifyContent: 'center',
@@ -17,19 +24,20 @@ const useStyles = makeStyles((theme: Theme) =>
         color: theme.palette.common.white,
         padding: theme.spacing(0),
       },
-      backgroundColor: theme.palette.background.paper,
-      borderRadius: theme.spacing(3),
-      maxWidth: theme.spacing(170),
     },
     imageContainer: {
       display: 'flex',
-      justifyContent: 'flex-end',
+      justifyContent: 'center',
       [theme.breakpoints.down('lg')]: {
         display: 'none',
       },
     },
     formContainer: {
       alignItems: 'center',
+      [theme.breakpoints.down('lg')]: {
+        flexBasis: 'unset',
+        maxWidth: 'unset',
+      },
     },
     subtitle: {
       fontSize: theme.spacing(2.5),
@@ -70,23 +78,26 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     paragraph: {
       fontSize: '1rem',
-      paddingBlock: theme.spacing(3),
+      margin: theme.spacing(3, 0),
       color: theme.palette.action.disabled,
+      [theme.breakpoints.down('md')]: {
+        color: theme.palette.text.secondary,
+      },
     },
     iconContainer: {
-      display: 'flex',
-      justifyContent: 'center',
-      marginBlockStart: theme.spacing(3),
+      justifyContent: 'space-evenly',
+      flexDirection: 'row',
+      width: '64%',
     },
     icon: {
-      display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      width: theme.spacing(8),
+      height: theme.spacing(8),
+      padding: 0,
       [theme.breakpoints.down('md')]: {
         borderRadius: theme.spacing(2),
         backgroundColor: theme.palette.background.paper,
-        width: theme.spacing(8),
-        height: theme.spacing(8),
       },
     },
     socialMedia: {
@@ -94,19 +105,17 @@ const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.background.default,
     },
     noAccountText: {
+      width: '75%',
+      padding: 0,
       display: 'flex',
-      paddingBlockStart: theme.spacing(5),
-      justifyContent: 'space-between',
+      justifyContent: 'space-evenly',
       alignItems: 'baseline',
       [theme.breakpoints.down('md')]: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
         color: theme.palette.text.secondary,
       },
     },
     label: {
-      paddingInline: theme.spacing(0),
+      padding: theme.spacing(0, 0),
       color: theme.palette.primary.main,
       [theme.breakpoints.down('md')]: {
         color: theme.palette.common.white,
