@@ -68,6 +68,53 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       marginBottom: theme.spacing(1),
     },
+    paragraph: {
+      fontSize: '1rem',
+      paddingBlock: theme.spacing(3),
+      color: theme.palette.action.disabled,
+    },
+    iconContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+      marginBlockStart: theme.spacing(3),
+    },
+    icon: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      [theme.breakpoints.down('md')]: {
+        borderRadius: theme.spacing(2),
+        backgroundColor: theme.palette.background.paper,
+        width: theme.spacing(8),
+        height: theme.spacing(8),
+      },
+    },
+    socialMedia: {
+      fontSize: '3rem',
+      color: theme.palette.background.default,
+    },
+    noAccountText: {
+      display: 'flex',
+      paddingBlockStart: theme.spacing(5),
+      justifyContent: 'space-between',
+      alignItems: 'baseline',
+      [theme.breakpoints.down('md')]: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        color: theme.palette.text.secondary,
+      },
+    },
+    label: {
+      paddingInline: theme.spacing(0),
+      color: theme.palette.primary.main,
+      [theme.breakpoints.down('md')]: {
+        color: theme.palette.common.white,
+      },
+    },
+    linkButton: {
+      width: 'max-content',
+    },
   }),
 );
 

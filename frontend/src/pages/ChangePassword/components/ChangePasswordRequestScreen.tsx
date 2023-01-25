@@ -1,8 +1,15 @@
 import React from 'react';
-import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
+import {
+  CircularProgress,
+  Container,
+  Grid,
+  TextField,
+  Typography,
+} from '@mui/material';
 import forgotPasswordCookie from 'assets/images/change-password-img.png';
 import { Control, Controller, FieldValues } from 'react-hook-form';
 import Button from 'shared/components/Button';
+import { Facebook, Google, Instagram } from '@mui/icons-material';
 import useStyles from '../styles';
 
 interface ChangePasswordRequestScreenProps {
@@ -60,6 +67,43 @@ const ChangePasswordRequestScreen: React.FC<
             }
           />
         )}
+
+        <Grid
+          item
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Typography variant="regular" className={classes.paragraph}>
+            or
+          </Typography>
+          <Container className={classes.iconContainer}>
+            <Container className={classes.icon}>
+              <Facebook className={classes.socialMedia} />
+            </Container>
+            <Container className={classes.icon}>
+              <Instagram className={classes.socialMedia} />
+            </Container>
+            <Container className={classes.icon}>
+              <Google className={classes.socialMedia} />
+            </Container>
+          </Container>
+          <Container className={classes.noAccountText}>
+            <Typography variant="accent" className={classes.paragraph}>
+              Do you want to come back?
+            </Typography>
+            <Button
+              classnames={{ button: classes.linkButton }}
+              variant="text"
+              label={
+                <Typography variant="accent" className={classes.label}>
+                  Log in
+                </Typography>
+              }
+            />
+          </Container>
+        </Grid>
       </Grid>
       <Grid item xs={8} md={6} className={classes.imageContainer}>
         <img src={forgotPasswordCookie} alt="Forgot password cookie" />
