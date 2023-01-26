@@ -6,7 +6,8 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       padding: theme.spacing(7.6),
       flexDirection: 'row',
-      justifyContent: 'space-evenly',
+      justifyContent: 'center',
+      alignItems: 'center',
       color: theme.palette.primary.main,
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
         alignItems: 'center',
         backgroundColor: theme.palette.background.default,
         color: theme.palette.common.white,
-        padding: theme.spacing(0),
+        paddingInline: theme.spacing(0),
       },
       backgroundColor: theme.palette.background.paper,
       borderRadius: theme.spacing(3),
@@ -66,6 +67,10 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       marginBlockStart: theme.spacing(3),
+      maxWidth: theme.spacing(30),
+      [theme.breakpoints.down('md')]: {
+        gap: theme.spacing(2),
+      },
     },
     noAccountText: {
       display: 'flex',
@@ -111,6 +116,14 @@ const useStyles = makeStyles((theme: Theme) =>
     socialMedia: {
       fontSize: '3rem',
       color: theme.palette.background.default,
+    },
+    actionContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      [theme.breakpoints.down('md')]: {
+        maxWidth: theme.spacing(35),
+      },
     },
   }),
 );

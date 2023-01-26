@@ -4,6 +4,8 @@ export const ROUTES = {
   about: '/about',
   explore: '/explore',
   login: '/login',
+  signup: '/signup',
+  auth: '/auth',
 };
 
 export enum LanguageKeysEnum {

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { FC, useEffect } from 'react';
+import { Dispatch, FC, SetStateAction, useEffect } from 'react';
 import {
   Container,
   Grid,
@@ -21,27 +21,38 @@ import theme from 'style/theme';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
-import useStyles from './styles';
-import { useLoginUser } from './hooks';
+import useStyles from '../styles';
+import { AuthModeType, AuthMode } from '../constants';
 
 type DataProps = {
   username: string;
   password: string;
 };
 
-const Login: FC = () => {
+interface LoginFormProps {
+  setMode: Dispatch<SetStateAction<AuthModeType>>;
+  isSuccess: boolean;
+  isLoading: boolean;
+  login: (data: DataProps) => void;
+}
+
+const LoginForm: FC<LoginFormProps> = ({
+  setMode,
+  isSuccess,
+  isLoading,
+  login,
+}) => {
   const { handleSubmit, control } = useForm<DataProps>();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const classes = useStyles();
-
-  const { mutate: login, isLoading, isSuccess } = useLoginUser();
 
   useEffect(() => {
     if (isSuccess) {
       navigate(ROUTES.dashboard);
     }
   });
+
   const onSubmit: SubmitHandler<DataProps> = (data) => {
     login(data);
   };
@@ -140,6 +151,7 @@ const Login: FC = () => {
               {t(keys.common.login.noAccountText)}
             </Typography>
             <Button
+              onClick={() => setMode(AuthMode.signup)}
               variant="text"
               label={
                 <Typography variant="accent" className={classes.label}>
@@ -157,4 +169,4 @@ const Login: FC = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
