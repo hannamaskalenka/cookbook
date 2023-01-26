@@ -6,7 +6,7 @@ import { StyledEngineProvider } from '@mui/material';
 import Layout from 'shared/components/Layout';
 import { ROUTES } from 'shared/constants';
 import ProtectedRoute from 'shared/components/ProtectedRoute';
-import ChangePasswordContainer from 'pages/ChangePassword';
+import ChangePassword from 'pages/ChangePassword';
 import Home from './pages/HomePage/Home';
 import Login from './pages/LoginPage/Login';
 import Dashboard from './pages/Dashboard';
@@ -25,7 +25,7 @@ const App = () => {
                   <Route path={ROUTES.login} element={<Login />} />
                   <Route
                     path={ROUTES.forgotPasswordRequest}
-                    element={<ChangePasswordContainer />}
+                    element={<ChangePassword />}
                   />
                   <Route element={<ProtectedRoute />}>
                     <Route path={ROUTES.dashboard} element={<Dashboard />} />

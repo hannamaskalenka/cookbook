@@ -93,7 +93,7 @@ const Login: FC = () => {
                 classnames={{ button: classes.linkButton }}
                 label={
                   <Typography variant="accent" className={classes.label}>
-                    {t(keys.common.login.forgotPasswordLink)}
+                    {t(keys.auth.forgotPassword.link)}
                   </Typography>
                 }
               />
@@ -124,13 +124,13 @@ const Login: FC = () => {
               onClick={handleSubmit(onSubmit)}
               label={
                 <Typography variant="contrast">
-                  {t(keys.common.login.signinButton)}
+                  {t(keys.common.login.signInButton)}
                 </Typography>
               }
             />
           )}
           <Typography variant="accent" className={classes.paragraph}>
-            {t(keys.common.login.socialmediaText)}
+            {t(keys.common.login.socialMediaText)}
           </Typography>
           <Container className={classes.iconContainer}>
             <Container className={classes.icon}>
@@ -156,7 +156,7 @@ const Login: FC = () => {
               variant="text"
               label={
                 <Typography variant="accent" className={classes.label}>
-                  {t(keys.common.login.signupButton)}
+                  {t(keys.common.login.signUpButton)}
                 </Typography>
               }
             />

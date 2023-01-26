@@ -29,9 +29,8 @@ export default {
   [keys.common.login.usernameValue]: 'Enter your username',
   [keys.common.login.passwordLabel]: 'Password:',
   [keys.common.login.passwordValue]: 'Enter your password',
-  [keys.common.login.signinButton]: 'Sign in',
-  [keys.common.login.socialmediaText]: 'or sign up with',
+  [keys.common.login.signInButton]: 'Sign in',
+  [keys.common.login.socialMediaText]: 'or sign up with',
   [keys.common.login.noAccountText]: "Don't you have an account?",
-  [keys.common.login.signupButton]: 'Sign up',
-  [keys.common.login.forgotPasswordLink]: 'Forgot Password?',
+  [keys.common.login.signUpButton]: 'Sign up',
 };

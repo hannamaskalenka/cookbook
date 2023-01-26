@@ -34,10 +34,10 @@ export default {
     usernameValue: 'common.login.usernameValue',
     passwordLabel: 'common.login.passwordLabel',
     passwordValue: 'common.login.passwordValue',
-    signinButton: 'common.login.signinButton',
-    socialmediaText: 'common.login.iconsParagraph',
+    signInButton: 'common.login.signInButton',
+    socialMediaText: 'common.login.socialMediaText',
     noAccountText: 'common.login.noAccountText',
-    signupButton: 'common.login.signupButton',
+    signUpButton: 'common.login.signupButton',
     forgotPasswordLink: 'common.login.forgotPasswordLink',
   },
 };

@@ -12,6 +12,8 @@ import Button from 'shared/components/Button';
 import { Facebook, Google, Instagram } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
+import keys from 'locales/keys';
+import { useTranslation } from 'react-i18next';
 import useStyles from '../styles';
 
 interface ChangePasswordRequestScreenProps {
@@ -23,8 +25,10 @@ interface ChangePasswordRequestScreenProps {
 const ChangePasswordRequestScreen: React.FC<
   ChangePasswordRequestScreenProps
 > = ({ control, isRequestLoading, sendChangePasswordRequest }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const classes = useStyles();
+
   return (
     <Grid container item className={classes.root}>
       <Grid
@@ -36,10 +40,10 @@ const ChangePasswordRequestScreen: React.FC<
         className={classes.formContainer}
       >
         <Typography variant="headline" className={classes.title}>
-          Forgot password?
+          {t(keys.auth.forgotPassword.title)}
         </Typography>
         <Typography variant="accent" className={classes.subtitle}>
-          Please enter your email
+          {t(keys.auth.forgotPassword.subtitle)}
         </Typography>
         <Controller
           name="email"
@@ -51,7 +55,7 @@ const ChangePasswordRequestScreen: React.FC<
               variant="filled"
               className={classes.emailInput}
               type="email"
-              placeholder="Email"
+              placeholder={t(keys.auth.forgotPassword.fieldPlaceholder) || ''}
               value={value}
               onChange={onChange}
             />
@@ -66,7 +70,9 @@ const ChangePasswordRequestScreen: React.FC<
             classnames={{ button: classes.button }}
             onClick={sendChangePasswordRequest}
             label={
-              <Typography variant="contrast">Reset your password</Typography>
+              <Typography variant="contrast">
+                {t(keys.auth.forgotPassword.buttonText)}
+              </Typography>
             }
           />
         )}
@@ -79,7 +85,7 @@ const ChangePasswordRequestScreen: React.FC<
           alignItems="center"
         >
           <Typography variant="regular" className={classes.paragraph}>
-            or
+            {t(keys.auth.noAccount.orSeparator)}
           </Typography>
           <Grid container item className={classes.iconContainer}>
             <Grid container item className={classes.icon}>
@@ -94,7 +100,7 @@ const ChangePasswordRequestScreen: React.FC<
           </Grid>
           <Container className={classes.noAccountText}>
             <Typography variant="accent" className={classes.paragraph}>
-              Do you want to come back?
+              {t(keys.auth.noAccount.wantComeBackText)}
             </Typography>
             <Button
               classnames={{ button: classes.linkButton }}
@@ -102,7 +108,7 @@ const ChangePasswordRequestScreen: React.FC<
               onClick={() => navigate(ROUTES.login)}
               label={
                 <Typography variant="accent" className={classes.label}>
-                  Log in
+                  {t(keys.auth.noAccount.loginButtonText)}
                 </Typography>
               }
             />
