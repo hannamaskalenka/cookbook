@@ -7,8 +7,16 @@ import { useLoginUser, useSignup } from '../hooks';
 
 const AuthPageContainer = () => {
   const { state } = useLocation();
-  const { mutate: login, isLoading, isSuccess } = useLoginUser();
-  const { mutate: signup } = useSignup();
+  const {
+    mutate: login,
+    isLoading: isLoginLoading,
+    isSuccess: isLoginSuccess,
+  } = useLoginUser();
+  const {
+    mutate: signup,
+    isLoading: isSignupLoading,
+    isSuccess: isSignupSuccess,
+  } = useSignup();
   const [mode, setMode] = useState<AuthModeType>(AuthMode.login);
 
   useEffect(() => {
@@ -17,17 +25,10 @@ const AuthPageContainer = () => {
     }
   }, [state]);
 
-  const showUI = () => {
-    switch (mode) {
-      case AuthMode.login:
-        return <LoginForm {...{ setMode, isSuccess, isLoading, login }} />;
-      case AuthMode.signup:
-        return <SignupForm {...{ signup }} />;
-      default:
-        return <LoginForm {...{ setMode, isSuccess, isLoading, login }} />;
-    }
-  };
-  return <>{showUI()}</>;
+  if (mode === AuthMode.signup) {
+    return <SignupForm {...{ signup, isSignupLoading, isSignupSuccess }} />;
+  }
+  return <LoginForm {...{ setMode, isLoginSuccess, isLoginLoading, login }} />;
 };
 
 export default AuthPageContainer;

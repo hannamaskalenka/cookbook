@@ -10,24 +10,14 @@ import { useTranslation } from 'react-i18next';
 import keys from 'locales/keys';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import useStyles from '../styles';
-
-type DataProps = {
-  username: string;
-  password: string;
-  email: string;
-  retypedPassword: string;
-};
-
-interface SignupFormProps {
-  signup: (data: DataProps) => void;
-}
+import { SignupDataProps, SignupFormProps } from '../interfaces';
 
 const Signup: FC<SignupFormProps> = ({ signup }) => {
-  const { handleSubmit, control } = useForm<DataProps>();
+  const { handleSubmit, control } = useForm<SignupDataProps>();
   const { t } = useTranslation();
   const classes = useStyles();
 
-  const onSubmit: SubmitHandler<DataProps> = (data) => {
+  const onSubmit: SubmitHandler<SignupDataProps> = (data) => {
     signup(data);
     // TODO: Success message on submit
   };
@@ -49,49 +39,47 @@ const Signup: FC<SignupFormProps> = ({ signup }) => {
             xs={12}
             md={6}
           >
-            <Stack className={classes.content}>
-              <Stack>
-                <Typography variant="regular" className={classes.label}>
-                  {t(keys.common.signup.usernameLabel)}
-                </Typography>
-                <Controller
-                  name="username"
-                  control={control}
-                  defaultValue=""
-                  render={({ field: { onChange, value } }: any) => (
-                    <TextField
-                      InputProps={{ disableUnderline: true }}
-                      variant="filled"
-                      type="text"
-                      placeholder={t(keys.common.signup.usernameValue) || ''}
-                      value={value}
-                      className={classes.input}
-                      onChange={onChange}
-                    />
-                  )}
-                />
-              </Stack>
-              <Stack className={classes.inputContainer}>
-                <Typography variant="regular" className={classes.label}>
-                  {t(keys.common.signup.passwordLabel)}
-                </Typography>
-                <Controller
-                  name="password"
-                  control={control}
-                  defaultValue=""
-                  render={({ field: { onChange, value } }: any) => (
-                    <TextField
-                      InputProps={{ disableUnderline: true }}
-                      variant="filled"
-                      type="password"
-                      placeholder={t(keys.common.signup.passwordValue) || ''}
-                      value={value}
-                      className={classes.input}
-                      onChange={onChange}
-                    />
-                  )}
-                />
-              </Stack>
+            <Stack>
+              <Typography variant="regular" className={classes.label}>
+                {t(keys.common.signup.usernameLabel)}
+              </Typography>
+              <Controller
+                name="username"
+                control={control}
+                defaultValue=""
+                render={({ field: { onChange, value } }: any) => (
+                  <TextField
+                    InputProps={{ disableUnderline: true }}
+                    variant="filled"
+                    type="text"
+                    placeholder={t(keys.common.signup.usernameValue) || ''}
+                    value={value}
+                    className={classes.input}
+                    onChange={onChange}
+                  />
+                )}
+              />
+            </Stack>
+            <Stack className={classes.inputContainer}>
+              <Typography variant="regular" className={classes.label}>
+                {t(keys.common.signup.passwordLabel)}
+              </Typography>
+              <Controller
+                name="password"
+                control={control}
+                defaultValue=""
+                render={({ field: { onChange, value } }: any) => (
+                  <TextField
+                    InputProps={{ disableUnderline: true }}
+                    variant="filled"
+                    type="password"
+                    placeholder={t(keys.common.signup.passwordValue) || ''}
+                    value={value}
+                    className={classes.input}
+                    onChange={onChange}
+                  />
+                )}
+              />
             </Stack>
           </Grid>
           <Grid
@@ -102,51 +90,49 @@ const Signup: FC<SignupFormProps> = ({ signup }) => {
             xs={12}
             md={6}
           >
-            <Stack className={classes.content}>
-              <Stack>
-                <Typography variant="regular" className={classes.label}>
-                  {t(keys.common.signup.emailLabel)}
-                </Typography>
-                <Controller
-                  name="email"
-                  control={control}
-                  defaultValue=""
-                  render={({ field: { onChange, value } }: any) => (
-                    <TextField
-                      InputProps={{ disableUnderline: true }}
-                      variant="filled"
-                      type="email"
-                      placeholder={t(keys.common.signup.emailValue) || ''}
-                      value={value}
-                      className={classes.input}
-                      onChange={onChange}
-                    />
-                  )}
-                />
-              </Stack>
-              <Stack className={classes.inputContainer}>
-                <Typography variant="regular" className={classes.label}>
-                  {t(keys.common.signup.retypePasswordLabel)}
-                </Typography>
-                <Controller
-                  name="retypedPassword"
-                  control={control}
-                  defaultValue=""
-                  render={({ field: { onChange, value } }: any) => (
-                    <TextField
-                      InputProps={{ disableUnderline: true }}
-                      variant="filled"
-                      type="password"
-                      placeholder={
-                        t(keys.common.signup.retypePasswordValue) || ''
-                      }
-                      value={value}
-                      className={classes.input}
-                      onChange={onChange}
-                    />
-                  )}
-                />
-              </Stack>
+            <Stack>
+              <Typography variant="regular" className={classes.label}>
+                {t(keys.common.signup.emailLabel)}
+              </Typography>
+              <Controller
+                name="email"
+                control={control}
+                defaultValue=""
+                render={({ field: { onChange, value } }: any) => (
+                  <TextField
+                    InputProps={{ disableUnderline: true }}
+                    variant="filled"
+                    type="email"
+                    placeholder={t(keys.common.signup.emailValue) || ''}
+                    value={value}
+                    className={classes.input}
+                    onChange={onChange}
+                  />
+                )}
+              />
+            </Stack>
+            <Stack className={classes.inputContainer}>
+              <Typography variant="regular" className={classes.label}>
+                {t(keys.common.signup.retypePasswordLabel)}
+              </Typography>
+              <Controller
+                name="retypedPassword"
+                control={control}
+                defaultValue=""
+                render={({ field: { onChange, value } }: any) => (
+                  <TextField
+                    InputProps={{ disableUnderline: true }}
+                    variant="filled"
+                    type="password"
+                    placeholder={
+                      t(keys.common.signup.retypePasswordValue) || ''
+                    }
+                    value={value}
+                    className={classes.input}
+                    onChange={onChange}
+                  />
+                )}
+              />
             </Stack>
           </Grid>
         </Grid>

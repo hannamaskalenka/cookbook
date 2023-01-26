@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
     gridItem: {
       justifyContent: 'center',
       alignItems: 'center',
+      marginBlock: theme.spacing(3),
       [theme.breakpoints.down('lg')]: {
         maxWidth: '100%',
       },

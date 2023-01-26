@@ -3,8 +3,6 @@ export const ROUTES = {
   dashboard: '/dashboard',
   about: '/about',
   explore: '/explore',
-  login: '/login',
-  signup: '/signup',
   auth: '/auth',
 };
 

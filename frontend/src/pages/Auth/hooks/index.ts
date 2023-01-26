@@ -22,6 +22,7 @@ export const useLoginUser = () => {
 
 export const useSignup = () => {
   const api = useApi();
+  const { setAuth } = useAuthContext();
   return useMutation(
     (userData: {
       username: string;
@@ -30,6 +31,13 @@ export const useSignup = () => {
       retypedPassword: string;
     }) => {
       return api.post('auth/signup', userData);
+    },
+    {
+      onSuccess: (res) =>
+        setAuth({
+          username: JSON.parse(res?.config?.data)?.username,
+          token: res?.data?.access_token,
+        }),
     },
   );
 };

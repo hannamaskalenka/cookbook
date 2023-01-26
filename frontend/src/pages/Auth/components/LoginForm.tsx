@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Dispatch, FC, SetStateAction, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import {
   Container,
   Grid,
@@ -22,38 +22,27 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import useStyles from '../styles';
-import { AuthModeType, AuthMode } from '../constants';
-
-type DataProps = {
-  username: string;
-  password: string;
-};
-
-interface LoginFormProps {
-  setMode: Dispatch<SetStateAction<AuthModeType>>;
-  isSuccess: boolean;
-  isLoading: boolean;
-  login: (data: DataProps) => void;
-}
+import { AuthMode } from '../constants';
+import { LoginDataProps, LoginFormProps } from '../interfaces';
 
 const LoginForm: FC<LoginFormProps> = ({
   setMode,
-  isSuccess,
-  isLoading,
+  isLoginSuccess,
+  isLoginLoading,
   login,
 }) => {
-  const { handleSubmit, control } = useForm<DataProps>();
+  const { handleSubmit, control } = useForm<LoginDataProps>();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const classes = useStyles();
 
   useEffect(() => {
-    if (isSuccess) {
+    if (isLoginSuccess) {
       navigate(ROUTES.dashboard);
     }
   });
 
-  const onSubmit: SubmitHandler<DataProps> = (data) => {
+  const onSubmit: SubmitHandler<LoginDataProps> = (data) => {
     login(data);
   };
 
@@ -114,7 +103,7 @@ const LoginForm: FC<LoginFormProps> = ({
               )}
             />
           </Stack>
-          {isLoading ? (
+          {isLoginLoading ? (
             <CircularProgress />
           ) : (
             <Button
