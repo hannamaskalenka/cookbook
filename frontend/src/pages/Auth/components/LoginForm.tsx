@@ -21,28 +21,28 @@ import theme from 'style/theme';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
-import useStyles from './styles';
-import { useLoginUser } from './hooks';
+import useStyles from '../styles';
+import { AuthMode } from '../constants';
+import { LoginDataProps, LoginFormProps } from '../interfaces';
 
-type DataProps = {
-  username: string;
-  password: string;
-};
-
-const Login: FC = () => {
-  const { handleSubmit, control } = useForm<DataProps>();
+const LoginForm: FC<LoginFormProps> = ({
+  setMode,
+  isLoginSuccess,
+  isLoginLoading,
+  login,
+}) => {
+  const { handleSubmit, control } = useForm<LoginDataProps>();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const classes = useStyles();
 
-  const { mutate: login, isLoading, isSuccess } = useLoginUser();
-
   useEffect(() => {
-    if (isSuccess) {
+    if (isLoginSuccess) {
       navigate(ROUTES.dashboard);
     }
   });
-  const onSubmit: SubmitHandler<DataProps> = (data) => {
+
+  const onSubmit: SubmitHandler<LoginDataProps> = (data) => {
     login(data);
   };
 
@@ -103,7 +103,7 @@ const Login: FC = () => {
               )}
             />
           </Stack>
-          {isLoading ? (
+          {isLoginLoading ? (
             <CircularProgress />
           ) : (
             <Button
@@ -140,6 +140,7 @@ const Login: FC = () => {
               {t(keys.common.login.noAccountText)}
             </Typography>
             <Button
+              onClick={() => setMode(AuthMode.signup)}
               variant="text"
               label={
                 <Typography variant="accent" className={classes.label}>
@@ -157,4 +158,4 @@ const Login: FC = () => {
   );
 };
 
-export default Login;
+export default LoginForm;

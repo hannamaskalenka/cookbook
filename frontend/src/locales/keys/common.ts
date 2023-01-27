@@ -39,4 +39,21 @@ export default {
     noAccountText: 'common.login.noAccountText',
     signupButton: 'common.login.signupButton',
   },
+
+  // Signup page
+  signup: {
+    headline: 'common.signup.headline',
+    sub: 'common.signup.sub',
+    usernameLabel: 'common.signup.usernameLabel',
+    usernameValue: 'common.signup.usernameValue',
+    passwordLabel: 'common.signup.passwordLabel',
+    passwordValue: 'common.signup.passwordValue',
+    emailLabel: 'common.signup.emailLabel',
+    emailValue: 'common.signup.emailValue',
+    retypePasswordLabel: 'common.signup.retypePasswordLabel',
+    retypePasswordValue: 'common.signup.retypePasswordValue',
+    termsAndConditions: 'common.signup.termsAndConditions',
+    signupButton: 'common.signup.signupButton',
+    socialmediaText: 'common.signup.iconsParagraph',
+  },
 };

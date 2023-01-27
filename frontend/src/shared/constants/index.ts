@@ -3,7 +3,7 @@ export const ROUTES = {
   dashboard: '/dashboard',
   about: '/about',
   explore: '/explore',
-  login: '/login',
+  auth: '/auth',
 };
 
 export enum LanguageKeysEnum {

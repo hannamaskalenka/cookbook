@@ -6,8 +6,8 @@ import { StyledEngineProvider } from '@mui/material';
 import Layout from 'shared/components/Layout';
 import { ROUTES } from 'shared/constants';
 import ProtectedRoute from 'shared/components/ProtectedRoute';
+import Auth from 'pages/Auth';
 import Home from './pages/HomePage/Home';
-import Login from './pages/LoginPage/Login';
 import Dashboard from './pages/Dashboard';
 
 const App = () => {
@@ -25,7 +25,7 @@ const App = () => {
                     <Route path={ROUTES.dashboard} element={<Dashboard />} />
                     <Route path={ROUTES.about} element={<h1>About page</h1>} />
                   </Route>
-                  <Route path={ROUTES.login} element={<Login />} />
+                  <Route path={ROUTES.auth} element={<Auth />} />
                   <Route
                     path={ROUTES.explore}
                     element={<h1>Explore recipes page</h1>}
