@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Button from 'shared/components/Button';
+import CustomInput from 'shared/components/Input';
 import { useGetRecipes, useLoginUser } from './hooks';
 import { accentButtonStyles } from './styles';
 
@@ -22,6 +23,9 @@ const Home = () => {
 
   const handleRequestButtonClick = async () => {
     login({ username, password });
+  };
+  const handleChange = () => {
+    console.log('Mock change chandle');
   };
 
   return (
@@ -76,6 +80,10 @@ const Home = () => {
           )}
         </div>
       )}
+      <p>input check</p>
+      <CustomInput placeholder="Mock placeholder" onChange={handleChange}>
+        labelka
+      </CustomInput>
     </div>
   );
 };

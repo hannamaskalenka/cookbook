@@ -1,26 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 import { FC, useEffect } from 'react';
-import {
-  Container,
-  Grid,
-  Typography,
-  TextField,
-  Stack,
-  CircularProgress,
-} from '@mui/material';
+import { Grid, Typography, Stack, CircularProgress } from '@mui/material';
 import Button from 'shared/components/Button';
 import LoginImg from 'shared/assets/images/login';
-import {
-  FacebookRounded as Facebook,
-  Google,
-  Instagram,
-} from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import keys from 'locales/keys';
-import theme from 'style/theme';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import SocialMedia from 'pages/Auth/components/SocialMedia';
+import CustomInput from 'shared/components/Input';
 import useStyles from '../styles';
 import { AuthMode } from '../constants';
 import { LoginDataProps, LoginFormProps } from '../interfaces';
@@ -45,6 +34,9 @@ const LoginForm: FC<LoginFormProps> = ({
   const onSubmit: SubmitHandler<LoginDataProps> = (data) => {
     login(data);
   };
+  const handleSignupSwitch = () => {
+    setMode(AuthMode.signup);
+  };
 
   return (
     <Grid className={classes.root} container item>
@@ -61,45 +53,40 @@ const LoginForm: FC<LoginFormProps> = ({
         </Typography>
         <Typography variant="regular">{t(keys.common.login.sub)}</Typography>
         <Stack className={classes.content}>
-          <Stack>
-            <Typography variant="regular" className={classes.label}>
-              {t(keys.common.login.usernameLabel)}
-            </Typography>
-            <Controller
-              name="username"
-              control={control}
-              defaultValue=""
-              render={({ field: { onChange, value } }: any) => (
-                <TextField
-                  InputProps={{ disableUnderline: true }}
-                  variant="filled"
-                  type="text"
-                  placeholder={t(keys.common.login.usernameValue) || ''}
-                  value={value}
-                  className={classes.input}
-                  onChange={onChange}
-                />
-              )}
-            />
-          </Stack>
+          <Controller
+            name="username"
+            control={control}
+            defaultValue=""
+            render={({ field: { onChange, value } }: any) => (
+              <CustomInput
+                variant="filled"
+                type="text"
+                placeholder={t(keys.common.login.usernameValue) || ''}
+                value={value}
+                className={classes.input}
+                onChange={onChange}
+              >
+                {t(keys.common.login.usernameLabel)}
+              </CustomInput>
+            )}
+          />
+
           <Stack className={classes.inputContainer}>
-            <Typography variant="regular" className={classes.label}>
-              {t(keys.common.login.passwordLabel)}
-            </Typography>
             <Controller
               name="password"
               control={control}
               defaultValue=""
               render={({ field: { onChange, value } }: any) => (
-                <TextField
-                  InputProps={{ disableUnderline: true }}
+                <CustomInput
                   variant="filled"
                   type="password"
                   placeholder={t(keys.common.login.passwordValue) || ''}
                   value={value}
                   className={classes.input}
                   onChange={onChange}
-                />
+                >
+                  {t(keys.common.login.passwordLabel)}
+                </CustomInput>
               )}
             />
           </Stack>
@@ -117,38 +104,7 @@ const LoginForm: FC<LoginFormProps> = ({
               }
             />
           )}
-          <Typography variant="accent" className={classes.paragraph}>
-            {t(keys.common.login.socialmediaText)}
-          </Typography>
-          <Container className={classes.iconContainer}>
-            <Container className={classes.icon}>
-              <Facebook className={classes.socialMedia} />
-            </Container>
-            <Container className={classes.icon}>
-              <Instagram className={classes.socialMedia} />
-            </Container>
-            <Container className={classes.icon}>
-              <Google className={classes.socialMedia} />
-            </Container>
-          </Container>
-          <Container className={classes.noAccountText}>
-            <Typography
-              variant="accent"
-              className={classes.paragraph}
-              sx={{ color: theme.palette.icons.inactive }}
-            >
-              {t(keys.common.login.noAccountText)}
-            </Typography>
-            <Button
-              onClick={() => setMode(AuthMode.signup)}
-              variant="text"
-              label={
-                <Typography variant="accent" className={classes.label}>
-                  {t(keys.common.login.signupButton)}
-                </Typography>
-              }
-            />
-          </Container>
+          <SocialMedia handleSignupSwitch={handleSignupSwitch} />
         </Stack>
       </Grid>
       <Grid item xs={8} md={6} className={classes.imageContainer}>

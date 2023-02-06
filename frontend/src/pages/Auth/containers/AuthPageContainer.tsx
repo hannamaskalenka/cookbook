@@ -26,7 +26,11 @@ const AuthPageContainer = () => {
   }, [state]);
 
   if (mode === AuthMode.signup) {
-    return <SignupForm {...{ signup, isSignupLoading, isSignupSuccess }} />;
+    return (
+      <SignupForm
+        {...{ setMode, signup, isSignupLoading, isSignupSuccess, mode }}
+      />
+    );
   }
   return <LoginForm {...{ setMode, isLoginSuccess, isLoginLoading, login }} />;
 };

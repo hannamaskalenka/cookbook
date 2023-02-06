@@ -48,4 +48,6 @@ export default {
   [keys.common.signup.termsAndConditions]: 'I accept the Terms and Conditions',
   [keys.common.signup.signupButton]: 'Sign up',
   [keys.common.signup.socialmediaText]: 'or sign up with',
+  [keys.common.signup.noAccountText]: 'Do you have an account?',
+  [keys.common.signup.loginButton]: 'Log in',
 };

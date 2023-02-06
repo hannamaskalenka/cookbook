@@ -55,5 +55,7 @@ export default {
     termsAndConditions: 'common.signup.termsAndConditions',
     signupButton: 'common.signup.signupButton',
     socialmediaText: 'common.signup.iconsParagraph',
+    noAccountText: 'common.signup.noAccountText',
+    loginButton: 'common.signup.loginButton',
   },
 };
