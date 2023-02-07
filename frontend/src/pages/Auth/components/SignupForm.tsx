@@ -1,25 +1,26 @@
 import { FC } from 'react';
-import { Grid, Typography, Stack, Container, TextField } from '@mui/material';
+import { Grid, Typography, Stack, Container } from '@mui/material';
 import Button from 'shared/components/Button';
-import {
-  FacebookRounded as Facebook,
-  Google,
-  Instagram,
-} from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import keys from 'locales/keys';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import SocialMedia from 'shared/components/SocialMedia';
+import CustomInput from 'shared/components/Input';
 import useStyles from '../styles';
+import { AuthMode } from '../constants';
 import { SignupDataProps, SignupFormProps } from '../interfaces';
 
-const Signup: FC<SignupFormProps> = ({ signup }) => {
+const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
   const { handleSubmit, control } = useForm<SignupDataProps>();
   const { t } = useTranslation();
   const classes = useStyles();
-
   const onSubmit: SubmitHandler<SignupDataProps> = (data) => {
     signup(data);
     // TODO: Success message on submit
+  };
+
+  const handleLoginSwitch = () => {
+    setMode(AuthMode.login);
   };
 
   return (
@@ -39,45 +40,38 @@ const Signup: FC<SignupFormProps> = ({ signup }) => {
             xs={12}
             md={6}
           >
-            <Stack>
-              <Typography variant="regular" className={classes.label}>
-                {t(keys.common.signup.usernameLabel)}
-              </Typography>
-              <Controller
-                name="username"
-                control={control}
-                defaultValue=""
-                render={({ field: { onChange, value } }: any) => (
-                  <TextField
-                    InputProps={{ disableUnderline: true }}
-                    variant="filled"
-                    type="text"
-                    placeholder={t(keys.common.signup.usernameValue) || ''}
-                    value={value}
-                    className={classes.input}
-                    onChange={onChange}
-                  />
-                )}
-              />
-            </Stack>
+            <Controller
+              name="username"
+              control={control}
+              defaultValue=""
+              render={({ field: { onChange, value } }: any) => (
+                <CustomInput
+                  type="text"
+                  placeholder={t(keys.common.signup.usernameValue) || ''}
+                  value={value}
+                  className={{ input: classes.input }}
+                  onChange={onChange}
+                >
+                  {t(keys.common.signup.usernameLabel)}
+                </CustomInput>
+              )}
+            />
+
             <Stack className={classes.inputContainer}>
-              <Typography variant="regular" className={classes.label}>
-                {t(keys.common.signup.passwordLabel)}
-              </Typography>
               <Controller
                 name="password"
                 control={control}
                 defaultValue=""
                 render={({ field: { onChange, value } }: any) => (
-                  <TextField
-                    InputProps={{ disableUnderline: true }}
-                    variant="filled"
+                  <CustomInput
                     type="password"
                     placeholder={t(keys.common.signup.passwordValue) || ''}
                     value={value}
-                    className={classes.input}
+                    className={{ input: classes.input }}
                     onChange={onChange}
-                  />
+                  >
+                    {t(keys.common.signup.passwordLabel)}
+                  </CustomInput>
                 )}
               />
             </Stack>
@@ -90,47 +84,39 @@ const Signup: FC<SignupFormProps> = ({ signup }) => {
             xs={12}
             md={6}
           >
-            <Stack>
-              <Typography variant="regular" className={classes.label}>
-                {t(keys.common.signup.emailLabel)}
-              </Typography>
-              <Controller
-                name="email"
-                control={control}
-                defaultValue=""
-                render={({ field: { onChange, value } }: any) => (
-                  <TextField
-                    InputProps={{ disableUnderline: true }}
-                    variant="filled"
-                    type="email"
-                    placeholder={t(keys.common.signup.emailValue) || ''}
-                    value={value}
-                    className={classes.input}
-                    onChange={onChange}
-                  />
-                )}
-              />
-            </Stack>
+            <Controller
+              name="email"
+              control={control}
+              defaultValue=""
+              render={({ field: { onChange, value } }: any) => (
+                <CustomInput
+                  type="email"
+                  placeholder={t(keys.common.signup.emailValue) || ''}
+                  value={value}
+                  className={{ input: classes.input }}
+                  onChange={onChange}
+                >
+                  {t(keys.common.signup.emailLabel)}
+                </CustomInput>
+              )}
+            />
             <Stack className={classes.inputContainer}>
-              <Typography variant="regular" className={classes.label}>
-                {t(keys.common.signup.retypePasswordLabel)}
-              </Typography>
               <Controller
                 name="retypedPassword"
                 control={control}
                 defaultValue=""
                 render={({ field: { onChange, value } }: any) => (
-                  <TextField
-                    InputProps={{ disableUnderline: true }}
-                    variant="filled"
+                  <CustomInput
                     type="password"
                     placeholder={
                       t(keys.common.signup.retypePasswordValue) || ''
                     }
                     value={value}
-                    className={classes.input}
+                    className={{ input: classes.input }}
                     onChange={onChange}
-                  />
+                  >
+                    {t(keys.common.signup.retypePasswordLabel)}
+                  </CustomInput>
                 )}
               />
             </Stack>
@@ -147,20 +133,7 @@ const Signup: FC<SignupFormProps> = ({ signup }) => {
               </Typography>
             }
           />
-          <Typography variant="accent" className={classes.paragraph}>
-            {t(keys.common.login.socialmediaText)}
-          </Typography>
-          <Container className={classes.iconContainer}>
-            <Container className={classes.icon}>
-              <Facebook className={classes.socialMedia} />
-            </Container>
-            <Container className={classes.icon}>
-              <Instagram className={classes.socialMedia} />
-            </Container>
-            <Container className={classes.icon}>
-              <Google className={classes.socialMedia} />
-            </Container>
-          </Container>
+          <SocialMedia handleLoginSwitch={handleLoginSwitch} mode={mode} />
         </Stack>
       </Stack>
     </Container>

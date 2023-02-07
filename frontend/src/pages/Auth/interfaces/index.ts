@@ -20,5 +20,7 @@ export type SignupDataProps = {
 };
 
 export interface SignupFormProps {
+  setMode: Dispatch<SetStateAction<AuthModeType>>;
   signup: (data: SignupDataProps) => void;
+  mode: AuthModeType;
 }

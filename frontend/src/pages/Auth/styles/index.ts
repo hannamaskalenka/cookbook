@@ -103,21 +103,6 @@ const useStyles = makeStyles((theme: Theme) =>
       marginInlineStart: theme.spacing(3),
       width: '100%',
     },
-    icon: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      [theme.breakpoints.down('md')]: {
-        borderRadius: theme.spacing(2),
-        backgroundColor: theme.palette.background.paper,
-        width: theme.spacing(8),
-        height: theme.spacing(8),
-      },
-    },
-    socialMedia: {
-      fontSize: '3rem',
-      color: theme.palette.background.default,
-    },
     actionContainer: {
       justifyContent: 'center',
       alignItems: 'center',
