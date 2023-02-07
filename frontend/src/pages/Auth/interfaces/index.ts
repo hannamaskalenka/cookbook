@@ -19,14 +19,8 @@ export type SignupDataProps = {
   retypedPassword: string;
 };
 
-export interface SocialMediaProps {
-  mode?: string;
-  handleLoginSwitch?: () => void;
-  handleSignupSwitch?: () => void;
-}
-
 export interface SignupFormProps {
   setMode: Dispatch<SetStateAction<AuthModeType>>;
   signup: (data: SignupDataProps) => void;
-  mode: string;
+  mode: AuthModeType;
 }

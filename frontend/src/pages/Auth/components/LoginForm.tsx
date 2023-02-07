@@ -8,7 +8,7 @@ import keys from 'locales/keys';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
-import SocialMedia from 'pages/Auth/components/SocialMedia';
+import SocialMedia from 'shared/components/SocialMedia';
 import CustomInput from 'shared/components/Input';
 import useStyles from '../styles';
 import { AuthMode } from '../constants';
@@ -59,11 +59,10 @@ const LoginForm: FC<LoginFormProps> = ({
             defaultValue=""
             render={({ field: { onChange, value } }: any) => (
               <CustomInput
-                variant="filled"
                 type="text"
                 placeholder={t(keys.common.login.usernameValue) || ''}
                 value={value}
-                className={classes.input}
+                className={{ input: classes.input }}
                 onChange={onChange}
               >
                 {t(keys.common.login.usernameLabel)}
@@ -78,11 +77,10 @@ const LoginForm: FC<LoginFormProps> = ({
               defaultValue=""
               render={({ field: { onChange, value } }: any) => (
                 <CustomInput
-                  variant="filled"
                   type="password"
                   placeholder={t(keys.common.login.passwordValue) || ''}
                   value={value}
-                  className={classes.input}
+                  className={{ input: classes.input }}
                   onChange={onChange}
                 >
                   {t(keys.common.login.passwordLabel)}

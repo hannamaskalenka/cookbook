@@ -4,7 +4,7 @@ import Button from 'shared/components/Button';
 import { useTranslation } from 'react-i18next';
 import keys from 'locales/keys';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
-import SocialMedia from 'pages/Auth/components/SocialMedia';
+import SocialMedia from 'shared/components/SocialMedia';
 import CustomInput from 'shared/components/Input';
 import useStyles from '../styles';
 import { AuthMode } from '../constants';
@@ -46,11 +46,10 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
               defaultValue=""
               render={({ field: { onChange, value } }: any) => (
                 <CustomInput
-                  variant="filled"
                   type="text"
                   placeholder={t(keys.common.signup.usernameValue) || ''}
                   value={value}
-                  className={classes.input}
+                  className={{ input: classes.input }}
                   onChange={onChange}
                 >
                   {t(keys.common.signup.usernameLabel)}
@@ -65,11 +64,10 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
                 defaultValue=""
                 render={({ field: { onChange, value } }: any) => (
                   <CustomInput
-                    variant="filled"
                     type="password"
                     placeholder={t(keys.common.signup.passwordValue) || ''}
                     value={value}
-                    className={classes.input}
+                    className={{ input: classes.input }}
                     onChange={onChange}
                   >
                     {t(keys.common.signup.passwordLabel)}
@@ -92,11 +90,10 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
               defaultValue=""
               render={({ field: { onChange, value } }: any) => (
                 <CustomInput
-                  variant="filled"
                   type="email"
                   placeholder={t(keys.common.signup.emailValue) || ''}
                   value={value}
-                  className={classes.input}
+                  className={{ input: classes.input }}
                   onChange={onChange}
                 >
                   {t(keys.common.signup.emailLabel)}
@@ -110,13 +107,12 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
                 defaultValue=""
                 render={({ field: { onChange, value } }: any) => (
                   <CustomInput
-                    variant="filled"
                     type="password"
                     placeholder={
                       t(keys.common.signup.retypePasswordValue) || ''
                     }
                     value={value}
-                    className={classes.input}
+                    className={{ input: classes.input }}
                     onChange={onChange}
                   >
                     {t(keys.common.signup.retypePasswordLabel)}

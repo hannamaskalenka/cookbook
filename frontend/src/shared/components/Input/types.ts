@@ -1,8 +1,10 @@
 export interface IInputProps {
   onChange?: () => void;
-  className?: {};
+  className?: {
+    label?: string;
+    input?: string;
+  };
   value?: string;
-  variant?: 'filled';
   placeholder?: string;
   type?: string;
   children: React.ReactNode;

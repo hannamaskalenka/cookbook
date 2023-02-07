@@ -3,22 +3,18 @@ import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      padding: theme.spacing(1.5),
+    input: {
+      padding: theme.spacing(0),
       width: theme.spacing(50),
-      borderRadius: theme.spacing(160),
+      borderRadius: theme.spacing(70),
       backgroundColor: theme.palette.secondary.light,
       border: `${theme.spacing(0.1)} solid ${theme.palette.background.default}`,
       [theme.breakpoints.down('md')]: {
         width: theme.spacing(43),
       },
       '& .MuiFilledInput-root': {
-        border: `${theme.spacing(0.1)} solid ${
-          theme.palette.background.default
-        }`,
         borderRadius: theme.spacing(6),
-        paddingInline: theme.spacing(3),
-        paddingBlock: theme.spacing(0.4),
+        padding: theme.spacing(0),
         '& .MuiInputBase-input': {
           padding: theme.spacing(2, 1.5, 1.5),
         },

@@ -12,8 +12,8 @@ const CustomInput: React.FC<IInputProps> = ({
   children,
 }) => {
   const classes = useStyles();
-  const labelClassName = classNames(classes.label, className);
-  const inputClassName = classNames(classes.root, className);
+  const labelClassName = classNames(classes.label, className?.label);
+  const inputClassName = classNames(classes.input, className?.input);
 
   return (
     <Stack>
@@ -24,7 +24,7 @@ const CustomInput: React.FC<IInputProps> = ({
         InputProps={{
           disableUnderline: true,
         }}
-        variant="standard"
+        variant="filled"
         type={type}
         placeholder={placeholder}
         value={value}
