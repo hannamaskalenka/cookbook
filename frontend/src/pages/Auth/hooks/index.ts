@@ -20,6 +20,28 @@ export const useLoginUser = () => {
   );
 };
 
+export const useSignup = () => {
+  const api = useApi();
+  const { setAuth } = useAuthContext();
+  return useMutation(
+    (userData: {
+      username: string;
+      email: string;
+      password: string;
+      retypedPassword: string;
+    }) => {
+      return api.post('auth/signup', userData);
+    },
+    {
+      onSuccess: (res) =>
+        setAuth({
+          username: JSON.parse(res?.config?.data)?.username,
+          token: res?.data?.access_token,
+        }),
+    },
+  );
+};
+
 export const useGetRecipes = () => {
   const { auth: token } = useAuthContext();
   const api = useApi();

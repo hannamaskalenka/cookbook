@@ -40,4 +40,23 @@ export default {
     signUpButton: 'common.login.signupButton',
     forgotPasswordLink: 'common.login.forgotPasswordLink',
   },
+
+  // Signup page
+  signup: {
+    headline: 'common.signup.headline',
+    sub: 'common.signup.sub',
+    usernameLabel: 'common.signup.usernameLabel',
+    usernameValue: 'common.signup.usernameValue',
+    passwordLabel: 'common.signup.passwordLabel',
+    passwordValue: 'common.signup.passwordValue',
+    emailLabel: 'common.signup.emailLabel',
+    emailValue: 'common.signup.emailValue',
+    retypePasswordLabel: 'common.signup.retypePasswordLabel',
+    retypePasswordValue: 'common.signup.retypePasswordValue',
+    termsAndConditions: 'common.signup.termsAndConditions',
+    signupButton: 'common.signup.signupButton',
+    socialmediaText: 'common.signup.iconsParagraph',
+    noAccountText: 'common.signup.noAccountText',
+    loginButton: 'common.signup.loginButton',
+  },
 };

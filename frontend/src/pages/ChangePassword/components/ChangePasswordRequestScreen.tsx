@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
 import keys from 'locales/keys';
 import { useTranslation } from 'react-i18next';
+import { AuthMode } from 'pages/Auth/constants';
 import useStyles from '../styles';
 
 interface ChangePasswordRequestScreenProps {
@@ -105,7 +106,7 @@ const ChangePasswordRequestScreen: React.FC<
             <Button
               classnames={{ button: classes.linkButton }}
               variant="text"
-              onClick={() => navigate(ROUTES.login)}
+              onClick={() => navigate(ROUTES.auth, { state: AuthMode.login })}
               label={
                 <Typography variant="accent" className={classes.label}>
                   {t(keys.auth.noAccount.loginButtonText)}

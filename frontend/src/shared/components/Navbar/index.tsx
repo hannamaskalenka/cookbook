@@ -15,12 +15,13 @@ import {
   ListItemButton,
   Toolbar,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import keys from 'locales/keys';
 import useAuthContext from 'shared/contexts/AuthContext';
 import { ROUTES } from 'shared/constants';
+import { AuthMode } from 'pages/Auth/constants';
 import { PAGES, SETTINGS } from './constants';
 import { sxStyles, useStyles } from './styles';
 import Button from '../Button';
@@ -32,6 +33,7 @@ interface INavigationProps {
 
 const Navigation: React.FC<INavigationProps> = ({ window }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { auth, isAuthenticated, handleLogOut } = useAuthContext();
   const classes = useStyles();
   const [isDrawerOpened, setIsDrawerOpened] = React.useState(false);
@@ -51,6 +53,10 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
 
   const handleDrawerToggle = () => {
     setIsDrawerOpened((prevState) => !prevState);
+  };
+
+  const handleLoginClick = () => {
+    navigate(ROUTES.auth, { state: AuthMode.login });
   };
 
   const drawer = (
@@ -179,10 +185,11 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
         ) : (
           <Box>
             <Button
+              onClick={handleLoginClick}
               variant="contained"
               classnames={{ button: classes.loginButton }}
               color="primary"
-              label={<Link to={ROUTES.login}>{t(keys.common.auth.logIn)}</Link>}
+              label={t(keys.common.auth.logIn)}
             />
           </Box>
         )}

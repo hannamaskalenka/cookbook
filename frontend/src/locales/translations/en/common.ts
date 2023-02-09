@@ -33,4 +33,21 @@ export default {
   [keys.common.login.socialMediaText]: 'or sign up with',
   [keys.common.login.noAccountText]: "Don't you have an account?",
   [keys.common.login.signUpButton]: 'Sign up',
+
+  // Signup page
+  [keys.common.signup.headline]: 'Create an account',
+  [keys.common.signup.sub]: 'Please enter your details',
+  [keys.common.signup.usernameLabel]: 'Username:',
+  [keys.common.signup.usernameValue]: 'Enter your username',
+  [keys.common.signup.passwordLabel]: 'Password:',
+  [keys.common.signup.passwordValue]: 'Enter your password',
+  [keys.common.signup.emailLabel]: 'Email:',
+  [keys.common.signup.emailValue]: 'Enter your email',
+  [keys.common.signup.retypePasswordLabel]: 'Retype password:',
+  [keys.common.signup.retypePasswordValue]: 'Enter your password',
+  [keys.common.signup.termsAndConditions]: 'I accept the Terms and Conditions',
+  [keys.common.signup.signupButton]: 'Sign up',
+  [keys.common.signup.socialmediaText]: 'or sign up with',
+  [keys.common.signup.noAccountText]: 'Do you have an account?',
+  [keys.common.signup.loginButton]: 'Log in',
 };

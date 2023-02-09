@@ -3,8 +3,8 @@ export const ROUTES = {
   dashboard: '/dashboard',
   about: '/about',
   explore: '/explore',
-  login: '/login',
   forgotPasswordRequest: '/forgot-password',
+  auth: '/auth',
 };
 
 export enum LanguageKeysEnum {
