@@ -4,26 +4,19 @@ import { createStyles, makeStyles } from '@mui/styles';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     input: {
-      padding: theme.spacing(0),
       width: theme.spacing(50),
       borderRadius: theme.spacing(70),
       backgroundColor: theme.palette.secondary.light,
       border: `${theme.spacing(0.1)} solid ${theme.palette.background.default}`,
-      [theme.breakpoints.down('md')]: {
-        width: theme.spacing(43),
-      },
       '& .MuiFilledInput-root': {
         borderRadius: theme.spacing(6),
         padding: theme.spacing(0),
-        '& .MuiInputBase-input': {
-          padding: theme.spacing(2, 1.5, 1.5),
-        },
       },
       '& .MuiFilledInput-root:hover': {
         backgroundColor: theme.palette.secondary.light,
       },
-      [theme.breakpoints.down('md')]: {
-        width: theme.spacing(43),
+      [theme.breakpoints.down('xl')]: {
+        width: theme.spacing(40),
       },
     },
     label: {

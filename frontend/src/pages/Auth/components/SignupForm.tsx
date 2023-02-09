@@ -1,11 +1,12 @@
 import { FC } from 'react';
-import { Grid, Typography, Stack, Container } from '@mui/material';
+import { Grid, Typography, Stack } from '@mui/material';
 import Button from 'shared/components/Button';
 import { useTranslation } from 'react-i18next';
 import keys from 'locales/keys';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import SocialMedia from 'shared/components/SocialMedia';
 import CustomInput from 'shared/components/Input';
+import AuthLayout from 'shared/components/AuthLayout';
 import useStyles from '../styles';
 import { AuthMode } from '../constants';
 import { SignupDataProps, SignupFormProps } from '../interfaces';
@@ -24,7 +25,7 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
   };
 
   return (
-    <Container className={classes.root}>
+    <AuthLayout>
       <Stack className={classes.gridItem}>
         <Typography variant="headline">
           {t(keys.common.signup.headline)}
@@ -33,11 +34,12 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
 
         <Grid container item>
           <Grid
+            className={classes.gridItem}
             item
             container
             direction="column"
-            className={classes.gridItem}
             xs={12}
+            sm={12}
             md={6}
           >
             <Controller
@@ -49,7 +51,6 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
                   type="text"
                   placeholder={t(keys.common.signup.usernameValue) || ''}
                   value={value}
-                  className={{ input: classes.input }}
                   onChange={onChange}
                 >
                   {t(keys.common.signup.usernameLabel)}
@@ -67,7 +68,6 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
                     type="password"
                     placeholder={t(keys.common.signup.passwordValue) || ''}
                     value={value}
-                    className={{ input: classes.input }}
                     onChange={onChange}
                   >
                     {t(keys.common.signup.passwordLabel)}
@@ -77,10 +77,10 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
             </Stack>
           </Grid>
           <Grid
+            className={classes.gridItem}
             item
             container
             direction="column"
-            className={classes.gridItem}
             xs={12}
             md={6}
           >
@@ -93,7 +93,6 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
                   type="email"
                   placeholder={t(keys.common.signup.emailValue) || ''}
                   value={value}
-                  className={{ input: classes.input }}
                   onChange={onChange}
                 >
                   {t(keys.common.signup.emailLabel)}
@@ -112,7 +111,6 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
                       t(keys.common.signup.retypePasswordValue) || ''
                     }
                     value={value}
-                    className={{ input: classes.input }}
                     onChange={onChange}
                   >
                     {t(keys.common.signup.retypePasswordLabel)}
@@ -136,7 +134,7 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
           <SocialMedia handleLoginSwitch={handleLoginSwitch} mode={mode} />
         </Stack>
       </Stack>
-    </Container>
+    </AuthLayout>
   );
 };
 export default Signup;

@@ -10,6 +10,7 @@ import { ROUTES } from 'shared/constants';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import SocialMedia from 'shared/components/SocialMedia';
 import CustomInput from 'shared/components/Input';
+import AuthLayout from 'shared/components/AuthLayout';
 import useStyles from '../styles';
 import { AuthMode } from '../constants';
 import { LoginDataProps, LoginFormProps } from '../interfaces';
@@ -39,7 +40,7 @@ const LoginForm: FC<LoginFormProps> = ({
   };
 
   return (
-    <Grid className={classes.root} container item>
+    <AuthLayout>
       <Grid
         item
         container
@@ -62,7 +63,6 @@ const LoginForm: FC<LoginFormProps> = ({
                 type="text"
                 placeholder={t(keys.common.login.usernameValue) || ''}
                 value={value}
-                className={{ input: classes.input }}
                 onChange={onChange}
               >
                 {t(keys.common.login.usernameLabel)}
@@ -80,7 +80,6 @@ const LoginForm: FC<LoginFormProps> = ({
                   type="password"
                   placeholder={t(keys.common.login.passwordValue) || ''}
                   value={value}
-                  className={{ input: classes.input }}
                   onChange={onChange}
                 >
                   {t(keys.common.login.passwordLabel)}
@@ -108,7 +107,7 @@ const LoginForm: FC<LoginFormProps> = ({
       <Grid item xs={8} md={6} className={classes.imageContainer}>
         <LoginImg className={classes.image} width={550} />
       </Grid>
-    </Grid>
+    </AuthLayout>
   );
 };
 
