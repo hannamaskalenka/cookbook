@@ -3,57 +3,10 @@ import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      padding: theme.spacing(7.6),
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      color: theme.palette.primary.main,
-      [theme.breakpoints.down('md')]: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: theme.palette.background.default,
-        color: theme.palette.common.white,
-        paddingInline: theme.spacing(0),
-      },
-      backgroundColor: theme.palette.background.paper,
-      borderRadius: theme.spacing(3),
-      maxWidth: theme.spacing(170),
-    },
     gridItem: {
-      justifyContent: 'center',
+      width: '100%',
       alignItems: 'center',
       marginBlock: theme.spacing(3),
-      [theme.breakpoints.down('lg')]: {
-        maxWidth: '100%',
-      },
-    },
-    input: {
-      width: theme.spacing(50),
-      borderBottom: 'none',
-      padding: theme.spacing(3),
-      '& .MuiFilledInput-root': {
-        border: `${theme.spacing(0.1)} solid ${
-          theme.palette.background.default
-        }`,
-        borderRadius: theme.spacing(6),
-        backgroundColor: theme.palette.secondary.light,
-        paddingInline: theme.spacing(3),
-        paddingBlock: theme.spacing(0.4),
-        '& .MuiInputBase-input': {
-          padding: theme.spacing(2, 1.5, 1.5),
-        },
-      },
-      '& .MuiFilledInput-root:hover': {
-        backgroundColor: theme.palette.secondary.light,
-      },
-      '& .MuiFilledInput-root.Mui-focused': {
-        backgroundColor: theme.palette.neutrals.green,
-      },
-      [theme.breakpoints.down('md')]: {
-        width: theme.spacing(43),
-      },
     },
     content: {
       alignItems: 'center',
@@ -104,6 +57,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '100%',
     },
     actionContainer: {
+      marginBlockStart: theme.spacing(3),
       justifyContent: 'center',
       alignItems: 'center',
       width: '100%',
