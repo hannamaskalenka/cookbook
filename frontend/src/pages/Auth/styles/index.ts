@@ -46,16 +46,6 @@ const useStyles = makeStyles((theme: Theme) =>
     inputContainer: {
       marginBlockEnd: theme.spacing(3),
     },
-    imageContainer: {
-      display: 'block',
-      [theme.breakpoints.down('lg')]: {
-        display: 'none',
-      },
-    },
-    image: {
-      marginInlineStart: theme.spacing(3),
-      width: '100%',
-    },
     actionContainer: {
       marginBlockStart: theme.spacing(3),
       justifyContent: 'center',
@@ -64,6 +54,24 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down('md')]: {
         maxWidth: theme.spacing(35),
       },
+    },
+    passwordInputLabelContainer: {
+      display: 'flex',
+      alignItems: 'baseline',
+      justifyContent: 'space-between',
+    },
+    forgotPasswordLinkLabel: {
+      fontSize: theme.spacing(1.9),
+      fontWeight: 'bold',
+      [theme.breakpoints.up('md')]: {
+        color: theme.palette.text.primary,
+      },
+    },
+    forgotPasswordRequestLink: {
+      width: 'max-content',
+    },
+    button: {
+      width: theme.spacing(52),
     },
   }),
 );

@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme: Theme) =>
       '& .MuiFilledInput-root:hover': {
         backgroundColor: theme.palette.secondary.light,
       },
+      '& .MuiInputBase-input': {
+        padding: theme.spacing(2),
+      },
       [theme.breakpoints.down('xl')]: {
         width: theme.spacing(40),
       },

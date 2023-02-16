@@ -17,9 +17,11 @@ const CustomInput: React.FC<IInputProps> = ({
 
   return (
     <Stack>
-      <Typography variant="regular" className={labelClassName}>
-        {children}
-      </Typography>
+      {children && (
+        <Typography variant="regular" className={labelClassName}>
+          {children}
+        </Typography>
+      )}
       <TextField
         InputProps={{
           disableUnderline: true,

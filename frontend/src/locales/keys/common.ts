@@ -55,8 +55,16 @@ export default {
     retypePasswordValue: 'common.signup.retypePasswordValue',
     termsAndConditions: 'common.signup.termsAndConditions',
     signupButton: 'common.signup.signupButton',
-    socialmediaText: 'common.signup.iconsParagraph',
+    socialMediaText: 'common.signup.iconsParagraph',
     noAccountText: 'common.signup.noAccountText',
     loginButton: 'common.signup.loginButton',
+  },
+
+  forgotPassword: {
+    title: 'auth.forgotPassword.title',
+    subtitle: 'auth.forgotPassword.subtitle',
+    buttonText: 'auth.forgotPassword.buttonText',
+    fieldPlaceholder: 'auth.forgotPassword.fieldPlaceholder',
+    link: 'auth.forgotPassword.link',
   },
 };

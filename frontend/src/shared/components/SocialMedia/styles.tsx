@@ -49,6 +49,14 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: '3rem',
       color: theme.palette.background.default,
     },
+    noAccountContainer: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'baseline',
+    },
+    noAccountButton: {
+      width: 'max-content',
+    },
   }),
 );
 

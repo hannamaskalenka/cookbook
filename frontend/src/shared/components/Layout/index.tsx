@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           sx={{
             padding: (theme) => {
               return {
-                md: theme.spacing(10),
+                md: theme.spacing(4, 10),
                 xs: theme.spacing(4, 1.2, 1.2),
               };
             },

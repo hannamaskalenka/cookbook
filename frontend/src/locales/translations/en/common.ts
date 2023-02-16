@@ -33,6 +33,7 @@ export default {
   [keys.common.login.socialMediaText]: 'or sign up with',
   [keys.common.login.noAccountText]: "Don't you have an account?",
   [keys.common.login.signUpButton]: 'Sign up',
+  [keys.common.login.forgotPasswordLink]: 'Forgot Password?',
 
   // Signup page
   [keys.common.signup.headline]: 'Create an account',
@@ -47,7 +48,14 @@ export default {
   [keys.common.signup.retypePasswordValue]: 'Enter your password',
   [keys.common.signup.termsAndConditions]: 'I accept the Terms and Conditions',
   [keys.common.signup.signupButton]: 'Sign up',
-  [keys.common.signup.socialmediaText]: 'or sign up with',
+  [keys.common.signup.socialMediaText]: 'or log in with',
   [keys.common.signup.noAccountText]: 'Do you have an account?',
   [keys.common.signup.loginButton]: 'Log in',
+
+  // Forgot Password
+  [keys.common.forgotPassword.title]: 'Forgot password?',
+  [keys.common.forgotPassword.subtitle]: ' Please enter your email',
+  [keys.common.forgotPassword.buttonText]: 'Reset your password',
+  [keys.common.forgotPassword.fieldPlaceholder]: 'Email',
+  [keys.common.forgotPassword.link]: 'Forgot Password?',
 };

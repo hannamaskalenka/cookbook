@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
 import { AuthModeType } from '../constants';
 
 export type LoginDataProps = {
@@ -7,20 +6,20 @@ export type LoginDataProps = {
 };
 
 export interface LoginFormProps {
-  setMode: Dispatch<SetStateAction<AuthModeType>>;
+  switchToSignUp: () => void;
   isLoginSuccess: boolean;
   isLoginLoading: boolean;
   login: (data: LoginDataProps) => void;
 }
-export type SignupDataProps = {
+export type SignUpDataProps = {
   username: string;
   password: string;
   email: string;
   retypedPassword: string;
 };
 
-export interface SignupFormProps {
-  setMode: Dispatch<SetStateAction<AuthModeType>>;
-  signup: (data: SignupDataProps) => void;
+export interface SignUpFormProps {
+  switchToLogin: () => void;
+  signup: (data: SignUpDataProps) => void;
   mode: AuthModeType;
 }

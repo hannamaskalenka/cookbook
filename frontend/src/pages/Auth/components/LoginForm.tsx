@@ -1,46 +1,35 @@
 /* eslint-disable react/no-unescaped-entities */
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Grid, Typography, Stack, CircularProgress } from '@mui/material';
 import Button from 'shared/components/Button';
 import LoginImg from 'assets/images/login';
 import { useTranslation } from 'react-i18next';
 import keys from 'locales/keys';
-import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import SocialMedia from 'shared/components/SocialMedia';
 import CustomInput from 'shared/components/Input';
 import AuthLayout from 'shared/components/AuthLayout';
+import { useNavigate } from 'react-router-dom';
 import useStyles from '../styles';
-import { AuthMode } from '../constants';
 import { LoginDataProps, LoginFormProps } from '../interfaces';
 
 const LoginForm: FC<LoginFormProps> = ({
-  setMode,
-  isLoginSuccess,
+  switchToSignUp,
   isLoginLoading,
   login,
 }) => {
   const { handleSubmit, control } = useForm<LoginDataProps>();
-  const navigate = useNavigate();
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const classes = useStyles();
-
-  useEffect(() => {
-    if (isLoginSuccess) {
-      navigate(ROUTES.dashboard);
-    }
-  });
 
   const onSubmit: SubmitHandler<LoginDataProps> = (data) => {
     login(data);
   };
-  const handleSignupSwitch = () => {
-    setMode(AuthMode.signup);
-  };
 
   return (
-    <AuthLayout>
+    <AuthLayout image={<LoginImg />}>
       <Grid
         item
         container
@@ -81,8 +70,23 @@ const LoginForm: FC<LoginFormProps> = ({
                   placeholder={t(keys.common.login.passwordValue) || ''}
                   value={value}
                   onChange={onChange}
+                  className={{ label: classes.passwordInputLabelContainer }}
                 >
                   {t(keys.common.login.passwordLabel)}
+                  <Button
+                    variant="text"
+                    color="warning"
+                    classnames={{ button: classes.forgotPasswordRequestLink }}
+                    onClick={() => navigate(ROUTES.forgotPasswordRequest)}
+                    label={
+                      <Typography
+                        variant="contrast"
+                        className={classes.forgotPasswordLinkLabel}
+                      >
+                        {t(keys.common.login.forgotPasswordLink)}
+                      </Typography>
+                    }
+                  />
                 </CustomInput>
               )}
             />
@@ -101,11 +105,8 @@ const LoginForm: FC<LoginFormProps> = ({
               }
             />
           )}
-          <SocialMedia handleSignupSwitch={handleSignupSwitch} />
+          <SocialMedia handleSignUpSwitch={switchToSignUp} />
         </Stack>
-      </Grid>
-      <Grid item xs={8} md={6} className={classes.imageContainer}>
-        <LoginImg className={classes.image} width={550} />
       </Grid>
     </AuthLayout>
   );

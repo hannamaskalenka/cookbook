@@ -4,7 +4,7 @@ import { createStyles, makeStyles } from '@mui/styles';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      paddingInline: theme.spacing(20),
+      paddingInline: theme.spacing(8),
       paddingBlock: theme.spacing(5),
       flexDirection: 'row',
       justifyContent: 'center',
@@ -22,6 +22,13 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
       borderRadius: theme.spacing(3),
       maxWidth: theme.spacing(170),
+    },
+    imageContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+      [theme.breakpoints.down('lg')]: {
+        display: 'none',
+      },
     },
   }),
 );

@@ -25,13 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
         padding: theme.spacing(0),
       },
     },
-    imageContainer: {
-      display: 'flex',
-      justifyContent: 'center',
-      [theme.breakpoints.down('lg')]: {
-        display: 'none',
-      },
-    },
+
     formContainer: {
       alignItems: 'center',
       [theme.breakpoints.down('lg')]: {

@@ -8,20 +8,16 @@ import SocialMedia from 'shared/components/SocialMedia';
 import CustomInput from 'shared/components/Input';
 import AuthLayout from 'shared/components/AuthLayout';
 import useStyles from '../styles';
-import { AuthMode } from '../constants';
-import { SignupDataProps, SignupFormProps } from '../interfaces';
+import { SignUpDataProps, SignUpFormProps } from '../interfaces';
 
-const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
-  const { handleSubmit, control } = useForm<SignupDataProps>();
+const SignUp: FC<SignUpFormProps> = ({ signup, switchToLogin, mode }) => {
+  const { handleSubmit, control } = useForm<SignUpDataProps>();
   const { t } = useTranslation();
   const classes = useStyles();
-  const onSubmit: SubmitHandler<SignupDataProps> = (data) => {
+
+  const onSubmit: SubmitHandler<SignUpDataProps> = (data) => {
     signup(data);
     // TODO: Success message on submit
-  };
-
-  const handleLoginSwitch = () => {
-    setMode(AuthMode.login);
   };
 
   return (
@@ -124,6 +120,7 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
           <Button
             variant="contained"
             color="primary"
+            classnames={{ button: classes.button }}
             onClick={handleSubmit(onSubmit)}
             label={
               <Typography variant="contrast">
@@ -131,10 +128,10 @@ const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {
               </Typography>
             }
           />
-          <SocialMedia handleLoginSwitch={handleLoginSwitch} mode={mode} />
+          <SocialMedia handleLoginSwitch={switchToLogin} mode={mode} />
         </Stack>
       </Stack>
     </AuthLayout>
   );
 };
-export default Signup;
+export default SignUp;

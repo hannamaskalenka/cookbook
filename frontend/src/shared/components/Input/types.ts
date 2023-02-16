@@ -7,5 +7,5 @@ export interface IInputProps {
   value?: string;
   placeholder?: string;
   type?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }

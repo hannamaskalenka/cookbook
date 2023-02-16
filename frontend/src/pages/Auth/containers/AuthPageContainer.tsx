@@ -1,23 +1,33 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { ROUTES } from 'shared/constants';
 import LoginForm from '../components/LoginForm';
-import SignupForm from '../components/SignupForm';
+import SignUpForm from '../components/SignUpForm';
 import { AuthMode, AuthModeType } from '../constants';
 import { useLoginUser, useSignup } from '../hooks';
 
 const AuthPageContainer = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
+  const [mode, setMode] = useState<AuthModeType>(AuthMode.login);
+
   const {
     mutate: login,
     isLoading: isLoginLoading,
     isSuccess: isLoginSuccess,
   } = useLoginUser();
+
   const {
     mutate: signup,
     isLoading: isSignupLoading,
     isSuccess: isSignupSuccess,
   } = useSignup();
-  const [mode, setMode] = useState<AuthModeType>(AuthMode.login);
+
+  useEffect(() => {
+    if (isLoginSuccess || isSignupSuccess) {
+      navigate(ROUTES.dashboard);
+    }
+  });
 
   useEffect(() => {
     if (state) {
@@ -25,14 +35,16 @@ const AuthPageContainer = () => {
     }
   }, [state]);
 
-  if (mode === AuthMode.signup) {
-    return (
-      <SignupForm
-        {...{ setMode, signup, isSignupLoading, isSignupSuccess, mode }}
-      />
-    );
-  }
-  return <LoginForm {...{ setMode, isLoginSuccess, isLoginLoading, login }} />;
+  const switchToLogin = () => setMode(AuthMode.login);
+  const switchToSignUp = () => setMode(AuthMode.signup);
+
+  return mode === AuthMode.signup ? (
+    <SignUpForm
+      {...{ switchToLogin, signup, isSignupLoading, isSignupSuccess, mode }}
+    />
+  ) : (
+    <LoginForm {...{ switchToSignUp, isLoginSuccess, isLoginLoading, login }} />
+  );
 };
 
 export default AuthPageContainer;
