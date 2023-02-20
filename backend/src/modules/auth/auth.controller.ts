@@ -11,10 +11,10 @@ import {
 
 import { LocalGuard } from '../../guards/local.guard';
 import { SMTPService } from '../../services/smtp/smtp.service';
-import CreateUserDto from '../users/dto/createUser.dto';
 import { User } from '../users/schemas/user.schema';
 import { UsersService } from '../users/users.service';
 import { AuthService } from './auth.service';
+import CreateUserDto from './dto/createUser.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -33,7 +33,7 @@ export class AuthController {
   @Post('signup')
   signup(@Body() body: CreateUserDto) {
     try {
-      return this.userService.createUser(body);
+      return this.authService.signUp(body);
     } catch (e) {
       return e;
     }
