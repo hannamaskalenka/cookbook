@@ -3,6 +3,11 @@ import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    root: {
+      display: 'flex',
+      flexDirection: 'row',
+      width: '100%',
+    },
     gridItem: {
       width: '100%',
       alignItems: 'center',

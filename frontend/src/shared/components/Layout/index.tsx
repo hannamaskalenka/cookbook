@@ -20,13 +20,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           container
           justifyContent="center"
           sx={{
+            width: '100%',
             padding: (theme) => {
               return {
                 md: theme.spacing(10),
                 xs: theme.spacing(4, 1.2, 1.2),
               };
             },
-            width: '100%',
           }}
         >
           {children}

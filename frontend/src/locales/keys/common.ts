@@ -58,4 +58,20 @@ export default {
     noAccountText: 'common.signup.noAccountText',
     loginButton: 'common.signup.loginButton',
   },
+
+  // homepage page
+  homepage: {
+    headline: 'common.homepage.headline',
+    sub: 'common.homepage.sub',
+    uppersub: 'common.homepage.uppersub',
+    span: 'common.homepage.span',
+  },
+
+  // slider component dummy data
+  slider: {
+    title: 'common.slider.title',
+    content: 'common.slider.content',
+    time: 'common.slider.time',
+    calories: 'common.slider.calories',
+  },
 };

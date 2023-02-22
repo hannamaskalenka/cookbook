@@ -1,89 +1,32 @@
-import { CircularProgress, TextField, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import Button from 'shared/components/Button';
-import CustomInput from 'shared/components/Input';
-import { useGetRecipes, useLoginUser } from './hooks';
-import { accentButtonStyles } from './styles';
+import { useTranslation } from 'react-i18next';
+import keys from 'locales/keys';
+import { Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import HomeImg from 'shared/assets/images/home';
+import SearchBar from 'shared/components/SearchBar';
+import Slider from 'shared/components/Slider';
+import useStyles from './styles';
 
 const Home = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const { mutate: login, isSuccess } = useLoginUser();
-
-  const { refetch, data: recipes, isFetching } = useGetRecipes();
-
-  useEffect(() => {
-    if (isSuccess) {
-      refetch();
-    }
-  }, [refetch, isSuccess]);
-
-  const handleRequestButtonClick = async () => {
-    login({ username, password });
-  };
-  const handleChange = () => {
-    console.log('Mock change chandle');
-  };
-
+  const { t } = useTranslation();
+  const classes = useStyles();
   return (
-    <div>
-      <div>
-        <Button label="test" color="secondary" sx={accentButtonStyles} />
-        <Button
-          color="primary"
-          onClick={handleRequestButtonClick}
-          label={<Typography variant="regular">Send Login Request</Typography>}
-        />
-      </div>
-      <div>
-        <TextField
-          variant="filled"
-          name="username"
-          placeholder="Username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-        <TextField
-          variant="filled"
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-      </div>
-
-      <Link to="/dashboard">Check dashboard by clicking</Link>
-      <Typography variant="display">Test Typography 0001</Typography>
-      <Button variant="contained" label="jestem buttonem contained" />
-      <Button variant="text" label="jestem buttonem text" />
-      <Button variant="outlined" label="jestem buttonem outline" />
-
-      {isFetching ? (
-        <CircularProgress />
-      ) : (
-        <div>
-          Recipes:
-          {recipes?.length ? (
-            recipes.map((recipe: any) => {
-              return (
-                <div key={recipe?.id}>
-                  <Typography variant="regular">{recipe?.title}</Typography>
-                </div>
-              );
-            })
-          ) : (
-            <Typography>No recipes found</Typography>
-          )}
-        </div>
-      )}
-      <p>input check</p>
-      <CustomInput placeholder="Mock placeholder" onChange={handleChange}>
-        labelka
-      </CustomInput>
+    <div className={classes.root}>
+      <Grid item container direction="column" xs={12} md={6}>
+        <Typography variant="regular">
+          {t(keys.common.homepage.uppersub)}
+        </Typography>
+        <Typography variant="display">
+          {t(keys.common.homepage.headline)}{' '}
+          <span className={classes.accent}>{t(keys.common.homepage.span)}</span>
+        </Typography>
+        <Typography variant="regular">{t(keys.common.homepage.sub)}</Typography>
+        <SearchBar />
+      </Grid>
+      <Grid item className={classes.block} lg={6}>
+        <HomeImg className={classes.image} />
+      </Grid>
+      <Slider />
     </div>
   );
 };

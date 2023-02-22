@@ -5,7 +5,8 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     toolbar: {
       justifyContent: 'space-between',
-      background: theme.palette.background.default,
+      background: 'transparent',
+      zIndex: '100',
     },
     navIcon: {
       [theme.breakpoints.down('md')]: {
@@ -134,5 +135,6 @@ export const sxStyles = {
   },
   appBar: {
     boxShadow: 'none',
+    background: 'transparent',
   },
 };
