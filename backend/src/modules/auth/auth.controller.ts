@@ -13,6 +13,7 @@ import { LocalGuard } from '../../guards/local.guard';
 import { SMTPService } from '../../services/smtp/smtp.service';
 import { User } from '../users/schemas/user.schema';
 import { UsersService } from '../users/users.service';
+import { UserDocument, UserSchema } from './../users/schemas/user.schema';
 import { AuthService } from './auth.service';
 import CreateUserDto from './dto/createUser.dto';
 
@@ -27,7 +28,7 @@ export class AuthController {
   @UseGuards(LocalGuard)
   @Post('login')
   login(@Request() req) {
-    return this.authService.login(req.user as User);
+    return this.authService.login(req?.body?.username);
   }
 
   @Post('signup')

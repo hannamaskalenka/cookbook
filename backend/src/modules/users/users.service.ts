@@ -10,7 +10,7 @@ export class UsersService {
 
   async getUser(username: string): Promise<any> {
     try {
-      const user = this.userModel.findOne({ username }).exec();
+      const user = await this.userModel.findOne({ username }).exec();
 
       if (!user) {
         return null;
