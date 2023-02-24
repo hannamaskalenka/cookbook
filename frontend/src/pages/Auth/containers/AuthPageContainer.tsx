@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import useAuthContext from 'shared/contexts/AuthContext';
+import { AuthMode } from 'shared/constants';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
-import { AuthMode, AuthModeType } from '../constants';
 import { useLoginUser, useSignup } from '../hooks';
 
 const AuthPageContainer = () => {
-  const { state } = useLocation();
+  const { setMode, mode } = useAuthContext();
   const {
     mutate: login,
     isLoading: isLoginLoading,
@@ -17,22 +16,14 @@ const AuthPageContainer = () => {
     isLoading: isSignupLoading,
     isSuccess: isSignupSuccess,
   } = useSignup();
-  const [mode, setMode] = useState<AuthModeType>(AuthMode.login);
 
-  useEffect(() => {
-    if (state) {
-      setMode(state);
-    }
-  }, [state]);
-
-  if (mode === AuthMode.signup) {
-    return (
-      <SignupForm
-        {...{ setMode, signup, isSignupLoading, isSignupSuccess, mode }}
-      />
-    );
-  }
-  return <LoginForm {...{ setMode, isLoginSuccess, isLoginLoading, login }} />;
+  return mode === AuthMode.signup ? (
+    <SignupForm
+      {...{ setMode, signup, isSignupLoading, isSignupSuccess, mode }}
+    />
+  ) : (
+    <LoginForm {...{ setMode, isLoginSuccess, isLoginLoading, login }} />
+  );
 };
 
 export default AuthPageContainer;

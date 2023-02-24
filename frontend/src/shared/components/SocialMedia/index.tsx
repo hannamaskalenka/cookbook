@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import keys from 'locales/keys';
 import theme from 'style/theme';
 import { Facebook, Google, Instagram } from '@mui/icons-material';
-import { AuthMode } from 'pages/Auth/constants';
+import { AuthMode } from 'shared/constants';
 import useStyles from './styles';
 import Button from '../Button';
 import { SocialMediaProps } from './types';

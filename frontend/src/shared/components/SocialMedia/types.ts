@@ -1,4 +1,4 @@
-import { AuthModeType } from 'pages/Auth/constants';
+import { AuthModeType } from 'shared/constants';
 
 export interface SocialMediaProps {
   mode?: AuthModeType;
