@@ -1,9 +1,12 @@
+import { useTranslation } from 'react-i18next';
+import keys from 'locales/keys';
 import { TextField } from '@mui/material';
 import SearchButton from '../Button';
 import { SearchBarProps } from './types';
 import useStyles from './styles';
 
 const SearchBar: React.FC<SearchBarProps> = () => {
+  const { t } = useTranslation();
   const classes = useStyles();
   const handleChange = () => {
     // TODO: Fetching logic
@@ -12,7 +15,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
     <TextField
       variant="filled"
       name="searchInput"
-      placeholder="Search by a dish, ingredients, etc."
+      placeholder={t(keys.common.searchbar.placeholder)}
       // value={search}
       onChange={handleChange}
       className={classes.root}

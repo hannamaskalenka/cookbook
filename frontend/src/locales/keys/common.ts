@@ -59,19 +59,17 @@ export default {
     loginButton: 'common.signup.loginButton',
   },
 
-  // homepage page
-  homepage: {
-    headline: 'common.homepage.headline',
-    sub: 'common.homepage.sub',
-    uppersub: 'common.homepage.uppersub',
-    span: 'common.homepage.span',
-  },
-
   // slider component dummy data
   slider: {
+    headline: 'common.slider.headline',
     title: 'common.slider.title',
     content: 'common.slider.content',
     time: 'common.slider.time',
     calories: 'common.slider.calories',
+  },
+
+  // searchbar
+  searchbar: {
+    placeholder: 'common.searchbar.placeholder',
   },
 };

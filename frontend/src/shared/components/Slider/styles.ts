@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.primary.main,
       boxShadow: '8px 8px 19px 13px rgba(71, 71, 71, 0.25)',
       '& .slick-dots li button': {
-        _before: {
+        '& ::before': {
           transition: '0.2s',
           content: "''",
           borderRadius: '100%',
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       '& .slick-arrow': {
         transition: '0.2s',
-        _before: {
+        '& ::before': {
           transition: '0.2s',
         },
       },
@@ -30,14 +30,38 @@ const useStyles = makeStyles((theme: Theme) =>
       '& .slick-prev:before': {
         color: theme.palette.accent.main,
       },
+      '& .slick-slide .slide-0': {
+        background: theme.palette.neutrals.green,
+      },
+      '& .slick-slide:nth-child(2)': {
+        background: theme.palette.neutrals.red,
+      },
+      '& .slick-slide:nth-child(3)': {
+        background: theme.palette.neutrals.grey,
+      },
+      '& .slick-slide:nth-child(4)': {
+        background: theme.palette.neutrals.blue,
+      },
+      '& .slick-slide:nth-child(5)': {
+        background: theme.palette.neutrals.green,
+      },
+      '& .slick-slide:nth-child(6)': {
+        background: theme.palette.neutrals.red,
+      },
+      '& .slick-slide:nth-child(7)': {
+        background: theme.palette.neutrals.grey,
+      },
+      '& .slick-slide:nth-child(8)': {
+        background: theme.palette.neutrals.blue,
+      },
     },
-    item: {
+    items: {
       width: '100%',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: theme.spacing(1.5),
-      border: `${theme.spacing(3)} solid ${theme.palette.secondary.main}`,
+      border: `${theme.spacing(1.5)} solid ${theme.palette.secondary.main}`,
       [theme.breakpoints.down('md')]: {
         border: `${theme.spacing(0.2)} solid ${theme.palette.secondary.main}`,
       },

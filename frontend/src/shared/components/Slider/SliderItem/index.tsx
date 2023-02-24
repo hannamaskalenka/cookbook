@@ -3,17 +3,18 @@ import { FC } from 'react';
 import useStyles from '../styles';
 import { SliderContainerProps } from './types';
 
-const CustomContainer: FC<SliderContainerProps> = ({
+const SliderItem: FC<SliderContainerProps> = ({
   title,
   content,
   time,
   picture,
   calories,
   sx,
+  className,
 }) => {
   const classes = useStyles();
   return (
-    <Container className={classes.item} sx={sx}>
+    <Container className={`${classes.items} ${className}`} sx={sx}>
       <Grid item direction="column" md={6}>
         <div>{picture}</div>
         <Typography variant="contrast">{calories}</Typography>
@@ -29,4 +30,4 @@ const CustomContainer: FC<SliderContainerProps> = ({
   );
 };
 
-export default CustomContainer;
+export default SliderItem;

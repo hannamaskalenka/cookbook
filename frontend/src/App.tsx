@@ -7,7 +7,7 @@ import Layout from 'shared/components/Layout';
 import { ROUTES } from 'shared/constants';
 import ProtectedRoute from 'shared/components/ProtectedRoute';
 import Auth from 'pages/Auth';
-import Home from './pages/HomePage/Home';
+import Home from './pages/HomePage';
 import Dashboard from './pages/Dashboard';
 
 const App = () => {

@@ -51,14 +51,11 @@ export default {
   [keys.common.signup.noAccountText]: 'Do you have an account?',
   [keys.common.signup.loginButton]: 'Log in',
 
-  // Homepage
-  [keys.common.homepage.headline]: 'Best recipes for your',
-  [keys.common.homepage.sub]:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-  [keys.common.homepage.uppersub]: 'More than just recipes',
-  [keys.common.homepage.span]: 'meals',
+  // Searchbar
+  [keys.common.searchbar.placeholder]: 'Search by a dish, ingredients, etc.',
 
   // slider
+  [keys.common.slider.headline]: ' Popular now',
   [keys.common.slider.title]: ' Steak',
   [keys.common.slider.content]: 'Steak with butter',
   [keys.common.slider.time]: '20min',
