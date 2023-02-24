@@ -6,6 +6,8 @@ import {
   ReactNode,
   FC,
   useEffect,
+  Dispatch,
+  SetStateAction,
 } from 'react';
 import {
   getFromStorage,
@@ -13,7 +15,7 @@ import {
   removeFromStorage,
 } from 'shared/utils/localStorage';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from 'shared/constants';
+import { AuthMode, ROUTES, AuthModeType } from 'shared/constants';
 
 interface IUser {
   username: string;
@@ -25,6 +27,8 @@ interface IAuthContext {
   auth: IUser;
   setAuth: (user: IUser) => void;
   handleLogOut: () => void;
+  mode: AuthModeType;
+  setMode: Dispatch<SetStateAction<AuthModeType>>;
 }
 
 interface IAuthContextProvider {
@@ -36,6 +40,8 @@ const defaultContext = {
   auth: { username: '', token: '' },
   setAuth: () => {},
   handleLogOut: () => {},
+  mode: AuthMode.login,
+  setMode: () => {},
 };
 
 export const AuthContext = createContext<IAuthContext>(defaultContext);
@@ -47,6 +53,7 @@ export const AuthContextProvider: FC<IAuthContextProvider> = ({ children }) => {
   const [isAuthenticated, setAuthenticated] = useState<boolean>(
     !!storageAuth?.token,
   );
+  const [mode, setMode] = useState<AuthModeType>(AuthMode.login);
 
   useEffect(() => {
     setAuthenticated(!!auth?.token);
@@ -61,7 +68,7 @@ export const AuthContextProvider: FC<IAuthContextProvider> = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ auth, setAuth, isAuthenticated, handleLogOut }}
+      value={{ auth, setAuth, isAuthenticated, handleLogOut, mode, setMode }}
     >
       {children}
     </AuthContext.Provider>

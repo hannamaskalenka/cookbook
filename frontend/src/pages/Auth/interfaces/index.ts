@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { AuthModeType } from '../constants';
+import { AuthModeType } from 'shared/constants';
 
 export type LoginDataProps = {
   username: string;

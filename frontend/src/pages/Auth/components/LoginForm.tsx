@@ -6,13 +6,12 @@ import LoginImg from 'shared/assets/images/login';
 import { useTranslation } from 'react-i18next';
 import keys from 'locales/keys';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from 'shared/constants';
+import { ROUTES, AuthMode } from 'shared/constants';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import SocialMedia from 'shared/components/SocialMedia';
 import CustomInput from 'shared/components/Input';
 import AuthLayout from 'shared/components/AuthLayout';
 import useStyles from '../styles';
-import { AuthMode } from '../constants';
 import { LoginDataProps, LoginFormProps } from '../interfaces';
 
 const LoginForm: FC<LoginFormProps> = ({

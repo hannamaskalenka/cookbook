@@ -9,3 +9,8 @@ export const ROUTES = {
 export enum LanguageKeysEnum {
   en = 'en',
 }
+export enum AuthMode {
+  login = 'login',
+  signup = 'signup',
+}
+export type AuthModeType = AuthMode.login | AuthMode.signup;
