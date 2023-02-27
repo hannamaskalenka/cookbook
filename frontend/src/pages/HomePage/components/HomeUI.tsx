@@ -13,14 +13,12 @@ const HomeUI = () => {
   return (
     <div className={classes.root}>
       <Grid item container direction="column" xs={12} md={6}>
-        <Typography variant="regular">
-          {t(keys.home.homepage.uppersub)}
-        </Typography>
+        <Typography variant="regular">{t(keys.home.uppersub)}</Typography>
         <Typography variant="display">
-          {t(keys.home.homepage.headline)}
-          <span className={classes.accent}>{t(keys.home.homepage.span)}</span>
+          {t(keys.home.headline)}
+          <span className={classes.accent}>{t(keys.home.span)}</span>
         </Typography>
-        <Typography variant="regular">{t(keys.home.homepage.sub)}</Typography>
+        <Typography variant="regular">{t(keys.home.sub)}</Typography>
         <SearchBar />
       </Grid>
       <Grid item className={classes.block} lg={6}>

@@ -30,29 +30,17 @@ const useStyles = makeStyles((theme: Theme) =>
       '& .slick-prev:before': {
         color: theme.palette.accent.main,
       },
-      '& .slick-slide .slide-0': {
+      '& .slick-slide:nth-child(4n+1)': {
         background: theme.palette.neutrals.green,
       },
-      '& .slick-slide:nth-child(2)': {
+      '& .slick-slide:nth-child(4n+2)': {
         background: theme.palette.neutrals.red,
       },
-      '& .slick-slide:nth-child(3)': {
-        background: theme.palette.neutrals.grey,
-      },
-      '& .slick-slide:nth-child(4)': {
+      '& .slick-slide:nth-child(4n+3)': {
         background: theme.palette.neutrals.blue,
       },
-      '& .slick-slide:nth-child(5)': {
-        background: theme.palette.neutrals.green,
-      },
-      '& .slick-slide:nth-child(6)': {
-        background: theme.palette.neutrals.red,
-      },
-      '& .slick-slide:nth-child(7)': {
+      '& .slick-slide:nth-child(4n+4)': {
         background: theme.palette.neutrals.grey,
-      },
-      '& .slick-slide:nth-child(8)': {
-        background: theme.palette.neutrals.blue,
       },
     },
     items: {
