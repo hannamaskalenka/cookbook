@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
       border: `${theme.spacing(0.1)} solid ${theme.palette.background.default}`,
       '& .MuiFilledInput-root': {
         borderRadius: theme.spacing(6),
-        padding: theme.spacing(0),
+        padding: theme.spacing(2, 2),
       },
       '& .MuiFilledInput-root:hover': {
         backgroundColor: theme.palette.secondary.light,

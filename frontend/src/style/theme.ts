@@ -17,6 +17,8 @@ theme = createTheme(theme, {
     MuiInputBase: {
       styleOverrides: {
         input: {
+          paddingTop: 0,
+          boxSizing: 'border-box',
           '&:-webkit-autofill': {
             transitionDelay: '9999s',
             transitionProperty: 'background-color, color',
@@ -26,6 +28,20 @@ theme = createTheme(theme, {
     },
     MuiFilledInput: {
       styleOverrides: {
+        root: {
+          '&:hover': {
+            borderBottomColor: 'transparent',
+          },
+          '&:hover:not': {
+            borderBottomColor: 'transparent',
+          },
+        },
+        input: {
+          padding: 0,
+          '&:focus': {
+            borderBottomColor: 'transparent',
+          },
+        },
         underline: {
           '&:before': {
             borderBottomColor: 'transparent',
@@ -41,6 +57,8 @@ theme = createTheme(theme, {
         root: ({ ownerState }: { ownerState: any }) => {
           const common = {
             width: '100%',
+            backgroundColor: theme.palette.accent.main,
+            color: theme.palette.secondary.main,
           };
           switch (ownerState.variant) {
             case 'contained':
@@ -53,7 +71,7 @@ theme = createTheme(theme, {
             case 'text':
               return {
                 ...common,
-                color: 'transparent',
+                backgroundColor: 'transparent',
                 '&:hover': {
                   backgroundColor: 'transparent',
                 },
@@ -68,6 +86,7 @@ theme = createTheme(theme, {
                   theme.palette.background.paper
                 }`,
               };
+
             default:
               return common;
           }
@@ -91,10 +110,10 @@ theme = createTheme(theme, {
       dark: '#DAD5C9',
     },
     neutrals: {
-      blue: '#FEF7EC',
+      blue: '#D8E3F4',
       red: '#F5D6CE',
       grey: '#DAD5C9',
-      green: '#E8F2E3',
+      green: '#D3EBC7',
     },
     accent: {
       main: '#A13702',
@@ -120,11 +139,17 @@ theme = createTheme(theme, {
     display: {
       fontFamily: 'Merriweather',
       fontWeight: 400,
+      fontSize: '5.3rem',
     },
     headline: {
       fontFamily: 'Merriweather',
       fontWeight: 400,
       fontSize: '3rem',
+    },
+    accentDecorated: {
+      fontFamily: 'Merriweather',
+      fontWeight: 400,
+      fontSize: '1.2rem',
     },
     regular: {
       fontFamily: 'Poppins',
@@ -134,7 +159,7 @@ theme = createTheme(theme, {
     },
     accent: {
       fontFamily: 'Poppins',
-      fontSize: '1rem',
+      fontSize: '1.5rem',
       fontWeight: 500,
       letterSpacing: '0.05rem',
       [theme.breakpoints.down('md')]: {

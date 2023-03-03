@@ -1,0 +1,68 @@
+import Steak from 'shared/assets/images/steak';
+
+export const SliderData = [
+  {
+    id: 1,
+    title: 'Steak',
+    content: 'Steak with butter',
+    calories: '230 calories',
+    time: '20min',
+    picture: <Steak />,
+  },
+  {
+    id: 2,
+    title: 'Steak',
+    content: 'Steak with butter',
+    calories: '230 calories',
+    time: '20min',
+    picture: <Steak />,
+  },
+  {
+    id: 3,
+    title: 'Steak',
+    content: 'Steak with butter',
+    calories: '230 calories',
+    time: '20min',
+    picture: <Steak />,
+  },
+  {
+    id: 4,
+    title: 'Steak',
+    content: 'Steak with butter',
+    calories: '230 calories',
+    time: '20min',
+    picture: <Steak />,
+  },
+  {
+    id: 5,
+    title: 'Steak',
+    content: 'Steak with butter',
+    calories: '230 calories',
+    time: '20min',
+    picture: <Steak />,
+  },
+  {
+    id: 6,
+    title: 'Steak',
+    content: 'Steak with butter',
+    calories: '230 calories',
+    time: '20min',
+    picture: <Steak />,
+  },
+  {
+    id: 7,
+    title: 'Steak',
+    content: 'Steak with butter',
+    calories: '230 calories',
+    time: '20min',
+    picture: <Steak />,
+  },
+  {
+    id: 8,
+    title: 'Steak',
+    content: 'Steak with butter',
+    calories: '230 calories',
+    time: '20min',
+    picture: <Steak />,
+  },
+];
