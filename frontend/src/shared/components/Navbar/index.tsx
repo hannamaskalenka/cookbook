@@ -20,8 +20,7 @@ import { useTranslation } from 'react-i18next';
 
 import keys from 'locales/keys';
 import useAuthContext from 'shared/contexts/AuthContext';
-import { ROUTES } from 'shared/constants';
-import { AuthMode } from 'pages/Auth/constants';
+import { AuthMode, ROUTES } from 'shared/constants';
 import { PAGES, SETTINGS } from './constants';
 import { sxStyles, useStyles } from './styles';
 import Button from '../Button';
@@ -34,13 +33,12 @@ interface INavigationProps {
 const Navigation: React.FC<INavigationProps> = ({ window }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { auth, isAuthenticated, handleLogOut } = useAuthContext();
+  const { auth, isAuthenticated, handleLogOut, setMode } = useAuthContext();
   const classes = useStyles();
   const [isDrawerOpened, setIsDrawerOpened] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null,
   );
-
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
@@ -56,7 +54,8 @@ const Navigation: React.FC<INavigationProps> = ({ window }) => {
   };
 
   const handleLoginClick = () => {
-    navigate(ROUTES.auth, { state: AuthMode.login });
+    setMode(AuthMode.login);
+    navigate(ROUTES.auth);
   };
 
   const drawer = (

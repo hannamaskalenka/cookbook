@@ -7,8 +7,8 @@ import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import SocialMedia from 'shared/components/SocialMedia';
 import CustomInput from 'shared/components/Input';
 import AuthLayout from 'shared/components/AuthLayout';
+import { AuthMode } from 'shared/constants';
 import useStyles from '../styles';
-import { AuthMode } from '../constants';
 import { SignupDataProps, SignupFormProps } from '../interfaces';
 
 const Signup: FC<SignupFormProps> = ({ signup, setMode, mode }) => {

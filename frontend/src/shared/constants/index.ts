@@ -10,6 +10,13 @@ export enum LanguageKeysEnum {
   en = 'en',
 }
 
+export enum AuthMode {
+  login = 'login',
+  signup = 'signup',
+}
+export type AuthModeType = AuthMode.login | AuthMode.signup;
+
+
 export const settings = {
   dots: true,
   infinite: false,
