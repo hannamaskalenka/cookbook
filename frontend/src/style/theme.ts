@@ -145,6 +145,17 @@ theme = createTheme(theme, {
       fontFamily: 'Merriweather',
       fontWeight: 400,
       fontSize: '3rem',
+      [theme.breakpoints.down('md')]: {
+        fontSize: '1.5rem',
+      },
+    },
+    title: {
+      fontFamily: 'Merriweather',
+      fontWeight: 400,
+      fontSize: '2rem',
+      [theme.breakpoints.down('md')]: {
+        fontSize: '1.25rem',
+      },
     },
     accentDecorated: {
       fontFamily: 'Merriweather',
@@ -156,6 +167,9 @@ theme = createTheme(theme, {
       fontWeight: 400,
       letterSpacing: '0.05rem',
       fontSize: '1rem',
+      [theme.breakpoints.down('md')]: {
+        fontSize: '0.75rem',
+      },
     },
     accent: {
       fontFamily: 'Poppins',

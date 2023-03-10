@@ -16,7 +16,6 @@ export enum AuthMode {
 }
 export type AuthModeType = AuthMode.login | AuthMode.signup;
 
-
 export const settings = {
   dots: true,
   infinite: false,

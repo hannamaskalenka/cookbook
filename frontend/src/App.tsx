@@ -7,6 +7,7 @@ import Layout from 'shared/components/Layout';
 import { ROUTES } from 'shared/constants';
 import ProtectedRoute from 'shared/components/ProtectedRoute';
 import Auth from 'pages/Auth';
+import About from 'pages/AboutPage';
 import Home from './pages/HomePage';
 import Dashboard from './pages/Dashboard';
 
@@ -23,7 +24,7 @@ const App = () => {
                   <Route path={ROUTES.root} element={<Home />} />
                   <Route path={ROUTES.root} element={<ProtectedRoute />}>
                     <Route path={ROUTES.dashboard} element={<Dashboard />} />
-                    <Route path={ROUTES.about} element={<h1>About page</h1>} />
+                    <Route path={ROUTES.about} element={<About />} />
                   </Route>
                   <Route path={ROUTES.auth} element={<Auth />} />
                   <Route
