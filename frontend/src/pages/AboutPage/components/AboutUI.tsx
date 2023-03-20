@@ -7,7 +7,6 @@ import CustomButton from 'shared/components/Button';
 import useStyles from '../styles';
 import Card from './cards/Card';
 import { CardsData } from '../data';
-import CardAlternative from './cards/CardAlternative';
 
 const AboutUI = () => {
   const { t } = useTranslation();
@@ -48,11 +47,12 @@ const AboutUI = () => {
               interests={item.interests}
             />
           ) : (
-            <CardAlternative
+            <Card
               name={item.name}
               content={item.content}
               picture={item.picture}
               interests={item.interests}
+              variant="alternative"
             />
           );
         })}

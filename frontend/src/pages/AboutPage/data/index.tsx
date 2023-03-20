@@ -8,11 +8,7 @@ export const CardsData = [
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
     picture: <HannaImg width="100%" />,
-    interests: {
-      first: 'cooking',
-      second: 'reading',
-      third: 'music',
-    },
+    interests: ['cooking', 'music', 'reading'],
   },
   {
     id: 2,
@@ -20,10 +16,6 @@ export const CardsData = [
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
     picture: <AnnaImg width="100%" />,
-    interests: {
-      first: 'cooking',
-      second: 'podcasts',
-      third: 'reading',
-    },
+    interests: ['cooking', 'podcasts', 'reading'],
   },
 ];
