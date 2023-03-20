@@ -8,10 +8,10 @@ const Card: FC<CardProps> = ({
   content,
   picture,
   interests,
-  variant,
+  isAlternative,
 }) => {
   const classes = useStyles();
-  return variant === 'alternative' ? (
+  return isAlternative ? (
     <div className={classes.cards}>
       <Grid container flexDirection="row">
         <Grid item className={classes.item} lg={7} sm={12}>

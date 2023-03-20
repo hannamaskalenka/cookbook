@@ -3,5 +3,5 @@ export interface CardProps {
   content: string;
   picture?: React.ReactNode;
   interests: string[];
-  variant?: string;
+  isAlternative: boolean;
 }

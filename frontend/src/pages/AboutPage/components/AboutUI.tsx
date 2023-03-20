@@ -38,24 +38,16 @@ const AboutUI = () => {
         {t(keys.about.sub)}
       </Typography>
       <Box className={classes.cardsContainer}>
-        {CardsData.map((item) => {
-          return item.id === 1 ? (
-            <Card
-              name={item.name}
-              content={item.content}
-              picture={item.picture}
-              interests={item.interests}
-            />
-          ) : (
-            <Card
-              name={item.name}
-              content={item.content}
-              picture={item.picture}
-              interests={item.interests}
-              variant="alternative"
-            />
-          );
-        })}
+        {CardsData.map((item) => (
+          <Card
+            key={item.id}
+            name={item.name}
+            content={item.content}
+            picture={item.picture}
+            interests={item.interests}
+            isAlternative={item.isAlternative}
+          />
+        ))}
       </Box>
     </div>
   );
