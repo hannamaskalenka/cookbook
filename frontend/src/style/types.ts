@@ -45,6 +45,7 @@ declare module '@mui/material/styles' {
   interface TypographyVariants {
     display: React.CSSProperties;
     headline: React.CSSProperties;
+    title: React.CSSProperties;
     accentDecorated: React.CSSProperties;
     regular: React.CSSProperties;
     accent: React.CSSProperties;
@@ -53,6 +54,7 @@ declare module '@mui/material/styles' {
   interface TypographyVariantsOptions {
     display: React.CSSProperties;
     headline: React.CSSProperties;
+    title: React.CSSProperties;
     accentDecorated: React.CSSProperties;
     regular: React.CSSProperties;
     accent: React.CSSProperties;
@@ -63,6 +65,7 @@ declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     display: true;
     headline: true;
+    title: true;
     accentDecorated: true;
     regular: true;
     accent: true;
