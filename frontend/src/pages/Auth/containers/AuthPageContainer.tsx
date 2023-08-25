@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ROUTES } from 'shared/constants';
 import LoginForm from '../components/LoginForm';
-import SignUpForm from '../components/SignUpForm';
+import SignUpForm from '../components/SignupForm';
 import { AuthMode, AuthModeType } from '../constants';
 import { useLoginUser, useSignup } from '../hooks';
 
