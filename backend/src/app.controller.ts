@@ -5,9 +5,11 @@ import {
   Post,
   UseGuards,
   Body,
+  Req,
 } from '@nestjs/common';
 
 import { AppService } from './app.service';
+import { GoogleGuard } from './guards/google.guard';
 import { LocalGuard } from './guards/local.guard';
 import { AuthService } from './modules/auth/auth.service';
 import CreateUserDto from './modules/users/dto/createUser.dto';
@@ -35,6 +37,17 @@ export class AppController {
     } catch (e) {
       return e;
     }
+  }
+
+  @UseGuards(GoogleGuard)
+  @Get('/google')
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+  async googleAuth(@Req() req) {}
+
+  @UseGuards(GoogleGuard)
+  @Get('/google/redirect')
+  googleAuthRedirect(@Req() req) {
+    return this.appService.googleLogin(req);
   }
 
   @Get()

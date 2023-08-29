@@ -6,6 +6,7 @@ import * as Joi from 'joi';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
+import { GoogleStrategy } from './modules/auth/strategy/google.strategy';
 import { RecipesModule } from './modules/recipes/recipes.module';
 import { UsersModule } from './modules/users/users.module';
 
@@ -28,6 +29,6 @@ import { UsersModule } from './modules/users/users.module';
     UsersModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, GoogleStrategy],
 })
 export class AppModule {}
